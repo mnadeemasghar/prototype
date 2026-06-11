@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>21 — Staff Performance — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="accounting-dashboard.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Quick links">
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Staff Performance</h2><p>Agent leaderboard, conversion rates, and response time — <a href="reports-hub.html">Reports Hub</a> Agent Performance category</p></div>
+        <div class="topbar-actions">
+          <select class="search-input" style="width:auto;">
+            <option>This Month</option>
+            <option>Last Month</option>
+            <option>QTD</option>
+          </select>
+          <button class="btn btn-primary">Export</button>
+          <a class="btn btn-secondary" href="reports-hub.html">Reports Hub</a>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Team Conversion Rate</div>
+            <div class="stat-value">26.8%</div>
+            <div class="stat-change">Target: 25% · ↑ 2.1 pts</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Avg Response Time</div>
+            <div class="stat-value">18 min</div>
+            <div class="stat-change">WhatsApp first reply</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Top Performer</div>
+            <div class="stat-value">Sara A.</div>
+            <div class="stat-change">11 bookings · AED 68,400</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Leads Handled</div>
+            <div class="stat-value">112</div>
+            <div class="stat-change">30 converted to bookings</div>
+          </div>
+        </div>
+
+        <div class="filters filters-mb">
+          <span class="chip active">All Agents (4)</span>
+          <span class="chip">Dubai HQ</span>
+          <span class="chip">Abu Dhabi</span>
+          <span class="chip">Umrah Specialists</span>
+        </div>
+
+        <div class="detail-grid">
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Agent Leaderboard</h3>
+                <span class="panel-header-meta">FR-36 / FR-37 — June 2026</span>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Agent</th>
+                    <th>Leads</th>
+                    <th>Booked</th>
+                    <th>Conv %</th>
+                    <th>Revenue</th>
+                    <th>Avg Response</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1</strong></td>
+                    <td>Sara Al-Mansoori</td>
+                    <td>38</td>
+                    <td>11</td>
+                    <td><span class="badge badge-booked">28.9%</span></td>
+                    <td>AED 68,400</td>
+                    <td>12 min</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2</strong></td>
+                    <td>Omar Khan</td>
+                    <td>31</td>
+                    <td>9</td>
+                    <td><span class="badge badge-booked">29.0%</span></td>
+                    <td>AED 54,200</td>
+                    <td>15 min</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3</strong></td>
+                    <td>Layla Mohammed</td>
+                    <td>24</td>
+                    <td>6</td>
+                    <td><span class="badge badge-quoted">25.0%</span></td>
+                    <td>AED 38,600</td>
+                    <td>22 min</td>
+                  </tr>
+                  <tr>
+                    <td><strong>4</strong></td>
+                    <td>Rashid Ali</td>
+                    <td>19</td>
+                    <td>4</td>
+                    <td><span class="badge badge-contacted">21.1%</span></td>
+                    <td>AED 25,220</td>
+                    <td>28 min</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <div class="panel panel-mb">
+              <div class="panel-header"><h3>Performance by Lead Type</h3></div>
+              <div class="panel-body panel-body-sm">
+                <div class="info-row"><span>Umrah</span><span>14 bookings · 32% conv</span></div>
+                <div class="info-row"><span>Tour</span><span>9 bookings · 24% conv</span></div>
+                <div class="info-row"><span>Flight</span><span>5 bookings · 22% conv</span></div>
+                <div class="info-row"><span>Hotel &amp; Visa</span><span>2 bookings · 18% conv</span></div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header"><h3>Response Time Distribution</h3></div>
+              <div class="panel-body panel-body-sm">
+                <div class="info-row"><span>&lt; 15 min</span><span>58% of first replies</span></div>
+                <div class="info-row"><span>15 – 30 min</span><span>28%</span></div>
+                <div class="info-row"><span>30 – 60 min</span><span>11%</span></div>
+                <div class="info-row"><span>&gt; 60 min</span><span>3%</span></div>
+                <p class="timeline-meta" style="margin-top:16px;">Build custom breakdowns in <a href="report-builder.html">Report Builder</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

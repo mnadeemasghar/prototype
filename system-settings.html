@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>33 — System Settings — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+      <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+      <nav class="top-nav-menu" aria-label="Main">
+        <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+      </nav>
+      <div class="top-nav-utils">
+        <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+        <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+          <span class="notify-badge">1</span>🔔
+        </button>
+        <span class="top-nav-avatar" title="Administrator">KA</span>
+      </div>
+    </header>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h2>System Settings</h2>
+          <p>Lead rotation rules and FAQ keyword auto-replies — FR-49, AUTO-02 · <a href="automation-rules.html">Automation Rules</a></p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn-secondary">Export</button>
+          <button type="button" class="btn btn-primary">Save Changes</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="detail-grid">
+          <div class="panel">
+            <div class="panel-header"><h3>Lead Rotation</h3></div>
+            <div class="panel-body">
+              <div class="info-row"><span>Rotation mode</span><span>Round-robin (AUTO-02)</span></div>
+              <div class="info-row"><span>Scope</span><span>Per branch · Dubai HQ pool</span></div>
+              <div class="info-row"><span>Skip agents on leave</span><span>Enabled</span></div>
+              <div class="info-row"><span>Last assigned</span><span>Omar Khalid · 45 min ago</span></div>
+
+              <h4 class="mt-24 mb-16">Active agent pool</h4>
+              <div class="rotation-pool">
+                <span class="chip active">Sara Al-Mansoori</span>
+                <span class="chip active">Omar Khalid</span>
+                <span class="chip active">Aisha Rahman</span>
+                <span class="chip">Tariq Agent (deactivated)</span>
+              </div>
+
+              <p class="footnote mt-12">Public website inquiries and WhatsApp auto-capture use the same rotation pool. Website submissions cannot select an agent (FR-18s).</p>
+
+              <div class="topbar-actions mt-24">
+                <a class="btn btn-secondary" href="user-management.html">Manage users</a>
+                <button type="button" class="btn btn-secondary">Add to pool</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>FAQ Keywords</h3>
+              <a class="btn btn-secondary btn-sm" href="communication-templates.html">Templates</a>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Keywords</th>
+                  <th>Auto-reply template</th>
+                  <th>Match type</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>umrah, عمرة</td>
+                  <td><a href="communication-templates.html">WhatsApp Greeting</a></td>
+                  <td>Contains</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>visa</td>
+                  <td><a href="communication-templates.html">Visa info auto-reply</a></td>
+                  <td>Contains</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>price, quote, quotation</td>
+                  <td><a href="communication-templates.html">Follow-up — 24h no response</a></td>
+                  <td>Contains</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>hotel, accommodation</td>
+                  <td><a href="communication-templates.html">WhatsApp Greeting</a></td>
+                  <td>Contains</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>payment, balance, due</td>
+                  <td><a href="communication-templates.html">Payment reminder — balance due</a></td>
+                  <td>Contains</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="footnote panel-body">Keyword rules link to <a href="automation-rules.html">Automation Rules</a> for execution. FAQ replies run before manual agent response in WhatsApp Inbox.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

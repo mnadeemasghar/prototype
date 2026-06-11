@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>32 — Consolidated Branch View — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="accounting-dashboard.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Quick links">
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Consolidated Branch View</h2><p>Cross-branch KPIs for management — <a href="reports-hub.html">Reports Hub</a> Management category</p></div>
+        <div class="topbar-actions">
+          <select class="search-input" style="width:auto;">
+            <option>This Month</option>
+            <option>Last Month</option>
+            <option>QTD</option>
+            <option>YTD</option>
+          </select>
+          <button class="btn btn-primary">Export</button>
+          <a class="btn btn-secondary" href="reports-hub.html">Reports Hub</a>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Leads (All Branches)</div>
+            <div class="stat-value">248</div>
+            <div class="stat-change">↑ 16% vs last month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total Bookings</div>
+            <div class="stat-value">64</div>
+            <div class="stat-change">26% conversion rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Consolidated Revenue</div>
+            <div class="stat-value">AED 186,420</div>
+            <div class="stat-change">↑ 14% vs last month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Top Branch</div>
+            <div class="stat-value">Dubai HQ</div>
+            <div class="stat-change">68% of group revenue</div>
+          </div>
+        </div>
+
+        <div class="filters filters-mb">
+          <span class="chip active">All Branches</span>
+          <span class="chip">Dubai HQ</span>
+          <span class="chip">Abu Dhabi</span>
+          <span class="chip">Sharjah</span>
+        </div>
+
+        <div class="panel panel-mb">
+          <div class="panel-header">
+            <h3>Branch Performance Comparison</h3>
+            <span class="panel-header-meta">FR-51 — June 2026</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Branch</th>
+                <th>Agents</th>
+                <th>Leads</th>
+                <th>Bookings</th>
+                <th>Conv %</th>
+                <th>Revenue</th>
+                <th>Outstanding</th>
+                <th>vs Last Month</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Dubai HQ</strong></td>
+                <td>8</td>
+                <td>156</td>
+                <td>42</td>
+                <td>26.9%</td>
+                <td>AED 126,800</td>
+                <td>AED 38,400</td>
+                <td><span class="stat-change">↑ 12%</span></td>
+              </tr>
+              <tr>
+                <td><strong>Abu Dhabi</strong></td>
+                <td>3</td>
+                <td>62</td>
+                <td>16</td>
+                <td>25.8%</td>
+                <td>AED 42,620</td>
+                <td>AED 9,850</td>
+                <td><span class="stat-change">↑ 18%</span></td>
+              </tr>
+              <tr>
+                <td><strong>Sharjah</strong></td>
+                <td>1</td>
+                <td>30</td>
+                <td>6</td>
+                <td>20.0%</td>
+                <td>AED 17,000</td>
+                <td>AED 3,700</td>
+                <td><span class="stat-change">↑ 8%</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Group Total</strong></td>
+                <td>12</td>
+                <td>248</td>
+                <td>64</td>
+                <td>25.8%</td>
+                <td>AED 186,420</td>
+                <td>AED 51,950</td>
+                <td><span class="stat-change">↑ 14%</span></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="detail-grid">
+          <div class="panel">
+            <div class="panel-header"><h3>Revenue by Booking Type</h3></div>
+            <div class="panel-body panel-body-sm">
+              <div class="info-row"><span>Umrah</span><span>AED 98,400 · 53%</span></div>
+              <div style="height:6px;background:var(--border);border-radius:3px;margin-bottom:16px;"><div style="width:53%;height:100%;background:var(--primary);border-radius:3px;"></div></div>
+              <div class="info-row"><span>Tour</span><span>AED 42,100 · 23%</span></div>
+              <div style="height:6px;background:var(--border);border-radius:3px;margin-bottom:16px;"><div style="width:23%;height:100%;background:var(--primary);border-radius:3px;"></div></div>
+              <div class="info-row"><span>Flight</span><span>AED 28,500 · 15%</span></div>
+              <div style="height:6px;background:var(--border);border-radius:3px;margin-bottom:16px;"><div style="width:15%;height:100%;background:var(--primary);border-radius:3px;"></div></div>
+              <div class="info-row"><span>Hotel &amp; Visa</span><span>AED 17,420 · 9%</span></div>
+              <div style="height:6px;background:var(--border);border-radius:3px;"><div style="width:9%;height:100%;background:var(--primary);border-radius:3px;"></div></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header"><h3>Branch Highlights</h3></div>
+            <div class="panel-body panel-body-sm">
+              <div class="info-row"><span>Dubai HQ</span><span>Highest volume · 42 bookings</span></div>
+              <div class="info-row"><span>Abu Dhabi</span><span>Fastest growth · ↑ 18%</span></div>
+              <div class="info-row"><span>Sharjah</span><span>New branch · ramping up</span></div>
+              <p class="timeline-meta" style="margin-top:16px;">Branch admin in <a href="multi-branch.html">Multi-Branch</a> · drill down in <a href="report-builder.html">Report Builder</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

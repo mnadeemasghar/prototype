@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11 — Booking List — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Quick links">
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Booking List</h2><p>Status, destination, payment state</p></div>
+        <div class="topbar-actions">
+          <input type="search" placeholder="Search bookings..." class="search-input">
+          <button class="btn btn-secondary">Export</button>
+          <button class="btn btn-primary" data-href="booking-create.html">+ New Booking</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="filters filters-mb">
+          <span class="chip active">All (48)</span>
+          <span class="chip">Draft (3)</span>
+          <span class="chip">Confirmed (18)</span>
+          <span class="chip">In Progress (9)</span>
+          <span class="chip">Completed (14)</span>
+          <span class="chip">Cancelled (4)</span>
+        </div>
+        <div class="panel">
+          <table>
+            <thead>
+              <tr>
+                <th><input type="checkbox"></th>
+                <th>Booking ID</th>
+                <th>Customer</th>
+                <th>Destination</th>
+                <th>Travel Dates</th>
+                <th>Agent</th>
+                <th>Status</th>
+                <th>Payment</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-href="booking-detail.html">
+                <td><input type="checkbox"></td>
+                <td>#BK-0847</td>
+                <td>Ahmed Hassan</td>
+                <td>Makkah &amp; Madinah · Umrah</td>
+                <td>15 Jun – 24 Jun 2026</td>
+                <td>Sara A.</td>
+                <td><span class="badge badge-booked">Confirmed</span></td>
+                <td><span class="badge badge-contacted">Partial</span></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View</a></td>
+              </tr>
+              <tr data-href="booking-detail.html">
+                <td><input type="checkbox"></td>
+                <td>#BK-0846</td>
+                <td>Fatima Khan</td>
+                <td>Paris, Rome · 10 days</td>
+                <td>2 Jul – 12 Jul 2026</td>
+                <td>Omar K.</td>
+                <td><span class="badge badge-booked">Confirmed</span></td>
+                <td><span class="badge badge-success">Paid</span></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View</a></td>
+              </tr>
+              <tr data-href="booking-detail.html">
+                <td><input type="checkbox"></td>
+                <td>#BK-0843</td>
+                <td>Layla Mohammed</td>
+                <td>Maldives · Beach resort</td>
+                <td>28 May – 4 Jun 2026</td>
+                <td>Sara A.</td>
+                <td><span class="badge badge-contacted">In Progress</span></td>
+                <td><span class="badge badge-contacted">Partial</span></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View</a></td>
+              </tr>
+              <tr data-href="booking-detail.html">
+                <td><input type="checkbox"></td>
+                <td>#BK-0840</td>
+                <td>Noor Saeed</td>
+                <td>DXB – LHR · Business RT</td>
+                <td>8 Jul 2026</td>
+                <td>Unassigned</td>
+                <td><span class="badge badge-pending">Draft</span></td>
+                <td><span class="badge badge-pending">Unpaid</span></td>
+                <td><button class="btn btn-primary btn-sm">Assign</button></td>
+              </tr>
+              <tr data-href="booking-detail.html">
+                <td><input type="checkbox"></td>
+                <td>#BK-0835</td>
+                <td>Rashid Ali</td>
+                <td>Istanbul · 7 nights</td>
+                <td>10 Apr – 17 Apr 2026</td>
+                <td>Omar K.</td>
+                <td><span class="badge badge-closed">Completed</span></td>
+                <td><span class="badge badge-success">Paid</span></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View</a></td>
+              </tr>
+              <tr data-href="booking-detail.html">
+                <td><input type="checkbox"></td>
+                <td>#BK-0831</td>
+                <td>Yusuf Malik</td>
+                <td>London · Visa package</td>
+                <td>20 Jun – 5 Jul 2026</td>
+                <td>Sara A.</td>
+                <td><span class="badge badge-booked">Confirmed</span></td>
+                <td><span class="badge badge-lost">Overdue</span></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View</a></td>
+              </tr>
+              <tr data-href="booking-detail.html">
+                <td><input type="checkbox"></td>
+                <td>#BK-0829</td>
+                <td>Hana Ibrahim</td>
+                <td>Dubai · Family tour</td>
+                <td>5 Mar – 9 Mar 2026</td>
+                <td>Sara A.</td>
+                <td><span class="badge badge-lost">Cancelled</span></td>
+                <td><span class="badge badge-closed">Refunded</span></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

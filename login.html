@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 — Login — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-page">
+    <section class="login-hero">
+      <div class="brand-mark login-brand-mark">AT</div>
+      <h1>Travel Agency CRM for Alsultania</h1>
+      <p>Manage leads, bookings, and WhatsApp conversations in one unified platform built on Laravel.</p>
+      <div class="login-features">
+        <div class="login-feature"><span>✓</span><span>Automatic WhatsApp lead capture &amp; agent rotation</span></div>
+        <div class="login-feature"><span>✓</span><span>Full lifecycle tracking from inquiry to booking</span></div>
+        <div class="login-feature"><span>✓</span><span>Role-based access for Admin, Manager &amp; Agent</span></div>
+      </div>
+    </section>
+    <section class="login-form-wrap">
+      <div class="login-card">
+        <h2>Sign in</h2>
+        <p class="subtitle">Alsultania Travel and Tourism Co. L.L.C — Dubai, UAE</p>
+        <div class="field"><label>Email address</label><input type="email" value="agent@alsultaniatravel.com" readonly></div>
+        <div class="field"><label>Password</label><input type="password" value="••••••••" readonly></div>
+        <div class="field">
+          <label>Role</label>
+          <select><option>Travel Agent</option><option>Sales Manager</option><option>Administrator</option></select>
+        </div>
+        <a href="dashboard.html" class="btn btn-primary login-submit">Sign in to CRM</a>
+        <div class="login-inquiry-cta">
+          <p>Looking to submit a travel inquiry on our website?</p>
+          <a href="inquiry-otp.html" class="btn btn-secondary">Submit inquiry — verify phone, no login</a>
+        </div>
+        <p class="login-staff-link">After OTP verification, complete the required fields; your inquiry is assigned to the next available specialist.</p>
+      </div>
+    </section>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

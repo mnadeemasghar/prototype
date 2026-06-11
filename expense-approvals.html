@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>20 — Expense Approvals — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="accounting-dashboard.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Finance quick links">
+  <a href="payment-tracking.html?status=overdue" class="sub-nav-item"><span class="sub-nav-icon">⚠</span> Overdue Payments</a>
+  <a href="expense-approvals.html" class="sub-nav-item"><span class="sub-nav-icon">✓</span> Pending Approvals</a>
+  <a href="revenue-recording.html?status=pending" class="sub-nav-item"><span class="sub-nav-icon">◎</span> Pending Revenue</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Expense Approvals</h2><p>Manager approval queue — Sales Manager and Admin only</p></div>
+        <div class="topbar-actions">
+          <button class="btn btn-secondary">Export</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Pending</div>
+            <div class="stat-value">5</div>
+            <div class="stat-change">Awaiting your decision</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Approved Today</div>
+            <div class="stat-value">2</div>
+            <div class="stat-change">AED 7,700 total</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Rejected This Month</div>
+            <div class="stat-value">1</div>
+            <div class="stat-change">Missing receipt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Avg Approval Time</div>
+            <div class="stat-value">1.2 days</div>
+            <div class="stat-change">Last 30 days</div>
+          </div>
+        </div>
+
+        <div class="filters filters-mb">
+          <span class="chip active">Pending (5)</span>
+          <span class="chip">Approved</span>
+          <span class="chip">Rejected</span>
+          <span class="chip">All</span>
+        </div>
+
+        <div class="detail-grid">
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Approval Queue</h3>
+                <span class="panel-header-meta">Newest first</span>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><input type="checkbox"></th>
+                    <th>Submitted</th>
+                    <th>Employee</th>
+                    <th>Category</th>
+                    <th>Cost Centre</th>
+                    <th>Amount</th>
+                    <th>Booking</th>
+                    <th>Receipt</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>02-Jun-2026</td>
+                    <td>Sara A.</td>
+                    <td>Supplier — Flights</td>
+                    <td>Supplier — Flights</td>
+                    <td>AED 4,200</td>
+                    <td><a href="booking-detail.html">#BK-0847</a></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                    <td>Emirates block seats — JED</td>
+                    <td>
+                      <button class="btn btn-primary btn-sm">Approve</button>
+                      <button class="btn btn-secondary btn-sm">Reject</button>
+                      <button class="btn btn-secondary btn-sm">Request Info</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>01-Jun-2026</td>
+                    <td>Omar K.</td>
+                    <td>Marketing</td>
+                    <td>Marketing</td>
+                    <td>AED 1,850</td>
+                    <td>—</td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                    <td>Ramadan Umrah Meta ads</td>
+                    <td>
+                      <button class="btn btn-primary btn-sm">Approve</button>
+                      <button class="btn btn-secondary btn-sm">Reject</button>
+                      <button class="btn btn-secondary btn-sm">Request Info</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>31-May-2026</td>
+                    <td>Sara A.</td>
+                    <td>Transfer</td>
+                    <td>Operations</td>
+                    <td>AED 980</td>
+                    <td><a href="booking-detail.html">#BK-0840</a></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                    <td>Airport pickup — DXB</td>
+                    <td>
+                      <button class="btn btn-primary btn-sm">Approve</button>
+                      <button class="btn btn-secondary btn-sm">Reject</button>
+                      <button class="btn btn-secondary btn-sm">Request Info</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>30-May-2026</td>
+                    <td>Omar K.</td>
+                    <td>Office</td>
+                    <td>Operations</td>
+                    <td>AED 420</td>
+                    <td>—</td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                    <td><span class="badge badge-contacted">Info requested</span></td>
+                    <td>
+                      <button class="btn btn-primary btn-sm">Approve</button>
+                      <button class="btn btn-secondary btn-sm">Reject</button>
+                      <button class="btn btn-secondary btn-sm">Request Info</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>29-May-2026</td>
+                    <td>Admin</td>
+                    <td>Visa Processing</td>
+                    <td>Visa Processing</td>
+                    <td>AED 650</td>
+                    <td><a href="booking-detail.html">#BK-0831</a></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                    <td>UK visa courier fees</td>
+                    <td>
+                      <button class="btn btn-primary btn-sm">Approve</button>
+                      <button class="btn btn-secondary btn-sm">Reject</button>
+                      <button class="btn btn-secondary btn-sm">Request Info</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <div class="panel panel-mb">
+              <div class="panel-header"><h3>Selected Expense</h3><span class="panel-header-meta">#EXP-1084</span></div>
+              <div class="panel-body-info">
+                <div class="info-row"><span>Employee</span><span>Sara Al-Mansoori</span></div>
+                <div class="info-row"><span>Category</span><span>Supplier — Flights</span></div>
+                <div class="info-row"><span>Cost Centre</span><span>Supplier — Flights</span></div>
+                <div class="info-row"><span>Amount</span><span>AED 4,200</span></div>
+                <div class="info-row"><span>Booking</span><span><a href="booking-detail.html">#BK-0847</a></span></div>
+                <div class="info-row"><span>Description</span><span>Emirates block seats — JED route for Umrah group departure 15-Jun-2026</span></div>
+                <div class="info-row"><span>Budget Impact</span><span>Centre at 54% — adds ~10% after approval</span></div>
+                <div class="info-row"><span>Receipt</span><span><button class="btn btn-secondary btn-sm">View PDF</button></span></div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header"><h3>Recent Decisions</h3></div>
+              <table>
+                <thead>
+                  <tr><th>Date</th><th>Ref</th><th>Amount</th><th>Decision</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>03-Jun-2026</td>
+                    <td>#EXP-1080</td>
+                    <td>AED 6,500</td>
+                    <td><span class="badge badge-approved">Approved</span></td>
+                  </tr>
+                  <tr>
+                    <td>03-Jun-2026</td>
+                    <td>#EXP-1078</td>
+                    <td>AED 1,200</td>
+                    <td><span class="badge badge-approved">Approved</span></td>
+                  </tr>
+                  <tr>
+                    <td>15-May-2026</td>
+                    <td>#EXP-1062</td>
+                    <td>AED 340</td>
+                    <td><span class="badge badge-lost">Rejected</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

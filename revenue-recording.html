@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>14 — Revenue Adjustments — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Finance quick links">
+  <a href="payment-tracking.html?status=overdue" class="sub-nav-item"><span class="sub-nav-icon">⚠</span> Overdue Payments</a>
+  <a href="expense-approvals.html" class="sub-nav-item"><span class="sub-nav-icon">✓</span> Pending Approvals</a>
+  <a href="revenue-recording.html?status=pending" class="sub-nav-item"><span class="sub-nav-icon">◎</span> Pending Revenue</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Revenue Adjustments</h2><p>Manual corrections, reversals, and reconciliation — routine revenue auto-posts from payments</p></div>
+        <div class="topbar-actions">
+          <input type="search" placeholder="Search revenue entries..." class="search-input">
+          <button class="btn btn-secondary">Export</button>
+          <button class="btn btn-primary">+ Manual Adjustment</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">MTD Revenue</div>
+            <div class="stat-value">AED 186,420</div>
+            <div class="stat-change">↑ 14% vs last month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Entries This Month</div>
+            <div class="stat-value">47</div>
+            <div class="stat-change">6 recorded today</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Pending Reconciliation</div>
+            <div class="stat-value">3</div>
+            <div class="stat-change" style="color: var(--warning);">Awaiting finance review</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Avg per Booking</div>
+            <div class="stat-value">AED 14,280</div>
+            <div class="stat-change">Across 13 bookings</div>
+          </div>
+        </div>
+
+        <div class="filters filters-mb">
+          <span class="chip active">All (47)</span>
+          <span class="chip">This Month (47)</span>
+          <span class="chip">Umrah (18)</span>
+          <span class="chip">Tours (12)</span>
+          <span class="chip">Flights (9)</span>
+          <span class="chip">Pending (3)</span>
+        </div>
+
+        <div class="detail-grid">
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Revenue Entries</h3>
+                <span class="panel-header-meta">Auto-posted from payments + manual adjustments</span>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><input type="checkbox"></th>
+                    <th>Entry ID</th>
+                    <th>Booking</th>
+                    <th>Customer</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Recorded By</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>#REV-1047</td>
+                    <td><a href="booking-detail.html">#BK-0847</a></td>
+                    <td>Ahmed Hassan</td>
+                    <td>Umrah</td>
+                    <td>AED 9,250</td>
+                    <td>03-Jun-2026</td>
+                    <td>Sara A.</td>
+                    <td><span class="badge badge-success">Recorded</span></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>#REV-1046</td>
+                    <td><a href="booking-detail.html">#BK-0846</a></td>
+                    <td>Fatima Khan</td>
+                    <td>Tour</td>
+                    <td>AED 24,800</td>
+                    <td>01-Jun-2026</td>
+                    <td>Omar K.</td>
+                    <td><span class="badge badge-success">Recorded</span></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>#REV-1043</td>
+                    <td><a href="booking-detail.html">#BK-0843</a></td>
+                    <td>Layla Mohammed</td>
+                    <td>Hotel</td>
+                    <td>AED 5,000</td>
+                    <td>28-May-2026</td>
+                    <td>Sara A.</td>
+                    <td><span class="badge badge-success">Recorded</span></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>#REV-1035</td>
+                    <td><a href="booking-detail.html">#BK-0835</a></td>
+                    <td>Rashid Ali</td>
+                    <td>Tour</td>
+                    <td>AED 12,400</td>
+                    <td>10-Apr-2026</td>
+                    <td>Omar K.</td>
+                    <td><span class="badge badge-success">Recorded</span></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>#REV-1031</td>
+                    <td><a href="booking-detail.html">#BK-0831</a></td>
+                    <td>Yusuf Malik</td>
+                    <td>Visa</td>
+                    <td>AED 3,200</td>
+                    <td>05-Jun-2026</td>
+                    <td>Sara A.</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                    <td><button class="btn btn-primary btn-sm">Approve</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>#REV-1029</td>
+                    <td><a href="booking-detail.html">#BK-0829</a></td>
+                    <td>Hana Ibrahim</td>
+                    <td>Tour</td>
+                    <td>AED 8,600</td>
+                    <td>01-Mar-2026</td>
+                    <td>Sara A.</td>
+                    <td><span class="badge badge-closed">Reversed</span></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>#REV-1024</td>
+                    <td><a href="booking-detail.html">#BK-0843</a></td>
+                    <td>Layla Mohammed</td>
+                    <td>Hotel</td>
+                    <td>AED 7,500</td>
+                    <td>02-Jun-2026</td>
+                    <td>Omar K.</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                    <td><button class="btn btn-primary btn-sm">Approve</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <div class="panel panel-mb">
+              <div class="panel-header"><h3>Manual Adjustment</h3></div>
+              <div class="panel-body">
+                <p class="timeline-meta panel-mb">Use for accruals, corrections, and reversals only. Payments recorded on Booking Detail auto-create revenue entries (cash basis).</p>
+                <div class="field">
+                  <label>Booking Reference <span class="req">*</span></label>
+                  <select>
+                    <option>#BK-0847 — Ahmed Hassan · Umrah</option>
+                    <option>#BK-0846 — Fatima Khan · Tour</option>
+                    <option>#BK-0843 — Layla Mohammed · Hotel</option>
+                    <option>#BK-0840 — Noor Saeed · Flight</option>
+                    <option>#BK-0831 — Yusuf Malik · Visa</option>
+                  </select>
+                </div>
+                <div class="form-grid form-grid-2 mt-12">
+                  <div class="field">
+                    <label>Amount (AED) <span class="req">*</span></label>
+                    <input type="text" value="9,250">
+                  </div>
+                  <div class="field">
+                    <label>Revenue Date <span class="req">*</span></label>
+                    <input type="text" value="11-Jun-2026">
+                  </div>
+                </div>
+                <div class="form-grid form-grid-2 mt-12">
+                  <div class="field">
+                    <label>Category <span class="req">*</span></label>
+                    <select>
+                      <option>Umrah</option>
+                      <option>Tour</option>
+                      <option>Flight</option>
+                      <option>Hotel</option>
+                      <option>Visa</option>
+                      <option>Package</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label>Payment Method</label>
+                    <select>
+                      <option>Bank Transfer</option>
+                      <option>Cash</option>
+                      <option>Card</option>
+                      <option>Cheque</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field mt-12">
+                  <label>Notes</label>
+                  <input type="text" placeholder="e.g. Balance payment — 50% milestone">
+                </div>
+                <div class="mt-12">
+                  <button class="btn btn-primary btn-block-left">Save Adjustment</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Linked Booking</h3>
+                <a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View Booking</a>
+              </div>
+              <div class="panel-body-info">
+                <div class="info-row"><span>Booking ID</span><span><a href="booking-detail.html">#BK-0847</a></span></div>
+                <div class="info-row"><span>Customer</span><span><a href="customer-profile.html">Ahmed Hassan</a></span></div>
+                <div class="info-row"><span>Destination</span><span>Makkah &amp; Madinah · Umrah</span></div>
+                <div class="info-row"><span>Travel Dates</span><span>15 Jun – 24 Jun 2026</span></div>
+                <div class="info-row"><span>Agent</span><span>Sara Al-Mansoori</span></div>
+                <div class="info-row"><span>Booking Total</span><span>AED 18,500</span></div>
+                <div class="info-row"><span>Already Recorded</span><span>AED 9,250</span></div>
+                <div class="info-row"><span>Remaining</span><span>AED 9,250</span></div>
+                <div class="info-row"><span>Booking Status</span><span><span class="badge badge-booked">Confirmed</span></span></div>
+                <div class="info-row"><span>Payment Status</span><span><span class="badge badge-contacted">Partial</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

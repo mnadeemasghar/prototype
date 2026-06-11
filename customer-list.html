@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>09 — Customer List — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="accounting-dashboard.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Quick links">
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Customer List</h2><p>Customers are created when leads are converted or bookings are created — not added manually.</p></div>
+        <div class="topbar-actions">
+          <input type="search" placeholder="Search customers..." class="search-input">
+          <button class="btn btn-secondary">Export</button>
+          <a class="btn btn-primary" href="leads-list.html">View Leads to Convert</a>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Customers</div>
+            <div class="stat-value">128</div>
+            <div class="stat-change">↑ 8 this month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Active This Month</div>
+            <div class="stat-value">34</div>
+            <div class="stat-change">With open or new bookings</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Avg Bookings / Customer</div>
+            <div class="stat-value">2.4</div>
+            <div class="stat-change">Repeat rate 31%</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total Outstanding</div>
+            <div class="stat-value">AED 51,950</div>
+            <div class="stat-change">Across 22 open bookings</div>
+          </div>
+        </div>
+
+        <div class="filters filters-mb">
+          <span class="chip active">All (128)</span>
+          <span class="chip">VIP (14)</span>
+          <span class="chip">Repeat Customer (31)</span>
+          <span class="chip">Open Booking (22)</span>
+          <span class="chip">Converted from Lead (96)</span>
+        </div>
+
+        <div class="panel">
+          <table>
+            <thead>
+              <tr>
+                <th><input type="checkbox"></th>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Tags</th>
+                <th>Bookings</th>
+                <th>Last Booking</th>
+                <th>Outstanding</th>
+                <th>Lead</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-href="customer-profile.html">
+                <td><input type="checkbox"></td>
+                <td><a href="customer-profile.html">Ahmed Hassan</a></td>
+                <td>+971 50 123 4567</td>
+                <td>ahmed.hassan@email.com</td>
+                <td><span class="badge badge-booked">VIP</span> <span class="badge badge-contacted">Umrah</span></td>
+                <td>3</td>
+                <td>Makkah &amp; Madinah · 15 Jun 2026</td>
+                <td>AED 9,250</td>
+                <td><a href="lead-detail.html">#LD-1042</a></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="customer-profile.html">View Profile</a></td>
+              </tr>
+              <tr data-href="customer-profile.html">
+                <td><input type="checkbox"></td>
+                <td><a href="customer-profile.html">Fatima Khan</a></td>
+                <td>+971 55 987 6543</td>
+                <td>fatima.k@email.com</td>
+                <td><span class="badge badge-contacted">Family</span> <span class="badge badge-quoted">Tours</span></td>
+                <td>2</td>
+                <td>Paris, Rome · 2 Jul 2026</td>
+                <td>AED 0</td>
+                <td><a href="lead-detail.html">#LD-1041</a></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="customer-profile.html">View Profile</a></td>
+              </tr>
+              <tr data-href="customer-profile.html">
+                <td><input type="checkbox"></td>
+                <td><a href="customer-profile.html">Layla Mohammed</a></td>
+                <td>+971 52 456 7890</td>
+                <td>layla.m@email.com</td>
+                <td><span class="badge badge-booked">VIP</span> <span class="badge badge-contacted">Repeat</span></td>
+                <td>4</td>
+                <td>Dubai Hotels · 20 May 2026</td>
+                <td>AED 20,000</td>
+                <td><a href="lead-detail.html">#LD-1038</a></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="customer-profile.html">View Profile</a></td>
+              </tr>
+              <tr data-href="customer-profile.html">
+                <td><input type="checkbox"></td>
+                <td><a href="customer-profile.html">Yusuf Malik</a></td>
+                <td>+971 56 321 0987</td>
+                <td>—</td>
+                <td><span class="badge badge-new">Visa</span></td>
+                <td>1</td>
+                <td>UK Visa · 5 Jun 2026</td>
+                <td>AED 12,400</td>
+                <td><a href="lead-detail.html">#LD-1035</a></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="customer-profile.html">View Profile</a></td>
+              </tr>
+              <tr data-href="customer-profile.html">
+                <td><input type="checkbox"></td>
+                <td><a href="customer-profile.html">Noor Saeed</a></td>
+                <td>+971 54 111 2233</td>
+                <td>noor.saeed@email.com</td>
+                <td><span class="badge badge-quoted">Flights</span></td>
+                <td>1</td>
+                <td>DXB → LHR · 14 Jun 2026</td>
+                <td>AED 15,200</td>
+                <td><a href="lead-detail.html">#LD-1037</a></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="customer-profile.html">View Profile</a></td>
+              </tr>
+              <tr data-href="customer-profile.html">
+                <td><input type="checkbox"></td>
+                <td><a href="customer-profile.html">Rashid Ali</a></td>
+                <td>+971 50 888 7766</td>
+                <td>rashid.ali@email.com</td>
+                <td><span class="badge badge-contacted">Repeat</span></td>
+                <td>5</td>
+                <td>Istanbul Tour · 9 Apr 2026</td>
+                <td>AED 0</td>
+                <td>—</td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="customer-profile.html">View Profile</a></td>
+              </tr>
+              <tr data-href="customer-profile.html">
+                <td><input type="checkbox"></td>
+                <td><a href="customer-profile.html">Hana Ibrahim</a></td>
+                <td>+971 58 444 5566</td>
+                <td>hana.i@email.com</td>
+                <td><span class="badge badge-success">Umrah</span></td>
+                <td>2</td>
+                <td>Madinah Only · 1 Mar 2026</td>
+                <td>AED 0</td>
+                <td><a href="lead-detail.html">#LD-1029</a></td>
+                <td><a class="btn btn-secondary btn-sm btn-inline" href="customer-profile.html">View Profile</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

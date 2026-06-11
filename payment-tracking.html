@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>16 — Payment Queue — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Finance quick links">
+  <a href="payment-tracking.html?status=overdue" class="sub-nav-item"><span class="sub-nav-icon">⚠</span> Overdue Payments</a>
+  <a href="expense-approvals.html" class="sub-nav-item"><span class="sub-nav-icon">✓</span> Pending Approvals</a>
+  <a href="revenue-recording.html?status=pending" class="sub-nav-item"><span class="sub-nav-icon">◎</span> Pending Revenue</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Payment Queue</h2><p>Booking-centric outstanding and overdue queue — record payments on Booking Detail</p></div>
+        <div class="topbar-actions">
+          <input type="search" placeholder="Search payments..." class="search-input">
+          <button class="btn btn-secondary">Export</button>
+          <a class="btn btn-secondary" href="booking-list.html">Open Booking List</a>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Outstanding Balance</div>
+            <div class="stat-value">AED 51,950</div>
+            <div class="stat-change">Across 8 open bookings</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Overdue</div>
+            <div class="stat-value">AED 32,400</div>
+            <div class="stat-change">3 bookings past due date</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Collected This Month</div>
+            <div class="stat-value">AED 68,300</div>
+            <div class="stat-change">↑ 9% vs last month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Due in 7 Days</div>
+            <div class="stat-value">AED 24,450</div>
+            <div class="stat-change">4 reminders scheduled</div>
+          </div>
+        </div>
+
+        <div class="filters filters-mb">
+          <span class="chip active">All (26)</span>
+          <span class="chip">Unpaid (4)</span>
+          <span class="chip">Partial (5)</span>
+          <span class="chip">Paid (14)</span>
+          <span class="chip">Overdue (3)</span>
+        </div>
+
+        <div class="detail-grid">
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Payment Status by Booking</h3>
+                <span class="panel-header-meta">Paid, balance, due dates</span>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><input type="checkbox"></th>
+                    <th>Booking</th>
+                    <th>Customer</th>
+                    <th>Invoice</th>
+                    <th>Total</th>
+                    <th>Paid</th>
+                    <th>Balance</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-href="booking-detail.html">
+                    <td><input type="checkbox"></td>
+                    <td><a href="booking-detail.html">#BK-0847</a></td>
+                    <td>Ahmed Hassan</td>
+                    <td><a href="invoice-list.html">INV-2026-0847</a></td>
+                    <td>AED 18,500</td>
+                    <td>AED 9,250</td>
+                    <td>AED 9,250</td>
+                    <td>08-Jun-2026</td>
+                    <td><span class="badge badge-contacted">Partial</span></td>
+                    <td><a class="btn btn-primary btn-sm" href="booking-detail.html">Record on Booking</a></td>
+                  </tr>
+                  <tr data-href="booking-detail.html">
+                    <td><input type="checkbox"></td>
+                    <td><a href="booking-detail.html">#BK-0846</a></td>
+                    <td>Fatima Khan</td>
+                    <td><a href="invoice-list.html">INV-2026-0846</a></td>
+                    <td>AED 24,800</td>
+                    <td>AED 24,800</td>
+                    <td>AED 0</td>
+                    <td>05-Jun-2026</td>
+                    <td><span class="badge badge-success">Paid</span></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                  </tr>
+                  <tr data-href="booking-detail.html">
+                    <td><input type="checkbox"></td>
+                    <td><a href="booking-detail.html">#BK-0843</a></td>
+                    <td>Layla Mohammed</td>
+                    <td><a href="invoice-list.html">INV-2026-0843</a></td>
+                    <td>AED 32,500</td>
+                    <td>AED 12,500</td>
+                    <td>AED 20,000</td>
+                    <td>27-May-2026</td>
+                    <td><span class="badge badge-lost">Overdue</span></td>
+                    <td>
+                      <a class="btn btn-primary btn-sm" href="booking-detail.html">Record on Booking</a>
+                      <button class="btn btn-secondary btn-sm">Remind</button>
+                    </td>
+                  </tr>
+                  <tr data-href="booking-detail.html">
+                    <td><input type="checkbox"></td>
+                    <td><a href="booking-detail.html">#BK-0831</a></td>
+                    <td>Yusuf Malik</td>
+                    <td><a href="invoice-list.html">INV-2026-0831</a></td>
+                    <td>AED 12,400</td>
+                    <td>AED 0</td>
+                    <td>AED 12,400</td>
+                    <td>05-Jun-2026</td>
+                    <td><span class="badge badge-lost">Overdue</span></td>
+                    <td>
+                      <a class="btn btn-primary btn-sm" href="booking-detail.html">Record on Booking</a>
+                      <button class="btn btn-secondary btn-sm">Remind</button>
+                    </td>
+                  </tr>
+                  <tr data-href="booking-detail.html">
+                    <td><input type="checkbox"></td>
+                    <td><a href="booking-detail.html">#BK-0840</a></td>
+                    <td>Noor Saeed</td>
+                    <td><a href="invoice-list.html">INV-2026-0840</a></td>
+                    <td>AED 15,200</td>
+                    <td>AED 0</td>
+                    <td>AED 15,200</td>
+                    <td>14-Jun-2026</td>
+                    <td><span class="badge badge-pending">Unpaid</span></td>
+                    <td><a class="btn btn-primary btn-sm" href="booking-detail.html">Record on Booking</a></td>
+                  </tr>
+                  <tr data-href="booking-detail.html">
+                    <td><input type="checkbox"></td>
+                    <td><a href="booking-detail.html">#BK-0835</a></td>
+                    <td>Rashid Ali</td>
+                    <td><a href="invoice-list.html">INV-2026-0835</a></td>
+                    <td>AED 9,750</td>
+                    <td>AED 9,750</td>
+                    <td>AED 0</td>
+                    <td>09-Apr-2026</td>
+                    <td><span class="badge badge-success">Paid</span></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                  </tr>
+                  <tr data-href="booking-detail.html">
+                    <td><input type="checkbox"></td>
+                    <td><a href="booking-detail.html">#BK-0829</a></td>
+                    <td>Hana Ibrahim</td>
+                    <td><a href="invoice-list.html">INV-2026-0829</a></td>
+                    <td>AED 6,800</td>
+                    <td>AED 6,800</td>
+                    <td>AED 0</td>
+                    <td>08-Mar-2026</td>
+                    <td><span class="badge badge-closed">Refunded</span></td>
+                    <td><button class="btn btn-secondary btn-sm">View</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <div class="panel panel-mb">
+              <div class="panel-header">
+                <h3>Upcoming Reminders</h3>
+                <span class="panel-header-meta">Automated schedule</span>
+              </div>
+              <table>
+                <thead>
+                  <tr><th>Booking</th><th>Balance</th><th>Scheduled</th><th>Channel</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="booking-detail.html">#BK-0847</a></td>
+                    <td>AED 9,250</td>
+                    <td>07-Jun-2026</td>
+                    <td><span class="badge badge-booked">WhatsApp</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="booking-detail.html">#BK-0840</a></td>
+                    <td>AED 15,200</td>
+                    <td>12-Jun-2026</td>
+                    <td><span class="badge badge-contacted">Email</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="booking-detail.html">#BK-0831</a></td>
+                    <td>AED 12,400</td>
+                    <td>11-Jun-2026</td>
+                    <td><span class="badge badge-lost">Escalation</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="booking-detail.html">#BK-0843</a></td>
+                    <td>AED 20,000</td>
+                    <td>10-Jun-2026</td>
+                    <td><span class="badge badge-lost">Escalation</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Recent Payments</h3>
+                <span class="panel-header-meta">Latest transactions</span>
+              </div>
+              <table>
+                <thead>
+                  <tr><th>Date</th><th>Booking</th><th>Amount</th><th>Method</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>03-Jun-2026</td>
+                    <td><a href="booking-detail.html">#BK-0847</a></td>
+                    <td>AED 9,250</td>
+                    <td>Bank transfer</td>
+                  </tr>
+                  <tr>
+                    <td>01-Jun-2026</td>
+                    <td><a href="booking-detail.html">#BK-0846</a></td>
+                    <td>AED 24,800</td>
+                    <td>Card</td>
+                  </tr>
+                  <tr>
+                    <td>28-May-2026</td>
+                    <td><a href="booking-detail.html">#BK-0843</a></td>
+                    <td>AED 12,500</td>
+                    <td>Bank transfer</td>
+                  </tr>
+                  <tr>
+                    <td>10-Apr-2026</td>
+                    <td><a href="booking-detail.html">#BK-0835</a></td>
+                    <td>AED 9,750</td>
+                    <td>Cash</td>
+                  </tr>
+                  <tr>
+                    <td>01-Mar-2026</td>
+                    <td><a href="booking-detail.html">#BK-0829</a></td>
+                    <td>AED 6,800</td>
+                    <td>Card</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

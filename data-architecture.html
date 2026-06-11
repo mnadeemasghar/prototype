@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Architecture ERD — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <nav class="proto-topbar"><a href="cover.html">Cover</a><a href="index.html">Screen Flow</a><a href="login.html">Prototype</a><span class="proto-topbar-current">Data Architecture</span></nav>
+  <div class="flow-page">
+    <div class="flow-header">
+      <h1>Data Architecture — Entity Relationship Diagram</h1>
+      <p>Phase 0 Blueprint | Alsultania Travel CRM | MySQL / Laravel</p>
+    </div>
+
+    <div class="panel erd-panel">
+      <pre class="mermaid">
+erDiagram
+  users ||--o{ leads : assigns
+  users }o--|| roles : has
+  roles ||--o{ permissions : grants
+  leads ||--o{ lead_activities : tracks
+  leads ||--o{ lead_assignments : rotated
+  leads ||--o| customers : converts
+  customers ||--o{ bookings : makes
+  bookings ||--o{ itineraries : contains
+  bookings ||--o{ documents : attaches
+  bookings ||--o{ invoices : generates
+  invoices ||--o{ payments : receives
+  bookings ||--o{ expenses : incurs
+  expenses }o--|| cost_centres : allocated
+  users ||--o{ attendance : logs
+  users ||--o{ performance_metrics : measured
+  branches ||--o{ users : employs
+  branches ||--o{ leads : owns
+  automation_rules ||--o{ notifications : triggers
+  whatsapp_messages }o--|| leads : captures
+  communication_templates ||--o{ whatsapp_messages : templates
+  otp_verifications ||--o| leads : verifies_phone_for
+      </pre>
+    </div>
+
+    <div class="module-grid mt-32">
+      <div class="module-card"><h3>Core CRM</h3><p>users, roles, permissions, leads (lead_type, type_details JSON, subject), lead_activities, lead_assignments, otp_verifications</p></div>
+      <div class="module-card"><h3>Customers & Bookings</h3><p>customers, bookings, itineraries, documents</p></div>
+      <div class="module-card"><h3>Financials</h3><p>invoices, payments, expenses, cost_centres</p></div>
+      <div class="module-card"><h3>HR & Performance</h3><p>attendance, performance_metrics, agents</p></div>
+      <div class="module-card"><h3>Automation</h3><p>automation_rules, notifications, whatsapp_messages, communication_templates</p></div>
+      <div class="module-card"><h3>Multi-Branch</h3><p>branches — data segregation per location</p></div>
+    </div>
+  </div>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+  <script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05a — Create Lead — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+      <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+      <nav class="top-nav-menu" aria-label="Main">
+        <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+      </nav>
+      <div class="top-nav-utils">
+        <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+        <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+          <span class="notify-badge">1</span>🔔
+        </button>
+        <span class="top-nav-avatar" title="Profile">SA</span>
+      </div>
+    </header>
+    <nav class="sub-nav" aria-label="Quick links">
+      <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+      <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+      <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+    </nav>
+    <div class="main">
+      <header class="page-header">
+        <div class="page-header-title">
+          <span class="page-title-icon" aria-hidden="true">👤+</span>
+          <h2>Create Lead</h2>
+        </div>
+        <div class="phone-badge">
+          <span class="phone-badge-label">Phone Number</span>
+          <strong>+923110000000</strong>
+        </div>
+      </header>
+      <div class="content">
+        <div class="lead-create-grid">
+          <form id="lead-create-form" class="panel lead-create-form">
+            <div class="panel-header"><h3>Create New Lead</h3></div>
+            <div class="form-body">
+              <p class="form-section-label">Customer Information</p>
+              <div class="form-grid">
+                <div class="field">
+                  <label>Customer Name <span class="req">*</span></label>
+                  <input type="text" name="customer_name" placeholder="CUSTOMER NAME" required>
+                </div>
+                <div class="field">
+                  <label>Email</label>
+                  <input type="email" name="email" placeholder="Optional">
+                </div>
+              </div>
+              <div class="form-grid form-grid-3 mt-12">
+                <div class="field">
+                  <label>Lead Type <span class="req">*</span></label>
+                  <select id="lead-type" name="lead_type" required>
+                    <option value="FLIGHT">Flight</option>
+                    <option value="HOTEL">Hotel</option>
+                    <option value="VISA">Visa</option>
+                    <option value="TOUR">Tour</option>
+                    <option value="UMRAH">Umrah</option>
+                    <option value="HAJJ">Hajj</option>
+                    <option value="INSURANCE">Insurance</option>
+                    <option value="PACKAGE">Package</option>
+                    <option value="OTHER">Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Lead Via <span class="req">*</span></label>
+                  <select name="lead_via" required>
+                    <option value="">Select source</option>
+                    <option>WhatsApp</option>
+                    <option>Phone</option>
+                    <option>Walk-in</option>
+                    <option>Website</option>
+                    <option>Referral</option>
+                    <option>Email</option>
+                    <option>Manual</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Customer Location</label>
+                  <input type="text" name="customer_location" placeholder="CITY">
+                </div>
+              </div>
+
+              <p class="form-section-label" id="type-section-title">FLIGHT</p>
+              <div id="type-section"></div>
+
+              <p class="form-section-label">Dates &amp; Travelers</p>
+              <div class="form-grid form-grid-2">
+                <div class="field date-field">
+                  <label id="departure-label">Departure</label>
+                  <div class="date-toggle">
+                    <input type="checkbox" id="departure-enabled" name="departure_enabled">
+                    <input type="date" id="departure-date" name="departure_date" disabled>
+                  </div>
+                </div>
+                <div class="field date-field">
+                  <label id="return-label">Return</label>
+                  <div class="date-toggle">
+                    <input type="checkbox" id="return-enabled" name="return_enabled">
+                    <input type="date" id="return-date" name="return_date" disabled>
+                  </div>
+                </div>
+                <div class="field">
+                  <label>Adult</label>
+                  <select name="adults">
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Child</label>
+                  <select name="children">
+                    <option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Infant</label>
+                  <select name="infants">
+                    <option selected>0</option><option>1</option><option>2</option><option>3</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field mt-12">
+                <label>Remarks (Optional)</label>
+                <textarea name="remarks" rows="3" placeholder="Internal notes or customer requests"></textarea>
+              </div>
+
+              <p class="form-section-label">Lead Handling</p>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="handling" value="TAKEOVER" checked>
+                  <span>Create and Takeover (Handle Myself)</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="handling" value="CREATE_FOR_OTHERS">
+                  <span>Create for Others</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="handling" value="TRANSFER_TO_STAFF">
+                  <span>Create and Transfer to Staff</span>
+                </label>
+              </div>
+              <div class="field" id="agent-field" hidden>
+                <label>Target Agent <span class="req">*</span></label>
+                <select name="assigned_user_id">
+                  <option value="">Select agent</option>
+                  <option>Sara Al-Mansoori</option>
+                  <option>Omar Khalid</option>
+                  <option>Nadeem Hassan</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-success btn-block">Create New Lead</button>
+            </div>
+          </form>
+
+          <div class="panel previous-leads-panel">
+            <div class="panel-header">
+              <h3><span class="previous-count">2</span> Previous Leads</h3>
+            </div>
+            <div class="previous-leads-table-wrap">
+              <table class="previous-leads-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Created</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th>Handler</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-href="lead-detail.html">
+                    <td>1080</td>
+                    <td>06-JUN-26</td>
+                    <td>NEW CUSTOMER</td>
+                    <td>HOTEL</td>
+                    <td>1 ROOM ECONOMY IN JED (ROOM ONLY)</td>
+                    <td><span class="badge badge-success">SUCCESS</span></td>
+                    <td>Nadeem</td>
+                  </tr>
+                  <tr data-href="lead-detail.html">
+                    <td>1028</td>
+                    <td>20-MAY-26</td>
+                    <td>CUSTOMER NAME</td>
+                    <td>FLIGHT</td>
+                    <td>LHE - KHI (OW) ECONOMY</td>
+                    <td><span class="badge badge-closed">CLOSED</span></td>
+                    <td>Nadeem</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+  <script src="lead-form-shared.js"></script>
+  <script src="leads-create.js"></script>
+</body>
+</html>

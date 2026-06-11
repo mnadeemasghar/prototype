@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>28 — Channel Settings — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+      <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+      <nav class="top-nav-menu" aria-label="Main">
+        <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+      </nav>
+      <div class="top-nav-utils">
+        <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+        <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+          <span class="notify-badge">1</span>🔔
+        </button>
+        <span class="top-nav-avatar" title="Administrator">KA</span>
+      </div>
+    </header>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h2>Channel Settings</h2>
+          <p>WhatsApp API and email SMTP configuration — FR-46 · <a href="communication-templates.html">Templates</a></p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn-secondary">Test all connections</button>
+          <button type="button" class="btn btn-primary">Save Changes</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="admin-notice" role="note">
+          <span aria-hidden="true">🔒</span>
+          <span><strong>Administrator only.</strong> Credentials are encrypted at rest. Client-provisioned per SRS Appendix D.</span>
+        </div>
+
+        <div class="panel panel-mb">
+          <div class="panel-header">
+            <h3>WhatsApp Business API</h3>
+            <span class="badge badge-approved">Connected</span>
+          </div>
+          <div class="panel-body">
+            <dl class="settings-form-grid">
+              <dt>Business number</dt>
+              <dd>+971 4 123 4567</dd>
+              <dt>API provider</dt>
+              <dd>Client-provisioned WhatsApp Business API</dd>
+              <dt>API key</dt>
+              <dd>••••••••••••••••</dd>
+              <dt>Webhook URL</dt>
+              <dd>https://crm.alsultania.ae/webhooks/whatsapp</dd>
+              <dt>Webhook secret</dt>
+              <dd>••••••••••••</dd>
+              <dt>Last connection test</dt>
+              <dd>07-Jun-2026 08:42 AM — Success</dd>
+              <dt>Inbox link</dt>
+              <dd><a href="whatsapp-inbox.html">Open WhatsApp Inbox →</a></dd>
+            </dl>
+            <div class="topbar-actions mt-24">
+              <button type="button" class="btn btn-secondary">Test connection</button>
+              <button type="button" class="btn btn-secondary">Rotate webhook secret</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Email SMTP</h3>
+            <span class="badge badge-approved">Verified</span>
+          </div>
+          <div class="panel-body">
+            <dl class="settings-form-grid">
+              <dt>SMTP host</dt>
+              <dd>smtp.alsultania.ae</dd>
+              <dt>Port</dt>
+              <dd>587 (TLS)</dd>
+              <dt>From address</dt>
+              <dd>noreply@alsultania.ae</dd>
+              <dt>From name</dt>
+              <dd>Al-Sultania Travel</dd>
+              <dt>Username</dt>
+              <dd>crm-mailer@alsultania.ae</dd>
+              <dt>Password</dt>
+              <dd>••••••••••••</dd>
+              <dt>Last test send</dt>
+              <dd>06-Jun-2026 04:15 PM — Delivered to admin@alsultania.ae</dd>
+            </dl>
+            <div class="topbar-actions mt-24">
+              <button type="button" class="btn btn-secondary">Send test email</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

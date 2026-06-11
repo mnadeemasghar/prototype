@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05 — Components — Alsultania CRM Blueprint</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="proto-topbar"><a href="cover.html">Cover</a><a href="index.html">Screen Flow</a><a href="login.html">Prototype</a><span class="proto-topbar-current">Components</span></nav>
+  <div class="flow-page">
+    <div class="flow-header">
+      <h1>Component Blueprint Library</h1>
+      <p>Reusable CRM UI primitives — Phase 0 deliverable</p>
+    </div>
+
+    <div class="phase-section">
+      <h2>Top Navigation (SRS Appendix C §2.2)</h2>
+      <p class="demo-intro">Primary menu at top: Leads · Bookings · Accounts · Tools · Reports. Sub-nav: My Reminders · Add Reminder · Links. Accounts and Reports dropdowns use grouped section labels with optional count badges — see <code>nav.js</code>.</p>
+      <div class="demo-frame">
+        <header class="top-nav">
+          <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+          <nav class="top-nav-menu" aria-label="Main">
+            <a class="top-nav-link active" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+            <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+            <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+            <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+            <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+          </nav>
+          <div class="top-nav-utils">
+            <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+            <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+              <span class="notify-badge">1</span>🔔
+            </button>
+            <span class="top-nav-avatar" title="Profile">SA</span>
+          </div>
+        </header>
+        <nav class="sub-nav" aria-label="Quick links">
+          <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+          <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+          <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Accounts Dropdown Groups</h2>
+      <p class="demo-intro">Non-clickable section labels separate CRM customers from finance workflows. Expense Approvals shows a pending-count badge.</p>
+      <div class="demo-box-400">
+        <ul class="top-nav-submenu demo-submenu" style="position:static;box-shadow:none;border:1px solid var(--border);">
+          <li><a href="customer-list.html"><span class="top-nav-submenu-link-label">Customers</span></a></li>
+          <li class="top-nav-submenu-sep" role="separator" aria-hidden="true"><span class="top-nav-submenu-sep-label">Receivables</span></li>
+          <li><a href="accounting-dashboard.html"><span class="top-nav-submenu-link-label">Finance Dashboard</span></a></li>
+          <li><a href="payment-tracking.html"><span class="top-nav-submenu-link-label">Payment Queue</span></a></li>
+          <li><a href="invoice-list.html"><span class="top-nav-submenu-link-label">Invoices</span></a></li>
+          <li><a href="revenue-recording.html"><span class="top-nav-submenu-link-label">Revenue Adjustments</span></a></li>
+          <li class="top-nav-submenu-sep" role="separator" aria-hidden="true"><span class="top-nav-submenu-sep-label">Payables</span></li>
+          <li><a href="expense-list.html"><span class="top-nav-submenu-link-label">Expenses</span></a></li>
+          <li><a href="log-expense.html"><span class="top-nav-submenu-link-label">Log Expense</span></a></li>
+          <li><a href="expense-approvals.html"><span class="top-nav-submenu-link-label">Expense Approvals</span><span class="nav-menu-badge">5</span></a></li>
+          <li><a href="cost-centres.html"><span class="top-nav-submenu-link-label">Cost Centres</span></a></li>
+          <li class="top-nav-submenu-sep" role="separator" aria-hidden="true"><span class="top-nav-submenu-sep-label">Analysis</span></li>
+          <li><a href="financial-reports.html"><span class="top-nav-submenu-link-label">Financial Reports</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Reports Dropdown Groups</h2>
+      <p class="demo-intro">Reports Hub is the default landing. Performance and Management sections group preset analytics screens. Financial Reports stays under Accounts → Analysis; Reports Hub links there for the Financials category.</p>
+      <div class="demo-box-400">
+        <ul class="top-nav-submenu demo-submenu" style="position:static;box-shadow:none;border:1px solid var(--border);">
+          <li><a href="reports-hub.html"><span class="top-nav-submenu-link-label">Reports Hub</span></a></li>
+          <li><a href="report-builder.html"><span class="top-nav-submenu-link-label">Report Builder</span></a></li>
+          <li class="top-nav-submenu-sep" role="separator" aria-hidden="true"><span class="top-nav-submenu-sep-label">Performance</span></li>
+          <li><a href="staff-performance.html"><span class="top-nav-submenu-link-label">Staff Performance</span></a></li>
+          <li><a href="attendance-hr.html"><span class="top-nav-submenu-link-label">Attendance &amp; HR</span></a></li>
+          <li class="top-nav-submenu-sep" role="separator" aria-hidden="true"><span class="top-nav-submenu-sep-label">Management</span></li>
+          <li><a href="consolidated-view.html"><span class="top-nav-submenu-link-label">Consolidated View</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Previous Leads Status Badges</h2>
+      <div class="demo-row">
+        <span class="badge badge-success">SUCCESS</span>
+        <span class="badge badge-closed">CLOSED</span>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Buttons</h2>
+      <div class="demo-row-12">
+        <button class="btn btn-primary">Primary Action</button>
+        <button class="btn btn-secondary">Secondary</button>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Status Badges</h2>
+      <div class="demo-row-wrap">
+        <span class="badge badge-new">New</span>
+        <span class="badge badge-contacted">Contacted</span>
+        <span class="badge badge-quoted">Quoted</span>
+        <span class="badge badge-booked">Booked</span>
+        <span class="badge badge-lost">Lost</span>
+        <span class="badge badge-pending">Pending</span>
+        <span class="badge badge-approved">Approved</span>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Stat Card</h2>
+      <div class="stats-grid stats-grid-2col">
+        <div class="stat-card"><div class="stat-label">New Leads</div><div class="stat-value">24</div><div class="stat-change">↑ 12%</div></div>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Form Field</h2>
+      <div class="demo-box-400">
+        <div class="field"><label>Email address</label><input type="email" value="agent@alsultaniatravel.com"></div>
+        <div class="field"><label>Role</label><select><option>Travel Agent</option></select></div>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Filter Chips</h2>
+      <div class="filters mb-32">
+        <span class="chip active">All</span><span class="chip">WhatsApp</span><span class="chip">Web Form</span>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Pipeline Card</h2>
+      <div class="demo-box-240">
+        <div class="lead-card"><h5>Ahmed Hassan</h5><p>Umrah — Family of 4 · WhatsApp</p><div class="lead-meta"><span class="avatar avatar-sm">SA</span><span>2 min ago</span></div></div>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Timeline Item</h2>
+      <div class="panel demo-box-500">
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Lead auto-created from WhatsApp</strong><p class="timeline-meta">System captured inquiry — 09:14 AM</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>WhatsApp Message Bubble</h2>
+      <div class="demo-box-400">
+        <div class="whatsapp-box"><strong>Auto-reply</strong><p class="wa-text">Your inquiry has been assigned to the next available specialist.</p></div>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>OTP Input Group (Public Inquiry)</h2>
+      <div class="demo-box-400">
+        <div class="field">
+          <label>6-digit code</label>
+          <div class="otp-inputs">
+            <input type="text" maxlength="1" value="4" readonly>
+            <input type="text" maxlength="1" value="8" readonly>
+            <input type="text" maxlength="1" value="2" readonly>
+            <input type="text" maxlength="1" value="9" readonly>
+            <input type="text" maxlength="1" value="1" readonly>
+            <input type="text" maxlength="1" value="5" readonly>
+          </div>
+        </div>
+        <p class="otp-resend">Did not receive a code? <button type="button" class="link-btn">Resend code</button> <span class="otp-timer">(0:42)</span></p>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Step Indicator (Public Flow)</h2>
+      <div class="demo-box-440">
+        <div class="step-indicator">
+          <span class="step done">1. Phone</span>
+          <span class="step active">2. OTP</span>
+          <span class="step">3. Inquiry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Verified Phone Badge</h2>
+      <div class="mb-32">
+        <div class="phone-badge verified-badge">
+          <span class="phone-badge-label">Verified Phone</span>
+          <strong>+971 50 123 4567</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Data Table Row</h2>
+      <div class="panel">
+        <table>
+          <thead><tr><th>Lead</th><th>Source</th><th>Status</th><th>Agent</th></tr></thead>
+          <tbody><tr><td>Ahmed Hassan</td><td>WhatsApp</td><td><span class="badge badge-new">New</span></td><td><span class="avatar">SA</span> Sara A.</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

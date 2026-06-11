@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>25 — Custom Report Builder — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="accounting-dashboard.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Quick links">
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Custom Report Builder</h2><p>Build ad-hoc reports with date range, agent, destination, and status filters — <a href="reports-hub.html">Reports Hub</a></p></div>
+        <div class="topbar-actions">
+          <button class="btn btn-secondary">Export CSV</button>
+          <button class="btn btn-secondary">Export PDF</button>
+          <button class="btn btn-primary">Run Report</button>
+        </div>
+      </header>
+      <div class="content detail-grid">
+        <div>
+          <div class="panel">
+            <div class="panel-header"><h3>Filters</h3></div>
+            <div class="panel-body">
+              <div class="field">
+                <label>Report Type</label>
+                <select>
+                  <option selected>Leads &amp; Conversion</option>
+                  <option>Bookings by Destination</option>
+                  <option>Revenue by Agent</option>
+                  <option>Payment Status</option>
+                </select>
+              </div>
+              <div class="form-grid form-grid-2 mt-12">
+                <div class="field">
+                  <label>Date From</label>
+                  <input type="text" value="01-Jun-2026">
+                </div>
+                <div class="field">
+                  <label>Date To</label>
+                  <input type="text" value="11-Jun-2026">
+                </div>
+              </div>
+              <div class="field mt-12">
+                <label>Agent</label>
+                <select>
+                  <option selected>All Agents</option>
+                  <option>Sara Al-Mansoori</option>
+                  <option>Omar Khan</option>
+                  <option>Layla Mohammed</option>
+                  <option>Rashid Ali</option>
+                </select>
+              </div>
+              <div class="field mt-12">
+                <label>Destination</label>
+                <select>
+                  <option selected>All Destinations</option>
+                  <option>Makkah &amp; Madinah</option>
+                  <option>Jeddah</option>
+                  <option>Paris</option>
+                  <option>London</option>
+                  <option>Istanbul</option>
+                </select>
+              </div>
+              <div class="field mt-12">
+                <label>Status</label>
+                <select>
+                  <option selected>All Statuses</option>
+                  <option>New</option>
+                  <option>Contacted</option>
+                  <option>Quoted</option>
+                  <option>Booked</option>
+                  <option>Lost</option>
+                </select>
+              </div>
+              <div class="field mt-12">
+                <label>Lead Source</label>
+                <select>
+                  <option selected>All Sources</option>
+                  <option>WhatsApp</option>
+                  <option>Website</option>
+                  <option>Walk-in</option>
+                  <option>Referral</option>
+                </select>
+              </div>
+              <div class="mt-12">
+                <button class="btn btn-primary btn-block-left">Run Report</button>
+                <button class="btn btn-secondary btn-block-left mt-12">Save Report</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="panel panel-mb">
+            <div class="panel-header">
+              <h3>Preview — Leads &amp; Conversion</h3>
+              <span class="panel-header-meta">47 rows · 01 Jun – 11 Jun 2026</span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Agent</th>
+                  <th>Leads</th>
+                  <th>Quoted</th>
+                  <th>Booked</th>
+                  <th>Conv %</th>
+                  <th>Revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Sara Al-Mansoori</strong></td>
+                  <td>38</td>
+                  <td>22</td>
+                  <td>11</td>
+                  <td>28.9%</td>
+                  <td>AED 68,400</td>
+                </tr>
+                <tr>
+                  <td><strong>Omar Khan</strong></td>
+                  <td>31</td>
+                  <td>18</td>
+                  <td>9</td>
+                  <td>29.0%</td>
+                  <td>AED 54,200</td>
+                </tr>
+                <tr>
+                  <td><strong>Layla Mohammed</strong></td>
+                  <td>24</td>
+                  <td>14</td>
+                  <td>6</td>
+                  <td>25.0%</td>
+                  <td>AED 38,600</td>
+                </tr>
+                <tr>
+                  <td><strong>Rashid Ali</strong></td>
+                  <td>19</td>
+                  <td>9</td>
+                  <td>4</td>
+                  <td>21.1%</td>
+                  <td>AED 25,220</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td><strong>Team Total</strong></td>
+                  <td>112</td>
+                  <td>63</td>
+                  <td>30</td>
+                  <td>26.8%</td>
+                  <td>AED 186,420</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Saved Reports</h3>
+              <a class="panel-header-meta" href="reports-hub.html">Reports Hub →</a>
+            </div>
+            <div class="panel-body panel-body-sm">
+              <div class="info-row"><span>June Lead Conversion by Source</span><span>Last run today</span></div>
+              <div class="info-row"><span>Umrah Bookings — Q2 2026</span><span>Last run yesterday</span></div>
+              <div class="info-row"><span>Overdue Follow-ups — WhatsApp</span><span>Last run 7 Jun</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

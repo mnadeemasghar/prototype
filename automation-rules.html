@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>29 — Automation Rules — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+      <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+      <nav class="top-nav-menu" aria-label="Main">
+        <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+      </nav>
+      <div class="top-nav-utils">
+        <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+        <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+          <span class="notify-badge">1</span>🔔
+        </button>
+        <span class="top-nav-avatar" title="Administrator">KA</span>
+      </div>
+    </header>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h2>Automation Rules</h2>
+          <p>IF/THEN rule builder — FR-47 · <a href="system-settings.html">System Settings</a> · <a href="workflow-triggers.html">Workflow Triggers</a></p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn-secondary">Export</button>
+          <button type="button" class="btn btn-primary">+ Add Rule</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Active Rules</div>
+            <div class="stat-value">8</div>
+            <div class="stat-change">2 paused</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Triggered Today</div>
+            <div class="stat-value">47</div>
+            <div class="stat-change">WhatsApp 31 · In-app 16</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Lead Routing</div>
+            <div class="stat-value">3</div>
+            <div class="stat-change">Round-robin & assignment</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">FAQ Auto-replies</div>
+            <div class="stat-value">3</div>
+            <div class="stat-change"><a href="system-settings.html">Manage keywords →</a></div>
+          </div>
+        </div>
+
+        <div class="rule-summary-card mb-20">
+          <strong>Rule builder:</strong> When <em>[trigger event]</em> and <em>[conditions]</em> → then <em>[action]</em>.
+          Example: <em>Lead status changes to Quoted</em> → <em>Send WhatsApp template "Quotation sent"</em>.
+        </div>
+
+        <div class="panel">
+          <div class="panel-header"><h3>Active Rules</h3></div>
+          <table>
+            <thead>
+              <tr>
+                <th>Rule</th>
+                <th>Trigger</th>
+                <th>Action</th>
+                <th>Last triggered</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>New lead auto-assign</strong></td>
+                <td>Lead created</td>
+                <td>Round-robin assign to active agent</td>
+                <td>2 min ago</td>
+                <td><span class="badge badge-approved">Active</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Status → Quoted notify</strong></td>
+                <td>Status = Quoted</td>
+                <td>Send WhatsApp to customer</td>
+                <td>Yesterday</td>
+                <td><span class="badge badge-approved">Active</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Payment overdue alert</strong></td>
+                <td>Balance overdue 3 days</td>
+                <td>Notify agent + Sales Manager</td>
+                <td>Yesterday</td>
+                <td><span class="badge badge-approved">Active</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>FAQ visa keyword</strong></td>
+                <td>Message contains "visa"</td>
+                <td>Auto-reply: Visa info template</td>
+                <td>18 min ago</td>
+                <td><span class="badge badge-approved">Active</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>FAQ umrah keyword</strong></td>
+                <td>Message contains "umrah" or "عمرة"</td>
+                <td>Auto-reply: WhatsApp Greeting</td>
+                <td>2 min ago</td>
+                <td><span class="badge badge-approved">Active</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Lead assigned in-app alert</strong></td>
+                <td>Lead assigned to agent</td>
+                <td>Create in-app notification</td>
+                <td>2 min ago</td>
+                <td><span class="badge badge-approved">Active</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Website inquiry notify</strong></td>
+                <td>Public inquiry submitted</td>
+                <td>Assign + notify assigned agent</td>
+                <td>45 min ago</td>
+                <td><span class="badge badge-approved">Active</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>Follow-up reminder</strong></td>
+                <td>No contact 24h after quote</td>
+                <td>Notify agent + schedule WhatsApp</td>
+                <td>2 hr ago</td>
+                <td><span class="badge badge-quoted">Paused</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05b — Verify Phone — Alsultania Travel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-page public-inquiry-page">
+    <section class="login-hero">
+      <div class="brand-mark login-brand-mark">AT</div>
+      <h1>Submit a Travel Inquiry</h1>
+      <p>No account needed. Verify your mobile number with a one-time code, then complete the required inquiry fields — we assign your request to the next available specialist.</p>
+      <div class="login-features">
+        <div class="login-feature"><span>✓</span><span>Secure phone verification via SMS OTP</span></div>
+        <div class="login-feature"><span>✓</span><span>Flights, hotels, visas, Umrah, Hajj &amp; more</span></div>
+        <div class="login-feature"><span>✓</span><span>Auto-assigned to the next available travel specialist</span></div>
+      </div>
+    </section>
+    <section class="login-form-wrap">
+      <div class="login-card public-inquiry-card">
+        <div class="step-indicator">
+          <span class="step active" data-step="1">1. Phone</span>
+          <span class="step" data-step="2">2. OTP</span>
+          <span class="step" data-step="3">3. Inquiry</span>
+        </div>
+
+        <div id="step-phone" class="inquiry-step">
+          <h2>Enter your phone number</h2>
+          <p class="subtitle">We will send a 6-digit verification code by SMS.</p>
+          <div class="field">
+            <label>Mobile number <span class="req">*</span></label>
+            <div class="phone-input-group">
+              <select id="country-code" aria-label="Country code">
+                <option value="+971">+971 UAE</option>
+                <option value="+92">+92 PK</option>
+                <option value="+966">+966 SA</option>
+                <option value="+44">+44 UK</option>
+                <option value="+1">+1 US</option>
+              </select>
+              <input type="tel" id="phone-number" placeholder="50 123 4567" inputmode="numeric" autocomplete="tel-national">
+            </div>
+          </div>
+          <button type="button" id="send-otp-btn" class="btn btn-primary btn-block">Send verification code</button>
+          <p class="public-footer-link"><a href="login.html">Staff sign in →</a></p>
+        </div>
+
+        <div id="step-otp" class="inquiry-step" hidden>
+          <h2>Enter verification code</h2>
+          <p class="subtitle">Code sent to <strong id="otp-phone-display">+971 50 123 4567</strong>. <button type="button" class="link-btn" id="change-phone-btn">Change number</button></p>
+          <div class="field">
+            <label>6-digit code <span class="req">*</span></label>
+            <div class="otp-inputs" id="otp-inputs">
+              <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 1">
+              <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 2">
+              <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 3">
+              <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 4">
+              <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 5">
+              <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 6">
+            </div>
+          </div>
+          <p class="otp-resend">Did not receive a code? <button type="button" class="link-btn" id="resend-otp-btn">Resend code</button> <span class="otp-timer" id="otp-timer">(0:59)</span></p>
+          <button type="button" id="verify-otp-btn" class="btn btn-primary btn-block">Verify &amp; continue</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="nav.js"></script>
+  <script src="inquiry-otp.js"></script>
+</body>
+</html>

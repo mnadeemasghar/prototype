@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>17 — Financial Reports — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="accounting-dashboard.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Finance quick links">
+  <a href="payment-tracking.html?status=overdue" class="sub-nav-item"><span class="sub-nav-icon">⚠</span> Overdue Payments</a>
+  <a href="expense-approvals.html" class="sub-nav-item"><span class="sub-nav-icon">✓</span> Pending Approvals</a>
+  <a href="revenue-recording.html?status=pending" class="sub-nav-item"><span class="sub-nav-icon">◎</span> Pending Revenue</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Financial Reports</h2><p>Preset finance-operational reports — P&amp;L and revenue by agent/destination. <a href="reports-hub.html">More reports in Reports Hub →</a></p></div>
+        <div class="topbar-actions">
+          <select class="search-input" style="width:auto;">
+            <option>This Month</option>
+            <option>Last Month</option>
+            <option>QTD</option>
+          </select>
+          <button class="btn btn-secondary">Export PDF</button>
+          <button class="btn btn-secondary">Export CSV</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="filters filters-mb">
+          <span class="chip active">P&amp;L Summary</span>
+          <span class="chip">Revenue by Agent</span>
+          <span class="chip">Revenue by Destination</span>
+          <span class="chip">Cash Collections</span>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Gross Revenue</div>
+            <div class="stat-value">AED 186,420</div>
+            <div class="stat-change">↑ 14% vs last month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total Expenses</div>
+            <div class="stat-value">AED 56,480</div>
+            <div class="stat-change">68% of budget used</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Net Profit</div>
+            <div class="stat-value">AED 129,940</div>
+            <div class="stat-change">↑ 18% vs last month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Margin</div>
+            <div class="stat-value">69.7%</div>
+            <div class="stat-change">Operating margin</div>
+          </div>
+        </div>
+
+        <div class="panel panel-mb">
+          <div class="panel-header">
+            <h3>Profit &amp; Loss — June 2026</h3>
+            <span class="panel-header-meta">Preset operational report (FR-30)</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Line Item</th>
+                <th>This Month</th>
+                <th>Last Month</th>
+                <th>Change</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Revenue</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Umrah Revenue</td>
+                <td>AED 98,400</td>
+                <td>AED 86,200</td>
+                <td><span class="stat-change">↑ 14%</span></td>
+              </tr>
+              <tr>
+                <td>Tour Revenue</td>
+                <td>AED 42,100</td>
+                <td>AED 38,600</td>
+                <td><span class="stat-change">↑ 9%</span></td>
+              </tr>
+              <tr>
+                <td>Flight Revenue</td>
+                <td>AED 28,500</td>
+                <td>AED 24,800</td>
+                <td><span class="stat-change">↑ 15%</span></td>
+              </tr>
+              <tr>
+                <td>Hotel &amp; Visa Revenue</td>
+                <td>AED 17,420</td>
+                <td>AED 14,200</td>
+                <td><span class="stat-change">↑ 23%</span></td>
+              </tr>
+              <tr>
+                <td><strong>Total Revenue</strong></td>
+                <td><strong>AED 186,420</strong></td>
+                <td><strong>AED 163,800</strong></td>
+                <td><span class="stat-change">↑ 14%</span></td>
+              </tr>
+              <tr>
+                <td><strong>Expenses</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Supplier Expenses (Flights, Hotels)</td>
+                <td>(AED 33,800)</td>
+                <td>(AED 31,200)</td>
+                <td><span class="stat-change">↑ 8%</span></td>
+              </tr>
+              <tr>
+                <td>Operating Expenses</td>
+                <td>(AED 12,800)</td>
+                <td>(AED 11,400)</td>
+                <td><span class="stat-change">↑ 12%</span></td>
+              </tr>
+              <tr>
+                <td>Marketing &amp; Admin</td>
+                <td>(AED 9,880)</td>
+                <td>(AED 8,600)</td>
+                <td><span class="stat-change">↑ 15%</span></td>
+              </tr>
+              <tr>
+                <td><strong>Total Expenses</strong></td>
+                <td><strong>(AED 56,480)</strong></td>
+                <td><strong>(AED 51,200)</strong></td>
+                <td><span class="stat-change">↑ 10%</span></td>
+              </tr>
+              <tr>
+                <td><strong>Net Profit</strong></td>
+                <td><strong>AED 129,940</strong></td>
+                <td><strong>AED 112,600</strong></td>
+                <td><span class="stat-change">↑ 15%</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="detail-grid">
+          <div class="panel">
+            <div class="panel-header"><h3>Revenue by Agent</h3><span class="panel-header-meta">Top 5 · June 2026</span></div>
+            <table>
+              <thead>
+                <tr><th>Agent</th><th>Revenue</th><th>Bookings</th><th>Share</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Sara Al-Mansoori</td><td>AED 68,400</td><td>14</td><td>37%</td></tr>
+                <tr><td>Omar Khalid</td><td>AED 52,100</td><td>11</td><td>28%</td></tr>
+                <tr><td>Fatima Noor</td><td>AED 38,200</td><td>9</td><td>20%</td></tr>
+                <tr><td>Yusuf Ahmed</td><td>AED 18,720</td><td>5</td><td>10%</td></tr>
+                <tr><td>Layla Hassan</td><td>AED 9,000</td><td>3</td><td>5%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><h3>Revenue by Destination</h3><span class="panel-header-meta">Top categories · June 2026</span></div>
+            <table>
+              <thead>
+                <tr><th>Destination / Type</th><th>Revenue</th><th>Bookings</th><th>Share</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Umrah — Makkah &amp; Madinah</td><td>AED 98,400</td><td>18</td><td>53%</td></tr>
+                <tr><td>Europe Tours</td><td>AED 28,600</td><td>8</td><td>15%</td></tr>
+                <tr><td>Flights DXB–LHR</td><td>AED 18,200</td><td>12</td><td>10%</td></tr>
+                <tr><td>Dubai Hotels</td><td>AED 14,800</td><td>6</td><td>8%</td></tr>
+                <tr><td>Visa Services</td><td>AED 12,420</td><td>22</td><td>7%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p class="timeline-meta" style="margin-top:24px;">For custom reports, scheduling, and sales/agent analytics, use <a href="reports-hub.html">Reports Hub</a> →</p>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

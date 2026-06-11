@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>26 — Notifications Center — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+      <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+      <nav class="top-nav-menu" aria-label="Main">
+        <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+      </nav>
+      <div class="top-nav-utils">
+        <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+        <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+          <span class="notify-badge">3</span>🔔
+        </button>
+        <span class="top-nav-avatar" title="Sara Al-Mansoori">SA</span>
+      </div>
+    </header>
+    <nav class="sub-nav" aria-label="Quick links">
+      <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+      <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+      <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+    </nav>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h2>Notifications Center</h2>
+          <p>In-app alert feed — FR-43, FR-44</p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn-secondary">Mark all read</button>
+          <button type="button" class="btn btn-secondary">Export</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Alerts</div>
+            <div class="stat-value">24</div>
+            <div class="stat-change">Last 7 days</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Unread</div>
+            <div class="stat-value">3</div>
+            <div class="stat-change">Requires attention</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Lead Alerts</div>
+            <div class="stat-value">11</div>
+            <div class="stat-change">Assignments & follow-ups</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Payment Alerts</div>
+            <div class="stat-value">6</div>
+            <div class="stat-change">Received & overdue</div>
+          </div>
+        </div>
+
+        <div class="filters filters-mb">
+          <span class="chip active">All (24)</span>
+          <span class="chip">Unread (3)</span>
+          <span class="chip">Leads</span>
+          <span class="chip">Payments</span>
+          <span class="chip">System</span>
+        </div>
+
+        <div class="panel">
+          <ul class="notification-feed">
+            <li class="notification-item unread">
+              <span class="notify-icon" aria-hidden="true">📋</span>
+              <div>
+                <strong>Lead assigned to you</strong> — Ahmed Hassan (<a href="lead-detail.html">#LD-1042</a>) · Umrah inquiry via WhatsApp
+                <div class="notify-time">2 min ago</div>
+              </div>
+            </li>
+            <li class="notification-item unread">
+              <span class="notify-icon" aria-hidden="true">💬</span>
+              <div>
+                <strong>WhatsApp capture pending</strong> — New message from +971 56 111 2233 · <a href="whatsapp-inbox.html">Open inbox</a>
+                <div class="notify-time">18 min ago</div>
+              </div>
+            </li>
+            <li class="notification-item">
+              <span class="notify-icon" aria-hidden="true">💰</span>
+              <div>
+                <strong>Payment received</strong> — BK-2088 · AED 4,500 deposit from Ahmed Hassan
+                <div class="notify-time">1 hr ago</div>
+              </div>
+            </li>
+            <li class="notification-item unread">
+              <span class="notify-icon" aria-hidden="true">⏰</span>
+              <div>
+                <strong>Follow-up due</strong> — Fatima Khan (<a href="lead-detail.html">#LD-1041</a>) · Quoted 48 hours ago, no response
+                <div class="notify-time">2 hr ago</div>
+              </div>
+            </li>
+            <li class="notification-item">
+              <span class="notify-icon" aria-hidden="true">✅</span>
+              <div>
+                <strong>Expense approved</strong> — EXP-441 · Visa processing fee · AED 850
+                <div class="notify-time">Yesterday</div>
+              </div>
+            </li>
+            <li class="notification-item">
+              <span class="notify-icon" aria-hidden="true">📋</span>
+              <div>
+                <strong>Lead status changed</strong> — Rashid Ali (<a href="lead-detail.html">#LD-1038</a>) moved to Quoted
+                <div class="notify-time">Yesterday</div>
+              </div>
+            </li>
+            <li class="notification-item">
+              <span class="notify-icon" aria-hidden="true">⚠️</span>
+              <div>
+                <strong>Payment overdue</strong> — BK-2072 · Balance AED 3,200 due 3 days ago · <a href="payment-tracking.html">Payment Queue</a>
+                <div class="notify-time">Yesterday</div>
+              </div>
+            </li>
+            <li class="notification-item">
+              <span class="notify-icon" aria-hidden="true">🔧</span>
+              <div>
+                <strong>Automation rule triggered</strong> — FAQ visa keyword auto-reply sent to +971 56 111 2233
+                <div class="notify-time">2 days ago</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

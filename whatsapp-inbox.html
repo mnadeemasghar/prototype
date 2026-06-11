@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>08 — WhatsApp Inbox — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+      <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+      <nav class="top-nav-menu" aria-label="Main">
+        <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+      </nav>
+      <div class="top-nav-utils">
+        <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+        <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+          <span class="notify-badge">3</span>🔔
+        </button>
+        <span class="top-nav-avatar" title="Sara Al-Mansoori">SA</span>
+      </div>
+    </header>
+    <nav class="sub-nav" aria-label="Quick links">
+      <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+      <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+      <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+    </nav>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h2>WhatsApp Inbox</h2>
+          <p>Incoming messages, auto-capture, FAQ replies — FR-17, FR-18, AUTO-01</p>
+        </div>
+        <div class="topbar-actions">
+          <input type="search" placeholder="Search conversations..." class="search-input">
+          <a class="btn btn-primary" href="leads-create.html">+ New Lead</a>
+        </div>
+      </header>
+      <div class="content">
+        <div class="filters filters-mb">
+          <span class="chip active">All (12)</span>
+          <span class="chip">Unread (3)</span>
+          <span class="chip">Pending capture (1)</span>
+          <span class="chip">Assigned to me (5)</span>
+        </div>
+
+        <div class="inbox-layout">
+          <aside class="panel inbox-list">
+            <div class="panel-header"><h3>Conversations</h3></div>
+            <a href="#" class="inbox-item active unread">
+              <strong>Ahmed Hassan</strong>
+              <div class="inbox-item-preview">Assalamualaikum, I need Umrah package for family of 3 in December.</div>
+              <div class="inbox-item-meta"><span>2 min ago</span><span class="badge badge-booked">#LD-1042</span></div>
+            </a>
+            <a href="#" class="inbox-item unread">
+              <strong>Unknown · +971 56 111 2233</strong>
+              <div class="inbox-item-preview">Do you have Dubai visa? How much is the processing fee?</div>
+              <div class="inbox-item-meta"><span>18 min ago</span><span class="badge badge-new">Capture pending</span></div>
+            </a>
+            <a href="#" class="inbox-item">
+              <strong>Fatima Khan</strong>
+              <div class="inbox-item-preview">Can you update the Paris quote with 4-star hotels only?</div>
+              <div class="inbox-item-meta"><span>1 hr ago</span><span class="badge badge-contacted">#LD-1041</span></div>
+            </a>
+            <a href="#" class="inbox-item">
+              <strong>Rashid Ali</strong>
+              <div class="inbox-item-preview">Business class DXB-LON options for next week?</div>
+              <div class="inbox-item-meta"><span>3 hr ago</span><span class="badge badge-quoted">#LD-1038</span></div>
+            </a>
+            <a href="#" class="inbox-item">
+              <strong>Layla Mohammed</strong>
+              <div class="inbox-item-preview">Thank you for the booking confirmation. When do we get tickets?</div>
+              <div class="inbox-item-meta"><span>Yesterday</span><span class="badge badge-booked">#LD-1035</span></div>
+            </a>
+            <a href="#" class="inbox-item">
+              <strong>Unknown · +971 54 888 9900</strong>
+              <div class="inbox-item-preview">Hotel in Jeddah near Haram for 2 nights</div>
+              <div class="inbox-item-meta"><span>Yesterday</span><span class="badge badge-new">Capture pending</span></div>
+            </a>
+          </aside>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h3>Ahmed Hassan · +971 50 123 4567</h3>
+              <a class="btn btn-secondary btn-sm" href="lead-detail.html">View Lead #LD-1042</a>
+            </div>
+            <div class="panel-body">
+              <div class="inbox-capture-banner">
+                <strong>Lead linked.</strong> Auto-captured from WhatsApp · Assigned to Sara Al-Mansoori · <a href="lead-detail.html">Open lead</a>
+              </div>
+
+              <div class="whatsapp-box wa-inbound">
+                <strong>Customer · 09:12 AM</strong>
+                <p class="wa-text">Assalamualaikum, I need Umrah package for family of 3 in December.</p>
+              </div>
+              <div class="whatsapp-box">
+                <strong>Auto-reply · 09:12 AM</strong>
+                <p class="wa-text">Your inquiry has been assigned to Sara. She will respond shortly.</p>
+              </div>
+              <div class="whatsapp-box wa-inbound">
+                <strong>Customer · 09:14 AM</strong>
+                <p class="wa-text">Prefer 4-star hotels near Haram. Makkah 5 nights, Madina 4 nights.</p>
+              </div>
+              <div class="whatsapp-box">
+                <strong>Sara Al-Mansoori · 09:18 AM</strong>
+                <p class="wa-text">Wa alaikum assalam Ahmed! I have premium packages available. Sending quotation shortly.</p>
+              </div>
+
+              <div class="inbox-reply">
+                <textarea placeholder="Type a WhatsApp reply…"></textarea>
+                <button type="button" class="btn btn-primary">Send</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

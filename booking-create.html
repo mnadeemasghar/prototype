@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11a — New Booking — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Quick links">
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h2>New Booking</h2>
+          <p><a class="back-link" href="booking-list.html">← Back to Bookings</a> · Creates a Draft booking linked to customer and optional lead</p>
+        </div>
+      </header>
+      <div class="content detail-grid">
+        <div>
+          <div class="panel panel-mb">
+            <div class="panel-header"><h3>Booking Details</h3></div>
+            <div class="panel-body">
+              <div class="field">
+                <label>Customer <span class="req">*</span></label>
+                <select>
+                  <option>Ahmed Hassan · +971 50 123 4567</option>
+                  <option>Fatima Khan · +971 55 987 6543</option>
+                  <option>— Create from lead —</option>
+                </select>
+              </div>
+              <div class="field mt-12">
+                <label>Linked Lead</label>
+                <select>
+                  <option>#LD-1042 — Ahmed Hassan · Umrah · Booked</option>
+                  <option>None</option>
+                </select>
+              </div>
+              <div class="form-grid form-grid-2 mt-12">
+                <div class="field">
+                  <label>Package Type <span class="req">*</span></label>
+                  <select>
+                    <option>Umrah</option>
+                    <option>Tour</option>
+                    <option>Flight</option>
+                    <option>Hotel</option>
+                    <option>Visa</option>
+                    <option>Package</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Assigned Agent</label>
+                  <select>
+                    <option>Sara Al-Mansoori</option>
+                    <option>Omar Khan</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field mt-12">
+                <label>Destination <span class="req">*</span></label>
+                <input type="text" value="Makkah 5N · Madina 4N">
+              </div>
+              <div class="form-grid form-grid-2 mt-12">
+                <div class="field">
+                  <label>Departure Date</label>
+                  <input type="text" value="15-Jun-2026">
+                </div>
+                <div class="field">
+                  <label>Return Date</label>
+                  <input type="text" value="24-Jun-2026">
+                </div>
+              </div>
+              <div class="form-grid form-grid-3 mt-12">
+                <div class="field">
+                  <label>Adults</label>
+                  <select><option>2</option></select>
+                </div>
+                <div class="field">
+                  <label>Children</label>
+                  <select><option>1</option></select>
+                </div>
+                <div class="field">
+                  <label>Infants</label>
+                  <select><option>0</option></select>
+                </div>
+              </div>
+              <div class="form-grid form-grid-2 mt-12">
+                <div class="field">
+                  <label>Total Amount (AED) <span class="req">*</span></label>
+                  <input type="text" value="18,500">
+                </div>
+                <div class="field">
+                  <label>Deposit Amount (AED)</label>
+                  <input type="text" value="9,250">
+                </div>
+              </div>
+              <div class="field mt-12">
+                <label>Notes</label>
+                <textarea rows="3">Family of 3, prefer 4-star hotels near Haram.</textarea>
+              </div>
+              <div class="mt-12">
+                <button class="btn btn-primary" data-href="booking-detail.html">Create Draft Booking</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="panel panel-mb">
+            <div class="panel-header"><h3>Prefill from Lead</h3></div>
+            <div class="panel-body-sm">
+              <p class="timeline-meta">When opened from Lead Detail (status Booked), customer, lead link, package type, destination, dates, and travelers copy from the lead. Booking starts in <span class="badge badge-pending">Draft</span> until deposit is recorded on Booking Detail.</p>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><h3>Next Steps</h3></div>
+            <div class="panel-body-info">
+              <div class="info-row"><span>1</span><span>Save as Draft booking</span></div>
+              <div class="info-row"><span>2</span><span>Generate invoice on Booking Detail</span></div>
+              <div class="info-row"><span>3</span><span>Record deposit payment → auto-confirm</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

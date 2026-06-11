@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10 — Customer Profile — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="accounting-dashboard.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Quick links">
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h2>Ahmed Hassan — Customer since Mar 2024</h2>
+          <p>
+            <a class="back-link" href="customer-list.html">← Back to Customers</a>
+            · <span class="badge badge-booked">VIP</span>
+            · <span class="badge badge-contacted">Repeat</span>
+            · 3 bookings
+            · AED 9,250 outstanding
+          </p>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn btn-secondary">Send WhatsApp</button>
+          <a class="btn btn-secondary" href="lead-detail.html">View Originating Lead</a>
+          <a class="btn btn-primary" href="booking-create.html">Create Booking</a>
+        </div>
+      </header>
+      <div class="content detail-grid">
+        <div>
+          <div class="panel panel-mb">
+            <div class="panel-header"><h3>Contact &amp; Preferences</h3></div>
+            <div class="panel-body-info">
+              <div class="info-row"><span>Phone</span><span>+971 50 123 4567</span></div>
+              <div class="info-row"><span>Email</span><span>ahmed.hassan@email.com</span></div>
+              <div class="info-row"><span>Location</span><span>Dubai, UAE</span></div>
+              <div class="info-row"><span>Language</span><span>Arabic, English</span></div>
+              <div class="info-row"><span>Hotel Preference</span><span>4–5 star · Haram view</span></div>
+              <div class="info-row"><span>Tags</span><span><span class="badge badge-booked">VIP</span> <span class="badge badge-contacted">Umrah</span> <span class="badge badge-contacted">Family</span></span></div>
+              <div class="info-row"><span>Branch</span><span>Dubai HQ</span></div>
+              <div class="info-row"><span>Notes</span><span>Prefers WhatsApp contact. Family of 3 — repeat Umrah client.</span></div>
+            </div>
+          </div>
+
+          <div class="panel panel-mb">
+            <div class="panel-header"><h3>Originating Lead</h3></div>
+            <div class="panel-body-info">
+              <div class="info-row"><span>Lead ID</span><span><a href="lead-detail.html">#LD-1042</a></span></div>
+              <div class="info-row"><span>Lead Type</span><span>Umrah</span></div>
+              <div class="info-row"><span>Lead Via</span><span>WhatsApp</span></div>
+              <div class="info-row"><span>Converted</span><span>03-Mar-2024</span></div>
+              <div class="info-row"><span>Assigned Agent</span><span>Sara Al-Mansoori</span></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header"><h3>Activity Timeline</h3></div>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Deposit payment received</strong><p class="timeline-meta">#BK-0847 · AED 9,250 · Bank transfer · 03-Jun-2026</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Booking confirmed</strong><p class="timeline-meta">#BK-0847 · Draft → Confirmed after deposit · 03-Jun-2026</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Booking created</strong><p class="timeline-meta">#BK-0847 · Umrah · Makkah &amp; Madinah · Sara A. · 03-Jun-2026</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Lead converted to customer</strong><p class="timeline-meta">From #LD-1042 · 03-Mar-2024</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="stats-grid stats-grid-2col panel-mb">
+            <div class="stat-card">
+              <div class="stat-label">Lifetime Value</div>
+              <div class="stat-value">AED 42,300</div>
+              <div class="stat-change">Across 3 bookings</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Total Bookings</div>
+              <div class="stat-value">3</div>
+              <div class="stat-change">1 active · 2 completed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Outstanding</div>
+              <div class="stat-value">AED 9,250</div>
+              <div class="stat-change">#BK-0847 balance</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Last Contact</div>
+              <div class="stat-value">03-Jun</div>
+              <div class="stat-change">WhatsApp · Payment follow-up</div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Booking History</h3>
+              <a class="panel-header-meta" href="booking-list.html">All bookings →</a>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Booking</th>
+                  <th>Destination</th>
+                  <th>Dates</th>
+                  <th>Status</th>
+                  <th>Payment</th>
+                  <th>Amount</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-href="booking-detail.html">
+                  <td><a href="booking-detail.html">#BK-0847</a></td>
+                  <td>Makkah &amp; Madinah · Umrah</td>
+                  <td>15 Jun – 24 Jun 2026</td>
+                  <td><span class="badge badge-booked">Confirmed</span></td>
+                  <td><span class="badge badge-contacted">Partial</span></td>
+                  <td>AED 18,500</td>
+                  <td><a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View</a></td>
+                </tr>
+                <tr data-href="booking-detail.html">
+                  <td><a href="booking-detail.html">#BK-0712</a></td>
+                  <td>Makkah &amp; Madinah · Umrah</td>
+                  <td>10 Dec 2025 – 20 Dec 2025</td>
+                  <td><span class="badge badge-success">Completed</span></td>
+                  <td><span class="badge badge-success">Paid</span></td>
+                  <td>AED 16,800</td>
+                  <td><a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View</a></td>
+                </tr>
+                <tr data-href="booking-detail.html">
+                  <td><a href="booking-detail.html">#BK-0589</a></td>
+                  <td>Madinah Only · Umrah</td>
+                  <td>5 Apr 2024 – 12 Apr 2024</td>
+                  <td><span class="badge badge-success">Completed</span></td>
+                  <td><span class="badge badge-success">Paid</span></td>
+                  <td>AED 7,000</td>
+                  <td><a class="btn btn-secondary btn-sm btn-inline" href="booking-detail.html">View</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

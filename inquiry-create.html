@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05c — Submit Inquiry — Alsultania Travel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="public-inquiry-shell">
+    <header class="public-inquiry-header">
+      <div class="public-brand">
+        <div class="brand-mark">AT</div>
+        <div>
+          <h1>Alsultania Travel</h1>
+          <p>Travel &amp; Tourism · Dubai, UAE</p>
+        </div>
+      </div>
+      <div class="public-header-actions">
+        <div class="phone-badge verified-badge">
+          <span class="phone-badge-label">Verified Phone</span>
+          <strong id="verified-phone">+971 50 123 4567</strong>
+        </div>
+        <a href="inquiry-otp.html" class="btn btn-secondary btn-sm">Change number</a>
+      </div>
+    </header>
+
+    <div class="public-inquiry-body">
+      <div class="step-indicator step-indicator-inline">
+        <span class="step done" data-step="1">1. Phone</span>
+        <span class="step done" data-step="2">2. OTP</span>
+        <span class="step active" data-step="3">3. Inquiry</span>
+      </div>
+
+      <div class="lead-create-grid public-inquiry-grid">
+        <form id="lead-create-form" class="panel lead-create-form">
+          <div class="panel-header">
+            <h3>Your Travel Inquiry</h3>
+            <p class="subtitle-note">Complete all required fields (<span class="req">*</span>). After submit, your inquiry is assigned to the next available specialist.</p>
+          </div>
+          <div class="form-body">
+            <p class="form-section-label">Your Details</p>
+            <div class="form-grid form-grid-2">
+              <div class="field">
+                <label>Your Name <span class="req">*</span></label>
+                <input type="text" name="customer_name" placeholder="YOUR NAME" required>
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Optional — for updates">
+              </div>
+              <div class="field">
+                <label>Service Type <span class="req">*</span></label>
+                <select id="lead-type" name="lead_type" required>
+                  <option value="FLIGHT">Flight</option>
+                  <option value="HOTEL">Hotel</option>
+                  <option value="VISA">Visa</option>
+                  <option value="TOUR">Tour</option>
+                  <option value="UMRAH">Umrah</option>
+                  <option value="HAJJ">Hajj</option>
+                  <option value="INSURANCE">Insurance</option>
+                  <option value="PACKAGE">Package</option>
+                  <option value="OTHER">Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Your City</label>
+                <input type="text" name="customer_location" placeholder="CITY">
+              </div>
+            </div>
+            <input type="hidden" name="lead_via" value="Website">
+
+            <p class="form-section-label" id="type-section-title">Flight</p>
+            <div id="type-section"></div>
+
+            <p class="form-section-label">Dates &amp; Travelers</p>
+            <div class="form-grid form-grid-2">
+              <div class="field date-field">
+                <label id="departure-label">Departure</label>
+                <div class="date-toggle">
+                  <input type="checkbox" id="departure-enabled" name="departure_enabled">
+                  <input type="date" id="departure-date" name="departure_date" disabled>
+                </div>
+              </div>
+              <div class="field date-field">
+                <label id="return-label">Return</label>
+                <div class="date-toggle">
+                  <input type="checkbox" id="return-enabled" name="return_enabled">
+                  <input type="date" id="return-date" name="return_date" disabled>
+                </div>
+              </div>
+              <div class="field">
+                <label>Adult</label>
+                <select name="adults">
+                  <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Child</label>
+                <select name="children">
+                  <option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Infant</label>
+                <select name="infants">
+                  <option selected>0</option><option>1</option><option>2</option><option>3</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Additional Notes (Optional)</label>
+              <textarea name="remarks" rows="3" placeholder="Tell us anything else we should know"></textarea>
+            </div>
+
+            <p class="public-assignment-note">After you submit, your inquiry is assigned to the next available travel specialist. We typically respond within a few hours during business hours.</p>
+
+            <button type="submit" class="btn btn-success btn-block">Submit Inquiry</button>
+            <p class="public-footer-link centered"><a href="login.html">Staff sign in →</a></p>
+          </div>
+        </form>
+
+        <div class="panel previous-leads-panel">
+          <div class="panel-header">
+            <h3><span class="previous-count">2</span> Your Previous Inquiries</h3>
+          </div>
+          <div class="previous-leads-table-wrap">
+            <table class="previous-leads-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Created</th>
+                  <th>Type</th>
+                  <th>Subject</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1080</td>
+                  <td>06-Jun-26</td>
+                  <td>Hotel</td>
+                  <td>1 Room Economy in JED (Room Only)</td>
+                  <td><span class="badge badge-quoted">Quoted</span></td>
+                </tr>
+                <tr>
+                  <td>1028</td>
+                  <td>20-May-26</td>
+                  <td>Flight</td>
+                  <td>LHE - KHI (OW) Economy</td>
+                  <td><span class="badge badge-contacted">Contacted</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+  <script src="lead-form-shared.js"></script>
+  <script src="inquiry-create.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 — Master Screen Flow — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="flow-page">
+    <div class="flow-header">
+      <h1>Alsultania Travel CRM — Master Screen Flow</h1>
+      <p>Phase 0 Blueprint | All 4 Phases | 37 Application Screens</p>
+      <div class="flow-nav-links">
+        <a href="cover.html">← Cover</a>
+        <a href="login.html">Open Prototype →</a>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Phase 1 — Core CRM (16 screens)</h2>
+      <div class="flow-steps">
+        <a class="flow-card" href="inquiry-otp.html"><strong>05b Verify Phone</strong><span>Public website · SMS OTP</span></a>
+        <a class="flow-card" href="inquiry-create.html"><strong>05c Public Inquiry</strong><span>Required fields · auto-assign agent</span></a>
+        <a class="flow-card" href="inquiry-success.html"><strong>05d Submitted</strong><span>Reference ID · next steps</span></a>
+        <a class="flow-card" href="login.html"><strong>01 Login</strong><span>RBAC auth</span></a>
+        <a class="flow-card" href="user-management.html"><strong>02 Users</strong><span>User management</span></a>
+        <a class="flow-card" href="roles-permissions.html"><strong>03 Roles</strong><span>Permissions matrix</span></a>
+        <a class="flow-card" href="dashboard.html"><strong>04 Dashboard</strong><span>KPIs &amp; activity</span></a>
+        <a class="flow-card" href="leads-list.html"><strong>05 Leads</strong><span>List &amp; filters</span></a>
+        <a class="flow-card" href="leads-create.html"><strong>05a Create Lead</strong><span>Type-specific form</span></a>
+        <a class="flow-card" href="pipeline.html"><strong>06 Pipeline</strong><span>Kanban stages</span></a>
+      </div>
+      <div class="flow-steps">
+        <a class="flow-card" href="lead-detail.html"><strong>07 Lead Detail</strong><span>Timeline &amp; WhatsApp</span></a>
+        <a class="flow-card" href="whatsapp-inbox.html"><strong>08 WhatsApp</strong><span>Inbox &amp; auto-capture</span></a>
+        <a class="flow-card" href="customer-list.html"><strong>09 Customers</strong><span>Customer list</span></a>
+        <a class="flow-card" href="customer-profile.html"><strong>10 Profile</strong><span>Customer profile</span></a>
+        <a class="flow-card" href="booking-list.html"><strong>11 Bookings</strong><span>Booking list</span></a>
+        <a class="flow-card" href="booking-detail.html"><strong>12 Booking Detail</strong><span>Itinerary &amp; docs</span></a>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Phase 2 — Financials &amp; HR (11 screens)</h2>
+      <div class="flow-steps">
+        <a class="flow-card" href="accounting-dashboard.html"><strong>13 Finance Dashboard</strong><span>Revenue &amp; work queues</span></a>
+        <a class="flow-card" href="revenue-recording.html"><strong>14 Revenue</strong><span>Record revenue</span></a>
+        <a class="flow-card" href="invoice-list.html"><strong>15 Invoices</strong><span>Generate &amp; send</span></a>
+        <a class="flow-card" href="payment-tracking.html"><strong>16 Payment Queue</strong><span>Outstanding &amp; overdue</span></a>
+        <a class="flow-card" href="financial-reports.html"><strong>17 Fin Reports</strong><span>P&amp;L reports</span></a>
+        <a class="flow-card" href="expense-list.html"><strong>18 Expenses</strong><span>Expense list</span></a>
+      </div>
+      <div class="flow-steps">
+        <a class="flow-card" href="log-expense.html"><strong>19 Log Expense</strong><span>Budget tracking</span></a>
+        <a class="flow-card" href="expense-approvals.html"><strong>20 Approvals</strong><span>Approval queue</span></a>
+        <a class="flow-card" href="staff-performance.html"><strong>21 Performance</strong><span>Agent metrics</span></a>
+        <a class="flow-card" href="attendance-hr.html"><strong>22 Attendance</strong><span>HR reports</span></a>
+        <a class="flow-card" href="cost-centres.html"><strong>23 Cost Centres</strong><span>Allocation</span></a>
+      </div>
+    </div>
+
+    <div class="phase-section">
+      <h2>Phase 3 — Automation &amp; Scale (10 screens)</h2>
+      <div class="flow-steps">
+        <a class="flow-card" href="reports-hub.html"><strong>24 Reports Hub</strong><span>Report categories</span></a>
+        <a class="flow-card" href="report-builder.html"><strong>25 Builder</strong><span>Custom reports</span></a>
+        <a class="flow-card" href="notifications-center.html"><strong>26 Notifications</strong><span>Alert center</span></a>
+        <a class="flow-card" href="communication-templates.html"><strong>27 Templates</strong><span>WhatsApp/email</span></a>
+        <a class="flow-card" href="channel-settings.html"><strong>28 Channels</strong><span>API settings</span></a>
+      </div>
+      <div class="flow-steps">
+        <a class="flow-card" href="automation-rules.html"><strong>29 Automation</strong><span>IF/THEN rules</span></a>
+        <a class="flow-card" href="workflow-triggers.html"><strong>30 Triggers</strong><span>Scheduled tasks</span></a>
+        <a class="flow-card" href="multi-branch.html"><strong>31 Branches</strong><span>Multi-branch mgmt</span></a>
+        <a class="flow-card" href="consolidated-view.html"><strong>32 Consolidated</strong><span>Cross-branch KPIs</span></a>
+        <a class="flow-card" href="system-settings.html"><strong>33 Settings</strong><span>Global config</span></a>
+      </div>
+    </div>
+
+    <div class="panel index-panel">
+      <h3>Automation Highlights (Proposal §2)</h3>
+      <ul class="index-list">
+        <li>WhatsApp inquiries auto-captured as CRM leads</li>
+        <li>Scheduled follow-ups, greetings, payment reminders</li>
+        <li>Auto-triggered notifications on status changes</li>
+        <li>FAQ auto-replies via keyword matching</li>
+        <li>Fair lead rotation among active agents</li>
+        <li>Public website inquiries via phone OTP — no customer login</li>
+      </ul>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

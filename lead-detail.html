@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>07 — Lead Detail — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Quick links">
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Ahmed Hassan — #LD-1042</h2><p><a class="back-link" href="leads-list.html">← Back to Leads</a> · Umrah · Makkah 5N · Madina 4N · Premium · <span class="badge badge-new">New</span></p></div>
+        <div class="topbar-actions">
+          <button class="btn btn-secondary">Send WhatsApp</button>
+          <button class="btn btn-primary">Create Quotation</button>
+        </div>
+      </header>
+      <div class="content detail-grid">
+        <div>
+          <div class="panel panel-mb">
+            <div class="panel-header"><h3>Lead Information</h3></div>
+            <div class="panel-body-info">
+              <div class="info-row"><span>Customer Name</span><span>Ahmed Hassan</span></div>
+              <div class="info-row"><span>Phone</span><span>+971 50 123 4567</span></div>
+              <div class="info-row"><span>Email</span><span>ahmed.hassan@email.com</span></div>
+              <div class="info-row"><span>Lead Type</span><span>Umrah</span></div>
+              <div class="info-row"><span>Subject</span><span>Makkah 5N · Madina 4N · Premium</span></div>
+              <div class="info-row"><span>Lead Via</span><span>WhatsApp</span></div>
+              <div class="info-row"><span>Customer Location</span><span>Dubai</span></div>
+              <div class="info-row"><span>Travelers</span><span>2 Adults · 1 Child · 0 Infant</span></div>
+              <div class="info-row"><span>Travel Dates</span><span>Departure 15-Dec-2026 · Return 28-Dec-2026</span></div>
+              <div class="info-row"><span>Type Details</span><span>Route: Jeddah — Makkah — Madina · Makkah 5 nights · Madina 4 nights · Package: Premium</span></div>
+              <div class="info-row"><span>Remarks</span><span>Family of 3, prefer 4-star hotels near Haram</span></div>
+              <div class="info-row"><span>Assigned Agent</span><span>Sara Al-Mansoori (Takeover)</span></div>
+              <div class="info-row"><span>Created</span><span>07-Jun-2026 09:14 AM</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><h3>Activity Timeline</h3></div>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Lead created manually</strong><p class="timeline-meta">Sara Al-Mansoori · Takeover · 09:14 AM</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Subject auto-generated</strong><p class="timeline-meta">Makkah 5N · Madina 4N · Premium</p></div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Lead auto-created from WhatsApp</strong><p class="timeline-meta">Inbound message linked to phone +971 50 123 4567</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="panel panel-mb">
+            <div class="panel-header"><h3>WhatsApp Conversation</h3></div>
+            <div class="panel-body-sm">
+              <div class="whatsapp-box wa-inbound"><strong>Customer</strong><p class="wa-text">Assalamualaikum, I need Umrah package for family of 3 in December.</p></div>
+              <div class="whatsapp-box"><strong>Auto-reply</strong><p class="wa-text">Your inquiry has been assigned to Sara. She will respond shortly.</p></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><h3>Quick Actions</h3></div>
+            <div class="action-stack">
+              <button class="btn btn-primary btn-block-left">Create Booking</button>
+              <button class="btn btn-secondary btn-block-left">Change Status → Contacted</button>
+              <button class="btn btn-secondary btn-block-left">Reassign Agent</button>
+              <button class="btn btn-secondary btn-block-left">Convert to Customer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>30 — Workflow Triggers — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+      <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+      <nav class="top-nav-menu" aria-label="Main">
+        <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+      </nav>
+      <div class="top-nav-utils">
+        <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+        <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+          <span class="notify-badge">1</span>🔔
+        </button>
+        <span class="top-nav-avatar" title="Administrator">KA</span>
+      </div>
+    </header>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h2>Workflow Triggers</h2>
+          <p>Scheduled tasks and reminder schedules — FR-48 · <a href="automation-rules.html">Automation Rules</a></p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn-secondary">Export</button>
+          <button type="button" class="btn btn-primary">+ Add Schedule</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Active Schedules</div>
+            <div class="stat-value">6</div>
+            <div class="stat-change">1 paused</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Runs Today</div>
+            <div class="stat-value">12</div>
+            <div class="stat-change">All successful</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Next Run</div>
+            <div class="stat-value">42 min</div>
+            <div class="stat-change">WhatsApp queue sync</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Reminders Sent</div>
+            <div class="stat-value">18</div>
+            <div class="stat-change">Today's 09:00 batch</div>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="panel">
+            <div class="panel-header"><h3>Scheduled Tasks</h3></div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Schedule</th>
+                  <th>Task</th>
+                  <th>Audience</th>
+                  <th>Next run</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Daily 09:00</td>
+                  <td><strong>Follow-up reminders</strong></td>
+                  <td>Agents with due leads</td>
+                  <td>Tomorrow 09:00</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>Daily 08:30</td>
+                  <td><strong>Payment due digest</strong></td>
+                  <td>Finance team</td>
+                  <td>Tomorrow 08:30</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>Mon 07:00</td>
+                  <td><strong>Weekly pipeline summary</strong></td>
+                  <td>Sales managers</td>
+                  <td>Mon 16 Jun 07:00</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>Hourly</td>
+                  <td><strong>WhatsApp queue sync</strong></td>
+                  <td>System</td>
+                  <td>In 42 min</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>Daily 18:00</td>
+                  <td><strong>End-of-day lead summary</strong></td>
+                  <td>Sales managers</td>
+                  <td>Today 18:00</td>
+                  <td><span class="badge badge-approved">Active</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td>Daily 10:00</td>
+                  <td><strong>Quoted lead check-in</strong></td>
+                  <td>Assigned agents</td>
+                  <td>Tomorrow 10:00</td>
+                  <td><span class="badge badge-quoted">Paused</span></td>
+                  <td><button type="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header"><h3>Recent Runs</h3></div>
+            <div class="panel-body">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div>
+                    <strong>Follow-up reminders</strong>
+                    <p class="timeline-meta">18 reminders sent · 09:00 AM · Success</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div>
+                    <strong>Payment due digest</strong>
+                    <p class="timeline-meta">4 overdue bookings flagged · 08:30 AM · Success</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div>
+                    <strong>WhatsApp queue sync</strong>
+                    <p class="timeline-meta">12 messages processed · 08:00 AM · Success</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div>
+                    <strong>WhatsApp queue sync</strong>
+                    <p class="timeline-meta">8 messages processed · 07:00 AM · Success</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

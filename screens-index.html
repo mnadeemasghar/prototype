@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Screen Index — Alsultania CRM Blueprint QA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="proto-topbar"><a href="cover.html">Cover</a><a href="index.html">Screen Flow</a><a href="login.html">Prototype</a><span class="proto-topbar-current">Screen Index</span></nav>
+  <div class="flow-page">
+    <h1>Blueprint Screen Index — QA</h1>
+    <p class="text-muted-md mb-32">40 frames · 37 application screens + cover + components + ERD</p>
+    <div class="panel">
+      <table>
+        <thead><tr><th>#</th><th>Screen</th><th>File</th><th>Phase</th><th>Fidelity</th></tr></thead>
+        <tbody id="list"></tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    const screens = [
+      ['—','Cover & Index','cover.html','Phase 0'],
+      ['—','Master Screen Flow','index.html','Phase 0'],
+      ['—','Component Library','components.html','Phase 0'],
+      ['—','Data Architecture ERD','data-architecture.html','Phase 0'],
+      ['01','Login','login.html','Phase 1'],
+      ['02','User Management','user-management.html','Phase 1','Full mockup'],
+      ['03','Roles & Permissions','roles-permissions.html','Phase 1','Full mockup'],
+      ['04','Dashboard','dashboard.html','Phase 1'],
+      ['05','Leads List','leads-list.html','Phase 1'],
+      ['05a','Create Lead (Staff)','leads-create.html','Phase 1'],
+      ['05b','Verify Phone (OTP — Public Website)','inquiry-otp.html','Phase 1'],
+      ['05c','Public Inquiry Form (Required Fields)','inquiry-create.html','Phase 1'],
+      ['05d','Inquiry Submitted (Confirmation)','inquiry-success.html','Phase 1'],
+      ['06','Lead Pipeline','pipeline.html','Phase 1'],
+      ['07','Lead Detail','lead-detail.html','Phase 1'],
+      ['08','WhatsApp Inbox','whatsapp-inbox.html','Phase 1','Full mockup'],
+      ['09','Customer List','customer-list.html','Phase 1','Full mockup'],
+      ['10','Customer Profile','customer-profile.html','Phase 1','Full mockup'],
+      ['11','Booking List','booking-list.html','Phase 1'],
+      ['11a','New Booking','booking-create.html','Phase 1'],
+      ['12','Booking Detail','booking-detail.html','Phase 1'],
+      ['13','Finance Dashboard','accounting-dashboard.html','Phase 2','Full mockup'],
+      ['14','Revenue Adjustments','revenue-recording.html','Phase 2','Full mockup'],
+      ['15','Invoice List','invoice-list.html','Phase 2','Full mockup'],
+      ['16','Payment Queue','payment-tracking.html','Phase 2','Full mockup'],
+      ['17','Financial Reports','financial-reports.html','Phase 2','Full mockup'],
+      ['18','Expense List','expense-list.html','Phase 2','Full mockup'],
+      ['19','Log Expense','log-expense.html','Phase 2','Full mockup'],
+      ['20','Expense Approvals','expense-approvals.html','Phase 2','Full mockup'],
+      ['21','Staff Performance','staff-performance.html','Phase 2','Full mockup'],
+      ['22','Attendance & HR','attendance-hr.html','Phase 2','Full mockup'],
+      ['23','Cost Centres','cost-centres.html','Phase 2','Full mockup'],
+      ['24','Reports Hub','reports-hub.html','Phase 3','Full mockup'],
+      ['25','Report Builder','report-builder.html','Phase 3','Full mockup'],
+      ['26','Notifications','notifications-center.html','Phase 3','Full mockup'],
+      ['27','Templates','communication-templates.html','Phase 3','Full mockup'],
+      ['28','Channel Settings','channel-settings.html','Phase 3','Full mockup'],
+      ['29','Automation Rules','automation-rules.html','Phase 3','Full mockup'],
+      ['30','Workflow Triggers','workflow-triggers.html','Phase 3','Full mockup'],
+      ['31','Multi-Branch','multi-branch.html','Phase 3','Full mockup'],
+      ['32','Consolidated View','consolidated-view.html','Phase 3','Full mockup'],
+      ['33','System Settings','system-settings.html','Phase 3','Full mockup'],
+    ];
+    document.getElementById('list').innerHTML = screens.map((row) => {
+      const [n,t,f,p,fid='Wireframe'] = row;
+      return `<tr><td>${n}</td><td><a href="${f}">${t}</a></td><td>${f}</td><td>${p}</td><td>${fid}</td></tr>`;
+    }).join('');
+  </script>
+  <script src="nav.js"></script>
+</body>
+</html>

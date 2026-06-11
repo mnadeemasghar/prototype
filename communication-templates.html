@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>27 — Communication Templates — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+      <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+      <nav class="top-nav-menu" aria-label="Main">
+        <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="customer-list.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+        <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+      </nav>
+      <div class="top-nav-utils">
+        <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+        <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+          <span class="notify-badge">1</span>🔔
+        </button>
+        <span class="top-nav-avatar" title="Administrator">KA</span>
+      </div>
+    </header>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h2>Communication Templates</h2>
+          <p>WhatsApp and email templates with variables — FR-45 · <a href="channel-settings.html">Channel Settings</a></p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn-secondary">Export</button>
+          <button type="button" class="btn btn-primary">+ New Template</button>
+        </div>
+      </header>
+      <div class="content">
+        <div class="template-layout">
+          <aside class="panel">
+            <div class="panel-header"><h3>Templates</h3></div>
+            <ul class="template-list">
+              <li><a href="#" class="active">WhatsApp Greeting<div class="template-meta">Auto-reply on new lead · WhatsApp</div></a></li>
+              <li><a href="#">Follow-up — 24h no response<div class="template-meta">Scheduled reminder · WhatsApp</div></a></li>
+              <li><a href="#">Payment reminder — balance due<div class="template-meta">Payment workflow · WhatsApp</div></a></li>
+              <li><a href="#">Quotation sent confirmation<div class="template-meta">Status trigger · WhatsApp</div></a></li>
+              <li><a href="#">Visa info auto-reply<div class="template-meta">FAQ keyword · WhatsApp</div></a></li>
+              <li><a href="#">Booking confirmation<div class="template-meta">Post-booking · Email</div></a></li>
+            </ul>
+          </aside>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h3>WhatsApp Greeting</h3>
+              <span class="badge badge-contacted">WhatsApp</span>
+            </div>
+            <div class="panel-body">
+              <div class="info-row"><span>Template ID</span><span>TPL-WA-001</span></div>
+              <div class="info-row"><span>Trigger</span><span>New lead auto-capture (AUTO-01)</span></div>
+              <div class="info-row"><span>Last updated</span><span>05-Jun-2026 by Khalid Admin</span></div>
+
+              <h4 class="mt-24 mb-16">Message body</h4>
+              <div class="template-editor-body">Assalamualaikum {{customer_name}},
+
+Thank you for contacting Al-Sultania Travel. Your inquiry ({{lead_ref}}) has been assigned to {{agent_name}}. They will respond shortly.
+
+For urgent matters, reply to this message.</div>
+
+              <div class="template-vars">
+                <code>{{customer_name}}</code>
+                <code>{{agent_name}}</code>
+                <code>{{lead_ref}}</code>
+                <code>{{lead_type}}</code>
+                <code>{{branch_name}}</code>
+              </div>
+
+              <div class="topbar-actions mt-24">
+                <button type="button" class="btn btn-secondary">Preview</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

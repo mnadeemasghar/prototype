@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>24 — Reports Hub — Alsultania CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell app-shell-topnav">
+    <header class="top-nav">
+  <a href="dashboard.html" class="top-nav-brand">Al-Sultania Travel</a>
+  <nav class="top-nav-menu" aria-label="Main">
+    <a class="top-nav-link" href="leads-list.html" data-nav="Leads">Leads <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="booking-list.html" data-nav="Bookings">Bookings <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="accounting-dashboard.html" data-nav="Accounts">Accounts <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="whatsapp-inbox.html" data-nav="Tools">Tools <span class="nav-caret">▾</span></a>
+    <a class="top-nav-link" href="reports-hub.html" data-nav="Reports">Reports <span class="nav-caret">▾</span></a>
+  </nav>
+  <div class="top-nav-utils">
+    <button type="button" class="top-nav-icon-btn" title="Search" aria-label="Search">⌕</button>
+    <button type="button" class="top-nav-icon-btn top-nav-notify" title="Notifications" aria-label="Notifications">
+      <span class="notify-badge">1</span>🔔
+    </button>
+    <span class="top-nav-avatar" title="Profile">SA</span>
+  </div>
+</header>
+<nav class="sub-nav" aria-label="Quick links">
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">📅</span> My Reminders</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">＋</span> Add Reminder</a>
+  <a href="#" class="sub-nav-item"><span class="sub-nav-icon">🔗</span> Links</a>
+</nav>
+    <div class="main">
+      <header class="topbar">
+        <div><h2>Reports Hub</h2><p>Report categories across sales, bookings, financials, and agent performance — preset <a href="financial-reports.html">Financial Reports</a> live under Accounts → Analysis</p></div>
+        <div class="topbar-actions">
+          <input type="search" placeholder="Search reports..." class="search-input">
+          <a class="btn btn-secondary" href="report-builder.html">Report Builder</a>
+        </div>
+      </header>
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Preset Reports</div>
+            <div class="stat-value">18</div>
+            <div class="stat-change">Across 5 categories</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Saved Custom Reports</div>
+            <div class="stat-value">7</div>
+            <div class="stat-change"><a href="report-builder.html">Open in Builder →</a></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Scheduled Exports</div>
+            <div class="stat-value">3</div>
+            <div class="stat-change">Weekly · Monthly runs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Exports This Month</div>
+            <div class="stat-value">42</div>
+            <div class="stat-change">CSV 28 · PDF 14</div>
+          </div>
+        </div>
+
+        <div class="panel panel-mb">
+          <div class="panel-header">
+            <h3>Report Categories</h3>
+            <span class="panel-header-meta">FR-40 — launch preset and linked reports</span>
+          </div>
+          <div class="panel-body">
+            <div class="module-grid">
+              <a class="module-card" href="report-builder.html">
+                <h3>Sales</h3>
+                <p>Lead funnel, conversion by source, quoted vs booked pipeline</p>
+              </a>
+              <a class="module-card" href="report-builder.html">
+                <h3>Bookings</h3>
+                <p>Confirmed bookings by type, destination, and travel month</p>
+              </a>
+              <a class="module-card" href="financial-reports.html">
+                <h3>Financials</h3>
+                <p>P&amp;L, revenue by agent and destination — Accounts preset reports</p>
+              </a>
+              <a class="module-card" href="staff-performance.html">
+                <h3>Agent Performance</h3>
+                <p>Leaderboard, conversion %, response time, revenue per agent</p>
+              </a>
+              <a class="module-card" href="attendance-hr.html">
+                <h3>HR &amp; Attendance</h3>
+                <p>Check-in/out log, leave balance, productivity exports</p>
+              </a>
+              <a class="module-card" href="consolidated-view.html">
+                <h3>Management</h3>
+                <p>Cross-branch KPIs — leads, bookings, revenue comparison</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Recent &amp; Saved Reports</h3>
+            <a class="panel-header-meta" href="report-builder.html">View all in Builder →</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Report</th>
+                <th>Category</th>
+                <th>Last Run</th>
+                <th>Format</th>
+                <th>Run By</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>June Lead Conversion by Source</strong></td>
+                <td>Sales</td>
+                <td>Today, 09:14</td>
+                <td>CSV</td>
+                <td>Sara Al-Mansoori</td>
+                <td><button class="btn btn-secondary btn-sm">Re-run</button> <button class="btn btn-secondary btn-sm">PDF</button></td>
+              </tr>
+              <tr>
+                <td><strong>Umrah Bookings — Q2 2026</strong></td>
+                <td>Bookings</td>
+                <td>Yesterday</td>
+                <td>PDF</td>
+                <td>Omar Khan</td>
+                <td><button class="btn btn-secondary btn-sm">Re-run</button> <button class="btn btn-secondary btn-sm">PDF</button></td>
+              </tr>
+              <tr>
+                <td><a href="financial-reports.html"><strong>P&amp;L Summary — June 2026</strong></a></td>
+                <td>Financials</td>
+                <td>Yesterday</td>
+                <td>PDF</td>
+                <td>Finance Team</td>
+                <td><button class="btn btn-secondary btn-sm">Re-run</button> <button class="btn btn-secondary btn-sm">PDF</button></td>
+              </tr>
+              <tr>
+                <td><a href="staff-performance.html"><strong>Agent Leaderboard — This Month</strong></a></td>
+                <td>Agent Performance</td>
+                <td>10 Jun 2026</td>
+                <td>CSV</td>
+                <td>Admin</td>
+                <td><button class="btn btn-secondary btn-sm">Re-run</button> <button class="btn btn-secondary btn-sm">PDF</button></td>
+              </tr>
+              <tr>
+                <td><a href="consolidated-view.html"><strong>Branch Revenue Comparison</strong></a></td>
+                <td>Management</td>
+                <td>8 Jun 2026</td>
+                <td>PDF</td>
+                <td>Admin</td>
+                <td><button class="btn btn-secondary btn-sm">Re-run</button> <button class="btn btn-secondary btn-sm">PDF</button></td>
+              </tr>
+              <tr>
+                <td><strong>Overdue Follow-ups — WhatsApp Leads</strong></td>
+                <td>Sales</td>
+                <td>7 Jun 2026</td>
+                <td>CSV</td>
+                <td>Sara Al-Mansoori</td>
+                <td><button class="btn btn-secondary btn-sm">Re-run</button> <button class="btn btn-secondary btn-sm">PDF</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="nav.js"></script>
+</body>
+</html>

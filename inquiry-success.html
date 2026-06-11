@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05d — Inquiry Submitted — Alsultania Travel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-page public-inquiry-page">
+    <section class="login-hero">
+      <div class="brand-mark login-brand-mark">AT</div>
+      <h1>Thank you for your inquiry</h1>
+      <p>A travel specialist from Alsultania will contact you on your verified number. You can submit another inquiry anytime without signing in.</p>
+    </section>
+    <section class="login-form-wrap">
+      <div class="login-card public-inquiry-card success-card">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h2>Inquiry received</h2>
+        <p class="subtitle">Reference <strong>#LD-1084</strong> · Status <span class="badge badge-new">New</span></p>
+        <div class="success-summary panel">
+          <p class="success-summary-label">What happens next</p>
+          <ul class="success-steps">
+            <li>Your inquiry is assigned to the next available travel specialist</li>
+            <li>A specialist reviews your requirements and may call or WhatsApp you</li>
+            <li>You receive updates on the same verified phone number</li>
+          </ul>
+        </div>
+        <a href="inquiry-create.html" class="btn btn-primary btn-block">Submit another inquiry</a>
+        <a href="inquiry-otp.html" class="btn btn-secondary btn-block mt-8">Verify a different number</a>
+        <p class="public-footer-link"><a href="login.html">Staff sign in →</a></p>
+      </div>
+    </section>
+  </div>
+  <script src="nav.js"></script>
+  <script>
+    if (!sessionStorage.getItem('alsultania_verified_phone')) {
+      location.href = 'inquiry-otp.html';
+    }
+  </script>
+</body>
+</html>
