@@ -419,6 +419,9 @@
     if (text.includes('Create Booking')) {
       btn.addEventListener('click', function () { location.href = 'booking-create.html'; });
     }
+    if (text.includes('Create Quotation')) {
+      btn.addEventListener('click', function () { location.href = 'quotation-create.html'; });
+    }
   });
 
   document.querySelectorAll('.action-stack .btn').forEach(function (btn) {
