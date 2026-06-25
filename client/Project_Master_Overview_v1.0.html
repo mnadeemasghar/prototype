@@ -300,7 +300,7 @@
 <h2 id="2-what-this-project-is">2. What This Project Is</h2>
 <p>A <strong>full-stack travel agency CRM</strong> that unifies:</p>
 <ul>
-<li>Lead capture, assignment, and pipeline management — including <strong>public website inquiry</strong> (phone OTP → required fields → auto-assign to next available agent)</li>
+<li>Lead capture, assignment, and pipeline management — including <strong>guest inquiry on login page</strong> (phone OTP → required fields → auto-assign to next available agent)</li>
 <li>Customer profiles and booking workflows</li>
 <li>Financial accounting, invoicing, and expense controls</li>
 <li>Staff performance and HR metrics</li>
@@ -514,12 +514,12 @@
 <td>Staff create lead interactivity</td>
 </tr>
 <tr>
-<td><code>inquiry-otp.js</code> / <code>inquiry-create.js</code></td>
-<td>Public website OTP verification + inquiry form submit</td>
+<td><code>login.js</code> / <code>inquiry-create.js</code></td>
+<td>Guest inquiry OTP on login page + inquiry form submit</td>
 </tr>
 </tbody></table>
-<h3 id="public-website-inquiry-flow-phase-1">Public website inquiry flow (Phase 1)</h3>
-<p>Customers submit leads on the agency <strong>public website</strong> (<code>/inquiry</code>) without CRM login. Full spec: <a href="requirements/SRS.md"><code>requirements/SRS.md</code></a> <a href="requirements/SRS.md#1a-public-inquiry-flow-customer-pre-login">Appendix C §1a</a>.</p>
+<h3 id="guest-inquiry-flow-phase-1">Guest inquiry flow (Phase 1)</h3>
+<p>Guests submit leads on the <strong>login page</strong> (Submit inquiry tab) without CRM login. Staff use the same page with email and password only. Full spec: <a href="requirements/SRS.md"><code>requirements/SRS.md</code></a> <a href="requirements/SRS.md#1a-public-inquiry-flow-customer-pre-login">Appendix C §1a</a>.</p>
 <table>
 <thead>
 <tr>
@@ -530,18 +530,18 @@
 </thead>
 <tbody><tr>
 <td>1</td>
-<td><code>inquiry-otp.html</code> (05b)</td>
-<td>Customer enters mobile number; system sends 6-digit SMS OTP</td>
+<td><code>login.html</code> (01 — guest tab)</td>
+<td>Guest enters mobile number; system sends 6-digit SMS OTP</td>
 </tr>
 <tr>
 <td>2</td>
-<td><code>inquiry-otp.html</code> (05b)</td>
-<td>Customer verifies OTP; verified phone stored in session</td>
+<td><code>login.html</code> (01 — guest tab)</td>
+<td>Guest verifies OTP; verified phone stored in session</td>
 </tr>
 <tr>
 <td>3</td>
 <td><code>inquiry-create.html</code> (05c)</td>
-<td>Customer completes <strong>required</strong> fields (name, service type, type-specific fields, dates &amp; travelers)</td>
+<td>Guest completes <strong>required</strong> fields (name, service type, type-specific fields, dates &amp; travelers)</td>
 </tr>
 <tr>
 <td>4</td>
@@ -551,7 +551,7 @@
 <tr>
 <td>5</td>
 <td><code>inquiry-success.html</code> (05d)</td>
-<td>Customer sees confirmation with reference ID (agent assignment is internal)</td>
+<td>Guest sees confirmation with reference ID (agent assignment is internal)</td>
 </tr>
 </tbody></table>
 <p>Staff Create Lead (<code>leads-create.html</code>) uses the same field model but requires CRM login and manual <strong>Lead Handling</strong> (Takeover / Others / Transfer).</p>
@@ -568,8 +568,8 @@
 <td><code>login.html</code> → <code>dashboard.html</code> → <code>leads-create.html</code></td>
 </tr>
 <tr>
-<td><strong>Public website inquiry</strong> (no login)</td>
-<td><code>inquiry-otp.html</code> → <code>inquiry-create.html</code> → <code>inquiry-success.html</code></td>
+<td><strong>Guest inquiry</strong> (no login)</td>
+<td><code>login.html</code> (guest tab) → <code>inquiry-create.html</code> → <code>inquiry-success.html</code></td>
 </tr>
 <tr>
 <td>Lead lifecycle</td>
@@ -648,7 +648,7 @@
 <hr>
 <h2 id="7-delivery-phases-modules">7. Delivery Phases &amp; Modules</h2>
 <h3 id="phase-1-core-crm-screens-0112">Phase 1 — Core CRM (Screens 01–12)</h3>
-<p>Authentication, RBAC, dashboard, advanced lead management (staff create + <strong>public website inquiry with OTP and auto-assignment</strong>), pipeline, WhatsApp inbox, customers, bookings.</p>
+<p>Authentication, RBAC, dashboard, advanced lead management (staff create + <strong>guest inquiry on login page with OTP and auto-assignment</strong>), pipeline, WhatsApp inbox, customers, bookings.</p>
 <p><strong>Key specs:</strong> SRS §4.1 (FR-18*, AUTO-02), SRS <a href="requirements/SRS.md#1a-public-inquiry-flow-customer-pre-login">Appendix C §1a</a> (public), <a href="requirements/SRS.md#2-user-flow-staff">Appendix C §2</a> (staff)</p>
 <h3 id="phase-2-financials-hr-screens-1323">Phase 2 — Financials &amp; HR (Screens 13–23)</h3>
 <p>Accounting dashboard, revenue, invoices, payments, financial reports, expenses, approvals, staff performance, attendance, cost centres.</p>
@@ -729,7 +729,7 @@
 </thead>
 <tbody><tr>
 <td>01</td>
-<td>Login</td>
+<td>Login (Staff sign-in + guest inquiry OTP)</td>
 <td><code>prototype/login.html</code></td>
 </tr>
 <tr>
@@ -759,8 +759,8 @@
 </tr>
 <tr>
 <td>05b</td>
-<td>Verify Phone (OTP) — Public Website</td>
-<td><code>prototype/inquiry-otp.html</code></td>
+<td>Guest Phone &amp; OTP (Login page tab)</td>
+<td><code>prototype/login.html</code> (guest tab)</td>
 </tr>
 <tr>
 <td>05c</td>

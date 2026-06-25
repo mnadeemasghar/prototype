@@ -227,7 +227,7 @@
 <hr>
 <h2 id="overview">Overview</h2>
 <p>Every lead in the Alsultania CRM is tracked through a <strong>six-stage pipeline</strong>. Agents see this pipeline as a Kanban board on the <strong>Pipeline</strong> screen and as a status badge on each <strong>Lead Detail</strong> page.</p>
-<p>All new leads — whether created by staff, submitted on the public website, or captured from WhatsApp — start at <strong>New</strong>.</p>
+<p>All new leads — whether created by staff, submitted by a guest on the login page, or captured from WhatsApp — start at <strong>New</strong>.</p>
 <hr>
 <h2 id="lifecycle-diagram">Lifecycle diagram</h2>
 <div class="mermaid-wrap"><pre class="mermaid">stateDiagram-v2
@@ -346,8 +346,8 @@
 <td>Agent creates a lead from the Dashboard, Leads List, Pipeline, or WhatsApp Inbox. Status defaults to <strong>New</strong>. Assignment follows the agent’s Lead Handling choice (handle myself, create for another agent, or transfer).</td>
 </tr>
 <tr>
-<td><strong>Public website</strong></td>
-<td>Customer verifies their phone with a one-time SMS code, completes the inquiry form, and submits. Status is set to <strong>New</strong>, <code>lead_via</code> is Website, and the lead is auto-assigned to the next available agent. The customer sees a confirmation reference only.</td>
+<td><strong>Guest inquiry (login page)</strong></td>
+<td>Guest verifies their phone with a one-time SMS code on the login page, completes the inquiry form, and submits. Status is set to <strong>New</strong>, <code>lead_via</code> is Website, and the lead is auto-assigned to the next available agent. The guest sees a confirmation reference only.</td>
 </tr>
 <tr>
 <td><strong>WhatsApp</strong></td>
@@ -407,7 +407,7 @@
 </thead>
 <tbody><tr>
 <td><strong>AUTO-02</strong></td>
-<td>Auto-assigns public website inquiries to the next available active agent on creation</td>
+<td>Auto-assigns guest inquiries to the next available active agent on creation</td>
 </tr>
 <tr>
 <td><strong>AUTO-04</strong></td>

@@ -22,7 +22,7 @@ This document explains how a travel inquiry moves through the CRM from first cap
 
 Every lead in the Alsultania CRM is tracked through a **six-stage pipeline**. Agents see this pipeline as a Kanban board on the **Pipeline** screen and as a status badge on each **Lead Detail** page.
 
-All new leads — whether created by staff, submitted on the public website, or captured from WhatsApp — start at **New**.
+All new leads — whether created by staff, submitted by a guest on the login page, or captured from WhatsApp — start at **New**.
 
 ---
 
@@ -99,7 +99,7 @@ flowchart LR
 | Entry path | What happens |
 |---|---|
 | **Staff** | Agent creates a lead from the Dashboard, Leads List, Pipeline, or WhatsApp Inbox. Status defaults to **New**. Assignment follows the agent’s Lead Handling choice (handle myself, create for another agent, or transfer). |
-| **Public website** | Customer verifies their phone with a one-time SMS code, completes the inquiry form, and submits. Status is set to **New**, `lead_via` is Website, and the lead is auto-assigned to the next available agent. The customer sees a confirmation reference only. |
+| **Guest inquiry (login page)** | Guest verifies their phone with a one-time SMS code on the login page, completes the inquiry form, and submits. Status is set to **New**, `lead_via` is Website, and the lead is auto-assigned to the next available agent. The guest sees a confirmation reference only. |
 | **WhatsApp** | An inbound WhatsApp message is captured in the inbox. The agent creates or links a lead from the conversation. Status starts at **New**. |
 
 ---
@@ -140,7 +140,7 @@ Then open http://127.0.0.1:8765/pipeline.html
 
 | Rule | What it does |
 |---|---|
-| **AUTO-02** | Auto-assigns public website inquiries to the next available active agent on creation |
+| **AUTO-02** | Auto-assigns guest inquiries to the next available active agent on creation |
 | **AUTO-04** | Sends WhatsApp notifications to the agent and customer when lead status changes *(Phase 3 — Automation module)* |
 | **Activity timeline** | Every status change is logged on Lead Detail alongside messages, assignments, and notes |
 

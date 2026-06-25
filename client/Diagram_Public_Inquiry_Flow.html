@@ -51,15 +51,15 @@
   </div>
   <div class="diagram mermaid-wrap">
     <pre class="mermaid">flowchart TD
-  A[Customer opens public website /inquiry] --> B[Enter mobile number]
+  A[Guest opens login page — Submit inquiry tab] --> B[Enter mobile number]
   B --> C[System sends 6-digit SMS OTP]
-  C --> D[Customer enters OTP]
+  C --> D[Guest enters OTP]
   D --> E{OTP valid?}
   E -->|No| F[Show error / allow resend after cooldown]
   F --> D
   E -->|Yes| G[Session marked phone-verified]
   G --> H[Public inquiry form loads]
-  H --> I[Customer fills required fields: name, service type, type fields, dates/travelers]
+  H --> I[Guest fills required fields: name, service type, type fields, dates/travelers]
   I --> J[Optional: view Previous Inquiries for verified phone]
   J --> K[Click Submit Inquiry]
   K --> L[System validates required fields + saves lead]

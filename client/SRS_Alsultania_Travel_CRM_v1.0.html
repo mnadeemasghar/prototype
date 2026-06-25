@@ -288,7 +288,7 @@
 </tr>
 <tr>
 <td><strong>Public Inquiry</strong></td>
-<td>Pre-login lead submission on the public website (<code>/inquiry</code>): phone OTP verification → customer completes required inquiry fields → auto-assignment to next available active agent (round-robin, AUTO-02). <em>In scope only if accepted on Phase 0 Acceptance Form (see §4.1.3b).</em></td>
+<td>Pre-login lead submission on the <strong>login page</strong> (guest tab): phone OTP verification → customer completes required inquiry fields → auto-assignment to next available active agent (round-robin, AUTO-02). <em>In scope only if accepted on Phase 0 Acceptance Form (see §4.1.3b).</em></td>
 </tr>
 </tbody></table>
 <h3 id="14-references">1.4 References</h3>
@@ -727,7 +727,7 @@
 <tbody><tr>
 <td>FR-01</td>
 <td>Login</td>
-<td>User shall authenticate with email, password, and role context</td>
+<td>User shall authenticate with <strong>email and password</strong> only; role and permissions are resolved from the user record (RBAC) after successful authentication</td>
 </tr>
 <tr>
 <td>FR-02</td>
@@ -994,17 +994,17 @@
 <tbody><tr>
 <td>FR-18n</td>
 <td>Public Inquiry</td>
-<td>Customer shall submit a travel inquiry <strong>without CRM login</strong> via a public URL (<code>/inquiry</code>)</td>
+<td>Guest user shall submit a travel inquiry <strong>without CRM login</strong> from the <strong>login page</strong> (Submit inquiry tab)</td>
 </tr>
 <tr>
 <td>FR-18o</td>
 <td>Verify Phone</td>
-<td>Customer shall enter mobile number (E.164 with country code); system shall send a 6-digit SMS OTP</td>
+<td>Guest shall enter mobile number (E.164 with country code) on the login page; system shall send a 6-digit SMS OTP</td>
 </tr>
 <tr>
 <td>FR-18p</td>
 <td>Verify Phone</td>
-<td>Customer shall enter OTP to verify ownership of the phone number before accessing the inquiry form</td>
+<td>Guest shall enter OTP on the login page to verify ownership of the phone number before accessing the inquiry form</td>
 </tr>
 <tr>
 <td>FR-18q</td>
@@ -1014,7 +1014,7 @@
 <tr>
 <td>FR-18r</td>
 <td>Public Inquiry</td>
-<td>Verified customer shall complete required lead capture fields on the public website: customer name, service type (lead type), type-specific required fields per selected type, dates &amp; travelers; optional email, city, and notes; <strong>Lead Handling</strong> and <strong>Lead Via</strong> are excluded (see <a href="#1a2-required-information-public-form">Appendix C §1a.2</a>)</td>
+<td>After phone verification, guest shall complete required lead capture fields: customer name, service type (lead type), type-specific required fields per selected type, dates &amp; travelers; optional email, city, and notes; <strong>Lead Handling</strong> and <strong>Lead Via</strong> are excluded (see <a href="#1a2-required-information-public-form">Appendix C §1a.2</a>)</td>
 </tr>
 <tr>
 <td>FR-18s</td>
@@ -2524,7 +2524,7 @@
 </thead>
 <tbody><tr>
 <td>01</td>
-<td>Login</td>
+<td>Login (Staff sign-in + guest inquiry OTP)</td>
 <td>1</td>
 <td>—</td>
 <td><code>prototype/login.html</code></td>
@@ -2566,10 +2566,10 @@
 </tr>
 <tr>
 <td>05b</td>
-<td>Verify Phone (OTP — Public Website)</td>
+<td>Guest Phone &amp; OTP (Login page tab)</td>
 <td>1</td>
 <td>—</td>
-<td><code>prototype/inquiry-otp.html</code></td>
+<td><code>prototype/login.html</code> (guest tab; <code>inquiry-otp.html</code> redirects)</td>
 </tr>
 <tr>
 <td>05c</td>
@@ -2812,8 +2812,8 @@
 </thead>
 <tbody><tr>
 <td><strong>Public Inquiry</strong></td>
-<td>Website <code>/inquiry</code></td>
-<td><code>prototype/inquiry-otp.html</code> → <code>inquiry-create.html</code> → <code>inquiry-success.html</code></td>
+<td>Login page (guest tab)</td>
+<td><code>prototype/login.html</code> → <code>inquiry-create.html</code> → <code>inquiry-success.html</code></td>
 </tr>
 <tr>
 <td><strong>Staff Create Lead</strong></td>
@@ -2835,9 +2835,9 @@
 </thead>
 <tbody><tr>
 <td><strong>Public Inquiry</strong></td>
-<td>Customer</td>
-<td><strong>No login</strong> — phone verified via SMS OTP</td>
-<td>Public website <code>/inquiry</code></td>
+<td>Guest (customer)</td>
+<td><strong>No login</strong> — phone verified via SMS OTP on login page</td>
+<td>Login page — <strong>Submit inquiry</strong> tab</td>
 <td><strong>Auto-assigned to the next available agent</strong> (round-robin, AUTO-02)</td>
 </tr>
 <tr>
@@ -2877,17 +2877,17 @@
 <p>The <strong>Public Inquiry</strong> form reuses the same type-specific fields and dates/travelers block, but <strong>omits Lead Handling</strong> (assignment is automatic) and sets <strong>Lead Via</strong> to <code>Website</code> without user input.</p>
 <hr>
 <h4 id="1a-public-inquiry-flow-customer-pre-login">1a. Public Inquiry Flow (Customer, Pre-Login)</h4>
-<p>Customers submit travel inquiries on the <strong>public website</strong> without a CRM account. Identity is established by <strong>phone verification</strong> (SMS OTP). After verification, the customer fills the inquiry form with required information; on submit the lead is <strong>auto-assigned to the next available agent</strong> — no manual routing by the customer.</p>
+<p>Customers submit travel inquiries on the <strong>login page</strong> (Submit inquiry tab) without a CRM account. Identity is established by <strong>phone verification</strong> (SMS OTP). After verification, the guest completes the inquiry form with required information; on submit the lead is <strong>auto-assigned to the next available agent</strong> — no manual routing by the customer.</p>
 <div class="mermaid-wrap"><pre class="mermaid">flowchart TD
-    A[Customer opens public website /inquiry] --> B[Enter mobile number]
+    A[Guest opens login page — Submit inquiry tab] --> B[Enter mobile number]
     B --> C[System sends 6-digit SMS OTP]
-    C --> D[Customer enters OTP]
+    C --> D[Guest enters OTP]
     D --> E{OTP valid?}
     E -->|No| F[Show error / allow resend after cooldown]
     F --> D
     E -->|Yes| G[Session marked phone-verified]
     G --> H[Public inquiry form loads]
-    H --> I[Customer fills required fields: name, service type, type fields, dates/travelers]
+    H --> I[Guest fills required fields: name, service type, type fields, dates/travelers]
     I --> J[Optional: view Previous Inquiries for verified phone]
     J --> K[Click Submit Inquiry]
     K --> L[System validates required fields + saves lead]
@@ -2906,19 +2906,19 @@
 </thead>
 <tbody><tr>
 <td>1</td>
-<td>Customer</td>
-<td>Opens <code>/inquiry</code> on the public website (no login)</td>
+<td>Guest</td>
+<td>Opens login page, selects <strong>Submit inquiry</strong> tab (no staff login)</td>
 <td>Shows phone entry + country code</td>
 </tr>
 <tr>
 <td>2</td>
-<td>Customer</td>
+<td>Guest</td>
 <td>Enters mobile number, clicks <strong>Send verification code</strong></td>
 <td>Sends SMS OTP; starts resend cooldown (e.g. 60s)</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Customer</td>
+<td>Guest</td>
 <td>Enters 6-digit OTP</td>
 <td>Validates code against <code>otp_verifications</code> record</td>
 </tr>
@@ -2930,13 +2930,13 @@
 </tr>
 <tr>
 <td>5</td>
-<td>Customer</td>
+<td>Guest</td>
 <td>Completes <strong>required</strong> fields: name, service type, type-specific fields, dates/travelers; optional email, city, notes</td>
 <td>Same field validation as staff form (minus Lead Handling and Lead Via)</td>
 </tr>
 <tr>
 <td>6</td>
-<td>Customer</td>
+<td>Guest</td>
 <td>Submits inquiry</td>
 <td>Lead saved with status <code>New</code>; <strong>auto-assigned to next available active agent</strong> (AUTO-02); confirmation shown with reference ID</td>
 </tr>
@@ -4508,7 +4508,7 @@
 </thead>
 <tbody><tr>
 <td><strong>Purpose</strong></td>
-<td>Public URL for CRM login, public inquiry (<code>/inquiry</code>), and WhatsApp webhook endpoint</td>
+<td>Public URL for CRM login (staff + guest inquiry), and WhatsApp webhook endpoint</td>
 </tr>
 <tr>
 <td><strong>Provisioned by</strong></td>
@@ -4539,12 +4539,12 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>CRM login</td>
+<td>CRM login (staff)</td>
 <td><code>https://{domain}/login</code></td>
 </tr>
 <tr>
-<td>Public inquiry</td>
-<td><code>https://{domain}/inquiry</code></td>
+<td>Guest inquiry (login page tab)</td>
+<td><code>https://{domain}/login</code> (Submit inquiry tab; <code>/inquiry</code> may redirect)</td>
 </tr>
 <tr>
 <td>WhatsApp webhook</td>
@@ -4682,7 +4682,7 @@
 </tr>
 <tr>
 <td><strong>Flow screens</strong></td>
-<td>05b OTP (<code>inquiry-otp.html</code>), 05c Public Inquiry (<code>inquiry-create.html</code>), 05d Submitted (<code>inquiry-success.html</code>)</td>
+<td>01 Login guest tab (phone + OTP), 05c Public Inquiry (<code>inquiry-create.html</code>), 05d Submitted (<code>inquiry-success.html</code>)</td>
 </tr>
 <tr>
 <td><strong>Deep-dive</strong></td>

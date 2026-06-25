@@ -247,7 +247,7 @@ php artisan queue:restart
 <ul>
 <li><input disabled="" type="checkbox"> Login page loads over HTTPS</li>
 <li><input disabled="" type="checkbox"> Admin can log in</li>
-<li><input disabled="" type="checkbox"> Public <code>/inquiry</code> loads and OTP sends (test number)</li>
+<li><input disabled="" type="checkbox"> Login page loads; guest inquiry tab OTP sends (test number)</li>
 <li><input disabled="" type="checkbox"> WhatsApp webhook receives test message</li>
 <li><input disabled="" type="checkbox"> Queue processes jobs (<code>php artisan queue:work</code> running)</li>
 <li><input disabled="" type="checkbox"> Scheduler runs (check <code>storage/logs/</code>)</li>
@@ -286,7 +286,7 @@ php artisan queue:restart
 <li><input disabled="" type="checkbox"> Directory listing disabled</li>
 <li><input disabled="" type="checkbox"> <code>.env</code> not web-accessible</li>
 <li><input disabled="" type="checkbox"> File upload size limits configured</li>
-<li><input disabled="" type="checkbox"> Rate limiting active on <code>/inquiry/*</code> (NFR-12)</li>
+<li><input disabled="" type="checkbox"> Rate limiting active on guest inquiry OTP routes (NFR-12)</li>
 <li><input disabled="" type="checkbox"> Session lifetime configured (NFR-08)</li>
 <li><input disabled="" type="checkbox"> Admin default password changed after first login</li>
 </ul>
