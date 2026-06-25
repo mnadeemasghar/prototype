@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 0 Blueprint Deliverable — Alsultania Travel CRM & Management System</title>
+  <style>
+    @page { size: A4; margin: 22mm 18mm 24mm 18mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #1a1a2e;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cover {
+      page-break-after: always;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 40px;
+      background: linear-gradient(160deg, #0c2d48 0%, #145374 55%, #1a6b8a 100%);
+      color: #fff;
+    }
+    .cover-badge {
+      display: inline-block;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a8d4e8;
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      color: #fff;
+      border: none;
+      padding: 0;
+    }
+    .cover h2 {
+      font-size: 14pt;
+      font-weight: 400;
+      margin: 0 0 40px;
+      color: #d4eaf5;
+      border: none;
+      padding: 0;
+    }
+    .cover-meta {
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+      font-size: 10pt;
+    }
+    .cover-meta dt {
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8ec4dc;
+      margin-bottom: 4px;
+    }
+    .cover-meta dd { margin: 0; color: #fff; font-weight: 500; }
+    .cover-confidential {
+      margin-top: 32px;
+      font-size: 9pt;
+      color: #8ec4dc;
+      font-style: italic;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #0c2d48;
+      line-height: 1.3;
+      page-break-after: avoid;
+    }
+    h1 {
+      font-size: 20pt;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #145374;
+    }
+    h2 {
+      font-size: 14pt;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #c5dde8;
+      page-break-before: always;
+    }
+    .content > h2:first-child,
+    h2#table-of-contents { page-break-before: avoid; }
+    h3 { font-size: 12pt; margin: 20px 0 10px; }
+    h4 { font-size: 11pt; margin: 16px 0 8px; color: #145374; }
+    h5, h6 { font-size: 10.5pt; margin: 12px 0 6px; }
+    p { margin: 0 0 10px; }
+    a { color: #145374; text-decoration: none; }
+    strong { color: #0c2d48; }
+    hr { border: none; border-top: 1px solid #d0dde5; margin: 24px 0; }
+    ul, ol { margin: 0 0 12px; padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    thead { display: table-header-group; }
+    th {
+      background: #0c2d48;
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid #0c2d48;
+    }
+    td {
+      padding: 7px 10px;
+      border: 1px solid #c5dde8;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f4f8fb; }
+    blockquote {
+      margin: 12px 0;
+      padding: 10px 16px;
+      border-left: 4px solid #145374;
+      background: #f0f6fa;
+      color: #2a3f52;
+      font-size: 10pt;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 9pt;
+      background: #eef3f7;
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #0c2d48;
+    }
+    pre {
+      background: #f4f8fb;
+      border: 1px solid #c5dde8;
+      border-radius: 4px;
+      padding: 12px;
+      overflow-x: auto;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      page-break-inside: avoid;
+    }
+    pre code { background: none; padding: 0; }
+    .mermaid-wrap {
+      margin: 16px 0 20px;
+      padding: 12px;
+      background: #fafcfd;
+      border: 1px solid #d0dde5;
+      border-radius: 6px;
+      page-break-inside: avoid;
+      overflow: hidden;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <div class="cover-badge">Confidential — Client Document</div>
+    <h1>Phase 0 Blueprint Deliverable</h1>
+    <h2>Alsultania Travel CRM & Management System</h2>
+    <dl class="cover-meta">
+      
+      <div>
+        <dt>Prepared For</dt>
+        <dd>Alsultania Travel and Tourism Co. L.L.C<br>Dubai, United Arab Emirates</dd>
+      </div>
+      <div>
+        <dt>Prepared By</dt>
+        <dd>AnyMatch Technologies Private Limited</dd>
+      </div>
+      <div>
+        <dt>Phase</dt>
+        <dd>Phase 0 — Rapid Implementation Blueprint</dd>
+      </div>
+      <div>
+        <dt>Screens</dt>
+        <dd>37 application screens + 4 overview frames</dd>
+      </div>
+    </dl>
+    <p class="cover-confidential">This document is confidential and prepared exclusively for Alsultania Travel and Tourism Co. L.L.C and AnyMatch Technologies Private Limited.</p>
+  </section>
+  <main class="content"><h2 id="status-summary">Status Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>Status</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Screen flow mapping (37 screens)</td>
+<td>Complete (HTML prototype)</td>
+<td><strong>Interactive Prototype (40 screens)</strong> — 40 HTML files</td>
+</tr>
+<tr>
+<td>Data architecture ERD</td>
+<td>Complete</td>
+<td><a href="https://www.figma.com/board/CCsaj1dafvaX3xYUJSXuJs">FigJam Board</a></td>
+</tr>
+<tr>
+<td>Master screen flow diagram</td>
+<td>Complete</td>
+<td>Same FigJam board</td>
+</tr>
+<tr>
+<td>Component blueprint library</td>
+<td>Complete (HTML)</td>
+<td><strong>Component Blueprint Library</strong></td>
+</tr>
+<tr>
+<td>Figma design file pages</td>
+<td>Ready for import — 37 blueprint screens captured</td>
+<td>Figma design file (link below)</td>
+</tr>
+<tr>
+<td>FigJam screen flow diagrams</td>
+<td>Complete</td>
+<td>ERD + Master Flow + Phase 1 Detail on same board</td>
+</tr>
+</tbody></table>
+<h2 id="figma-links">Figma Links</h2>
+<ul>
+<li><strong>Design file (target):</strong> <a href="https://www.figma.com/design/mQTFdHu1KppUnKmFy12DLv/design-travel_crm">https://www.figma.com/design/mQTFdHu1KppUnKmFy12DLv/design-travel_crm</a></li>
+<li><strong>FigJam — ERD + Screen Flows:</strong> <a href="https://www.figma.com/board/CCsaj1dafvaX3xYUJSXuJs">https://www.figma.com/board/CCsaj1dafvaX3xYUJSXuJs</a></li>
+</ul>
+<h2 id="local-preview">Local Preview</h2>
+<p>Start server:</p>
+<pre><code class="language-bash">cd C:/laragon/www/travel_crm/prototype &amp;&amp; php -S 127.0.0.1:8765
+</code></pre>
+<p>Key URLs:</p>
+<ul>
+<li>Cover: <a href="http://127.0.0.1:8765/cover.html">http://127.0.0.1:8765/cover.html</a></li>
+<li>Master flow: <a href="http://127.0.0.1:8765/index.html">http://127.0.0.1:8765/index.html</a></li>
+<li>Components: <a href="http://127.0.0.1:8765/components.html">http://127.0.0.1:8765/components.html</a></li>
+<li>Data architecture: <a href="http://127.0.0.1:8765/data-architecture.html">http://127.0.0.1:8765/data-architecture.html</a></li>
+<li>Login (hi-fi): <a href="http://127.0.0.1:8765/login.html">http://127.0.0.1:8765/login.html</a></li>
+<li>Public website inquiry (OTP): <a href="http://127.0.0.1:8765/inquiry-otp.html">http://127.0.0.1:8765/inquiry-otp.html</a></li>
+<li>Public inquiry form (required fields): <a href="http://127.0.0.1:8765/inquiry-create.html">http://127.0.0.1:8765/inquiry-create.html</a></li>
+<li>Inquiry submitted (confirmation): <a href="http://127.0.0.1:8765/inquiry-success.html">http://127.0.0.1:8765/inquiry-success.html</a></li>
+<li>Dashboard (hi-fi): <a href="http://127.0.0.1:8765/dashboard.html">http://127.0.0.1:8765/dashboard.html</a></li>
+</ul>
+<p><strong>Spec:</strong> <a href="../requirements/SRS.md"><code>requirements/SRS.md</code></a> <a href="../requirements/SRS.md#1a-public-inquiry-flow-customer-pre-login">Appendix C §1a</a>.</p>
+<p>Full import manifest: <code>the blueprint import manifest</code></p>
+<h2 id="screen-inventory-37-overview">Screen Inventory (37 + overview)</h2>
+<h3 id="phase-1-core-crm-16">Phase 1 — Core CRM (16)</h3>
+<p>01 Login · 02 User Management · 03 Roles &amp; Permissions · 04 Dashboard · 05 Leads List · 05a Create Lead (Staff) · 05b Verify Phone (OTP — Public Website) · 05c Public Inquiry Form · 05d Inquiry Submitted · 06 Pipeline · 07 Lead Detail · 08 WhatsApp Inbox · 09 Customer List · 10 Customer Profile · 11 Booking List · 12 Booking Detail</p>
+<h3 id="phase-2-financials-hr-11">Phase 2 — Financials &amp; HR (11)</h3>
+<p>13 Accounting Dashboard · 14 Revenue Adjustments · 15 Invoice List · 16 Payment Tracking · 17 Financial Reports · 18 Expense List · 19 Log Expense · 20 Expense Approvals · 21 Staff Performance · 22 Attendance &amp; HR · 23 Cost Centres</p>
+<h3 id="phase-3-automation-scale-10">Phase 3 — Automation &amp; Scale (10)</h3>
+<p>24 Reports Hub · 25 Report Builder · 26 Notifications · 27 Templates · 28 Channel Settings · 29 Automation Rules · 30 Workflow Triggers · 31 Multi-Branch · 32 Consolidated View · 33 System Settings</p>
+</main>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true },
+    });
+    const nodes = document.querySelectorAll('pre.mermaid');
+    if (nodes.length) await mermaid.run({ nodes });
+  </script>
+</body>
+</html>

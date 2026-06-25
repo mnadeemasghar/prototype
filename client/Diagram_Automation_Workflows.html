@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automation & Workflow Rules</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 40px;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      background: #fff;
+    }
+    .header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #145374;
+    }
+    .badge {
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+     text-transform: uppercase;
+      color: #145374;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 18pt;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #0c2d48;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #4a6275;
+      margin: 0;
+    }
+    .diagram {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Reference Diagram — Client Document</div>
+    <h1>Automation & Workflow Rules</h1>
+    <p class="subtitle">Alsultania Travel CRM & Management System</p>
+  </div>
+  <div class="diagram mermaid-wrap">
+    <pre class="mermaid">flowchart LR
+  subgraph Inbound["Inbound Triggers"]
+    WA[WhatsApp message received]
+    Web[Public inquiry submitted]
+    Manual[Staff creates lead]
+  end
+
+  subgraph AUTO01["AUTO-01 WhatsApp Capture"]
+    WA --> Parse[Parse sender phone + message]
+    Parse --> CreateLead[Create or link lead]
+    CreateLead --> Timeline[Log lead_activity]
+  end
+
+  subgraph AUTO02["AUTO-02 Round-Robin Assignment"]
+    Web --> Pool[Active agent pool]
+    Manual --> Pool
+    CreateLead --> Pool
+    Pool --> RR[Select next available agent]
+    RR --> Assign[Set assigned_user_id]
+    Assign --> NotifyAgent[Notify assigned agent]
+  end
+
+  subgraph AUTO03["AUTO-03 Scheduled Follow-ups"]
+    Scheduler[Cron / workflow triggers]
+    Scheduler --> CheckStatus[Check lead status + age]
+    CheckStatus --> SendWA[Send WhatsApp reminder]
+    SendWA --> Timeline
+  end
+
+  subgraph AUTO04["AUTO-04 Status Notifications"]
+    StatusChange[Lead or payment status change]
+    StatusChange --> NotifyBoth[Notify agent + customer via WhatsApp]
+    NotifyBoth --> Timeline
+  end
+
+  subgraph AUTO05["AUTO-05 FAQ Auto-Reply"]
+    WA --> KeywordMatch{Keyword match?}
+    KeywordMatch -->|Yes| AutoReply[Send template reply]
+    KeywordMatch -->|No| Inbox[Route to WhatsApp Inbox]
+  end
+
+  subgraph Admin["AUTO-07 Admin Control"]
+    Rules[Automation Rules UI]
+    Rules --> EnableDisable[Enable/disable per rule]
+  end
+</pre>
+  </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    await mermaid.run({ nodes: document.querySelectorAll('pre.mermaid') });
+  </script>
+</body>
+</html>

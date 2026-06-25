@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 0 Blueprint Acceptance Form — Alsultania Travel CRM & Management System</title>
+  <style>
+    @page { size: A4; margin: 22mm 18mm 24mm 18mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #1a1a2e;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cover {
+      page-break-after: always;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 40px;
+      background: linear-gradient(160deg, #0c2d48 0%, #145374 55%, #1a6b8a 100%);
+      color: #fff;
+    }
+    .cover-badge {
+      display: inline-block;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a8d4e8;
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      color: #fff;
+      border: none;
+      padding: 0;
+    }
+    .cover h2 {
+      font-size: 14pt;
+      font-weight: 400;
+      margin: 0 0 40px;
+      color: #d4eaf5;
+      border: none;
+      padding: 0;
+    }
+    .cover-meta {
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+      font-size: 10pt;
+    }
+    .cover-meta dt {
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8ec4dc;
+      margin-bottom: 4px;
+    }
+    .cover-meta dd { margin: 0; color: #fff; font-weight: 500; }
+    .cover-confidential {
+      margin-top: 32px;
+      font-size: 9pt;
+      color: #8ec4dc;
+      font-style: italic;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #0c2d48;
+      line-height: 1.3;
+      page-break-after: avoid;
+    }
+    h1 {
+      font-size: 20pt;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #145374;
+    }
+    h2 {
+      font-size: 14pt;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #c5dde8;
+      page-break-before: always;
+    }
+    .content > h2:first-child,
+    h2#table-of-contents { page-break-before: avoid; }
+    h3 { font-size: 12pt; margin: 20px 0 10px; }
+    h4 { font-size: 11pt; margin: 16px 0 8px; color: #145374; }
+    h5, h6 { font-size: 10.5pt; margin: 12px 0 6px; }
+    p { margin: 0 0 10px; }
+    a { color: #145374; text-decoration: none; }
+    strong { color: #0c2d48; }
+    hr { border: none; border-top: 1px solid #d0dde5; margin: 24px 0; }
+    ul, ol { margin: 0 0 12px; padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    thead { display: table-header-group; }
+    th {
+      background: #0c2d48;
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid #0c2d48;
+    }
+    td {
+      padding: 7px 10px;
+      border: 1px solid #c5dde8;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f4f8fb; }
+    blockquote {
+      margin: 12px 0;
+      padding: 10px 16px;
+      border-left: 4px solid #145374;
+      background: #f0f6fa;
+      color: #2a3f52;
+      font-size: 10pt;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 9pt;
+      background: #eef3f7;
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #0c2d48;
+    }
+    pre {
+      background: #f4f8fb;
+      border: 1px solid #c5dde8;
+      border-radius: 4px;
+      padding: 12px;
+      overflow-x: auto;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      page-break-inside: avoid;
+    }
+    pre code { background: none; padding: 0; }
+    .mermaid-wrap {
+      margin: 16px 0 20px;
+      padding: 12px;
+      background: #fafcfd;
+      border: 1px solid #d0dde5;
+      border-radius: 6px;
+      page-break-inside: avoid;
+      overflow: hidden;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <div class="cover-badge">Confidential — Client Document</div>
+    <h1>Phase 0 Blueprint Acceptance Form</h1>
+    <h2>Alsultania Travel CRM & Management System</h2>
+    <dl class="cover-meta">
+      
+      <div>
+        <dt>Prepared For</dt>
+        <dd>Alsultania Travel and Tourism Co. L.L.C<br>Dubai, United Arab Emirates</dd>
+      </div>
+      <div>
+        <dt>Prepared By</dt>
+        <dd>AnyMatch Technologies Private Limited</dd>
+      </div>
+      <div>
+        <dt>Version</dt>
+        <dd>1.0</dd>
+      </div>
+      <div>
+        <dt>Date</dt>
+        <dd>11 June 2026</dd>
+      </div>
+      <div>
+        <dt>SRS Baseline</dt>
+        <dd>SRS v1.0 (companion document)</dd>
+      </div>
+    </dl>
+    <p class="cover-confidential">This document is confidential and prepared exclusively for Alsultania Travel and Tourism Co. L.L.C and AnyMatch Technologies Private Limited.</p>
+  </section>
+  <main class="content"><hr>
+<h2 id="purpose">Purpose</h2>
+<p>By signing this form, the Client approves the <strong>Phase 0 Rapid Implementation Blueprint</strong> and accepts <strong>SRS v1.0</strong> as the authoritative requirements baseline for design, development, testing, and acceptance across Phases 1–3.</p>
+<p>This form is submitted together with the Software Requirements Specification. The signed copy is retained outside the repository (email, DocuSign, or other agreed channel).</p>
+<hr>
+<h2 id="referenced-deliverables">Referenced Deliverables</h2>
+<p>The Client confirms review of the following materials:</p>
+<table>
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>Location / Link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Software Requirements Specification</strong></td>
+<td><a href="SRS.md"><code>docs/requirements/SRS.md</code></a> — version <strong>1.0</strong></td>
+</tr>
+<tr>
+<td><strong>Figma design blueprint</strong></td>
+<td><a href="https://www.figma.com/design/mQTFdHu1KppUnKmFy12DLv/design-travel_crm">design-travel_crm</a></td>
+</tr>
+<tr>
+<td><strong>FigJam ERD and screen flows</strong></td>
+<td><a href="https://www.figma.com/board/CCsaj1dafvaX3xYUJSXuJs">FigJam board</a></td>
+</tr>
+<tr>
+<td><strong>Interactive HTML prototype</strong></td>
+<td><strong>Interactive Prototype (cover page)</strong> — preview locally per <strong>Project Master Overview</strong> §10</td>
+</tr>
+<tr>
+<td><strong>Blueprint deliverable summary</strong></td>
+<td><a href="../blueprint/BLUEPRINT_DELIVERABLE.md"><strong>Blueprint Deliverable Summary</strong></a></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="attestation-checklist">Attestation Checklist</h2>
+<p>The Client confirms each item below (per SRS §9.2):</p>
+<ul>
+<li><input disabled="" type="checkbox"> All <strong>37 application screens</strong> reviewed (SRS Appendix A screen inventory)</li>
+<li><input disabled="" type="checkbox"> <strong>Data architecture ERD</strong> reviewed (FigJam board)</li>
+<li><input disabled="" type="checkbox"> <strong>Component blueprint library</strong> reviewed (<strong>Component Blueprint Library</strong>)</li>
+<li><input disabled="" type="checkbox"> Blueprint accepted as <strong>locked baseline</strong> for development (SRS §2.5)</li>
+</ul>
+<hr>
+<h2 id="scope-decision-public-website-inquiry-srs-413b">Scope Decision — Public Website Inquiry (SRS §4.1.3b)</h2>
+<p>The public website inquiry flow (Screens 05b–05d, phone OTP verification, auto-assignment) is a Phase 0 blueprint elaboration under Advanced Lead Management. The Client shall select <strong>one</strong> option:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Accepted</strong></td>
+<td>Screens 05b–05d, FR-18n–FR-18t, EXT-07, SMS gateway dependency, and SRS Appendix C §1a are <strong>in scope</strong> for Phase 1</td>
+</tr>
+<tr>
+<td><strong>Declined</strong></td>
+<td>Public inquiry flow is <strong>out of scope</strong>; leads captured via staff manual entry or other channels only; SMS gateway <strong>not required</strong> for Phase 1 go-live</td>
+</tr>
+</tbody></table>
+<p><strong>Client selection (check one):</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Accepted</strong> — Public Website Inquiry is in scope for Phase 1</li>
+<li><input disabled="" type="checkbox"> <strong>Declined</strong> — Public Website Inquiry is out of scope for Phase 1</li>
+</ul>
+<hr>
+<h2 id="terms-acknowledged">Terms Acknowledged</h2>
+<p>By signing, both parties acknowledge:</p>
+<ul>
+<li>The blueprint defines <strong>structural design</strong> (flows, fields, layouts) — not custom branding beyond the approved structural baseline (SRS §1.2, §2.5)</li>
+<li>Post-approval scope changes require <strong>written agreement</strong> between Client and Vendor</li>
+<li><strong>Client dependencies</strong> (server, WhatsApp API, SMS if accepted, SMTP, etc.) are as listed in SRS §9.6 and Appendix D</li>
+<li><strong>Commercial terms and pricing</strong> remain governed by the accepted proposal only (SRS §9.1.1)</li>
+</ul>
+<hr>
+<h2 id="signatures">Signatures</h2>
+<p>Signatures may be captured on a printed copy, via DocuSign, or by email confirmation from designated project contacts. Record the signed copy reference below after execution.</p>
+<h3 id="client-alsultania-travel-and-tourism-co-llc">Client — Alsultania Travel and Tourism Co. L.L.C</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorized signatory</td>
+<td></td>
+</tr>
+<tr>
+<td>Name / Title</td>
+<td></td>
+</tr>
+<tr>
+<td>Date</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="vendor-anymatch-technologies-private-limited">Vendor — AnyMatch Technologies Private Limited</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorized signatory</td>
+<td></td>
+</tr>
+<tr>
+<td>Name / Title</td>
+<td></td>
+</tr>
+<tr>
+<td>Date</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="post-approval-record">Post-Approval Record</h2>
+<p><em>Completed by Vendor after Client returns signed form.</em></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Approval date</td>
+<td></td>
+</tr>
+<tr>
+<td>Public Inquiry (§4.1.3b)</td>
+<td>Accepted / Declined</td>
+</tr>
+<tr>
+<td>Signed copy reference</td>
+<td></td>
+</tr>
+<tr>
+<td>SRS status updated</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>This document is confidential and prepared for Alsultania Travel and Tourism Co. L.L.C and AnyMatch Technologies Private Limited.</em></p>
+</main>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true },
+    });
+    const nodes = document.querySelectorAll('pre.mermaid');
+    if (nodes.length) await mermaid.run({ nodes });
+  </script>
+</body>
+</html>

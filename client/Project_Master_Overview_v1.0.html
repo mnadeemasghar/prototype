@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Master Overview — Alsultania Travel CRM & Management System</title>
+  <style>
+    @page { size: A4; margin: 22mm 18mm 24mm 18mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #1a1a2e;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cover {
+      page-break-after: always;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 40px;
+      background: linear-gradient(160deg, #0c2d48 0%, #145374 55%, #1a6b8a 100%);
+      color: #fff;
+    }
+    .cover-badge {
+      display: inline-block;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a8d4e8;
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      color: #fff;
+      border: none;
+      padding: 0;
+    }
+    .cover h2 {
+      font-size: 14pt;
+      font-weight: 400;
+      margin: 0 0 40px;
+      color: #d4eaf5;
+      border: none;
+      padding: 0;
+    }
+    .cover-meta {
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+      font-size: 10pt;
+    }
+    .cover-meta dt {
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8ec4dc;
+      margin-bottom: 4px;
+    }
+    .cover-meta dd { margin: 0; color: #fff; font-weight: 500; }
+    .cover-confidential {
+      margin-top: 32px;
+      font-size: 9pt;
+      color: #8ec4dc;
+      font-style: italic;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #0c2d48;
+      line-height: 1.3;
+      page-break-after: avoid;
+    }
+    h1 {
+      font-size: 20pt;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #145374;
+    }
+    h2 {
+      font-size: 14pt;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #c5dde8;
+      page-break-before: always;
+    }
+    .content > h2:first-child,
+    h2#table-of-contents { page-break-before: avoid; }
+    h3 { font-size: 12pt; margin: 20px 0 10px; }
+    h4 { font-size: 11pt; margin: 16px 0 8px; color: #145374; }
+    h5, h6 { font-size: 10.5pt; margin: 12px 0 6px; }
+    p { margin: 0 0 10px; }
+    a { color: #145374; text-decoration: none; }
+    strong { color: #0c2d48; }
+    hr { border: none; border-top: 1px solid #d0dde5; margin: 24px 0; }
+    ul, ol { margin: 0 0 12px; padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    thead { display: table-header-group; }
+    th {
+      background: #0c2d48;
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid #0c2d48;
+    }
+    td {
+      padding: 7px 10px;
+      border: 1px solid #c5dde8;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f4f8fb; }
+    blockquote {
+      margin: 12px 0;
+      padding: 10px 16px;
+      border-left: 4px solid #145374;
+      background: #f0f6fa;
+      color: #2a3f52;
+      font-size: 10pt;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 9pt;
+      background: #eef3f7;
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #0c2d48;
+    }
+    pre {
+      background: #f4f8fb;
+      border: 1px solid #c5dde8;
+      border-radius: 4px;
+      padding: 12px;
+      overflow-x: auto;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      page-break-inside: avoid;
+    }
+    pre code { background: none; padding: 0; }
+    .mermaid-wrap {
+      margin: 16px 0 20px;
+      padding: 12px;
+      background: #fafcfd;
+      border: 1px solid #d0dde5;
+      border-radius: 6px;
+      page-break-inside: avoid;
+      overflow: hidden;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <div class="cover-badge">Confidential — Client Document</div>
+    <h1>Project Master Overview</h1>
+    <h2>Alsultania Travel CRM & Management System</h2>
+    <dl class="cover-meta">
+      
+      <div>
+        <dt>Prepared For</dt>
+        <dd>Alsultania Travel and Tourism Co. L.L.C<br>Dubai, United Arab Emirates</dd>
+      </div>
+      <div>
+        <dt>Prepared By</dt>
+        <dd>AnyMatch Technologies Private Limited</dd>
+      </div>
+      <div>
+        <dt>Version</dt>
+        <dd>1.0</dd>
+      </div>
+      <div>
+        <dt>Last Updated</dt>
+        <dd>11 June 2026</dd>
+      </div>
+      <div>
+        <dt>Current Phase</dt>
+        <dd>Phase 0 — Blueprint (pending approval)</dd>
+      </div>
+    </dl>
+    <p class="cover-confidential">This document is confidential and prepared exclusively for Alsultania Travel and Tourism Co. L.L.C and AnyMatch Technologies Private Limited.</p>
+  </section>
+  <main class="content"><hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li>Quick Access</li>
+<li>What This Project Is</li>
+<li>Documentation Index</li>
+<li>Interactive Prototype</li>
+<li>Figma &amp; Design Assets</li>
+<li>Delivery Phases &amp; Modules</li>
+<li>Screen Inventory</li>
+<li>Technology Stack</li>
+<li>Change Management</li>
+<li>Client Dependencies</li>
+</ol>
+<hr>
+<h2 id="1-quick-access">1. Quick Access</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Link / Path</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Documentation index</strong></td>
+<td><a href="README.md"><code>README.md</code></a></td>
+</tr>
+<tr>
+<td><strong>This master file</strong></td>
+<td><a href="PROJECT_MASTER.md"><code>PROJECT_MASTER.md</code></a></td>
+</tr>
+<tr>
+<td><strong>Requirements (authoritative)</strong></td>
+<td><a href="requirements/SRS.md"><code>requirements/SRS.md</code></a> v1.0</td>
+</tr>
+<tr>
+<td><strong>Phase 0 acceptance form</strong></td>
+<td><a href="requirements/PHASE_0_ACCEPTANCE.md"><code>requirements/PHASE_0_ACCEPTANCE.md</code></a></td>
+</tr>
+<tr>
+<td><strong>Lead lifecycle (client summary)</strong></td>
+<td><a href="client/LEAD_LIFECYCLE.md"><code>client/LEAD_LIFECYCLE.md</code></a></td>
+</tr>
+<tr>
+<td><strong>Software design (SDD)</strong></td>
+<td><a href="design/SOFTWARE_DESIGN_DOCUMENT.md"><code>design/SOFTWARE_DESIGN_DOCUMENT.md</code></a></td>
+</tr>
+<tr>
+<td><strong>Database schema</strong></td>
+<td><a href="design/DATABASE_SCHEMA.md"><code>design/DATABASE_SCHEMA.md</code></a></td>
+</tr>
+<tr>
+<td><strong>Diagrams (Mermaid)</strong></td>
+<td><a href="diagrams/"><code>diagrams/</code></a></td>
+</tr>
+<tr>
+<td><strong>Blueprint status summary</strong></td>
+<td><a href="blueprint/BLUEPRINT_DELIVERABLE.md"><code>blueprint/BLUEPRINT_DELIVERABLE.md</code></a></td>
+</tr>
+<tr>
+<td><strong>Lead creation deep-dive</strong></td>
+<td><a href="requirements/SRS.md"><code>requirements/SRS.md</code></a> <a href="requirements/SRS.md#appendix-c--lead-creation-user-flow-fields--data-types">Appendix C</a></td>
+</tr>
+<tr>
+<td><strong>Required third-party services</strong></td>
+<td><a href="requirements/SRS.md"><code>requirements/SRS.md</code></a> <a href="requirements/SRS.md#appendix-d--required-third-party-services-client-provisioned">Appendix D</a></td>
+</tr>
+<tr>
+<td><strong>Development guide</strong></td>
+<td><a href="development/DEVELOPMENT_GUIDE.md"><code>development/DEVELOPMENT_GUIDE.md</code></a></td>
+</tr>
+<tr>
+<td><strong>Figma import instructions</strong></td>
+<td><a href="blueprint/FIGMA_IMPORT_GUIDE.md"><code>blueprint/FIGMA_IMPORT_GUIDE.md</code></a></td>
+</tr>
+<tr>
+<td><strong>Prototype cover page</strong></td>
+<td><a href="../prototype/cover.html"><code>../prototype/cover.html</code></a></td>
+</tr>
+<tr>
+<td><strong>Screen QA index</strong></td>
+<td><a href="../prototype/screens-index.html"><code>../prototype/screens-index.html</code></a></td>
+</tr>
+<tr>
+<td><strong>Figma design file</strong></td>
+<td><a href="https://www.figma.com/design/mQTFdHu1KppUnKmFy12DLv/design-travel_crm">design-travel_crm</a></td>
+</tr>
+<tr>
+<td><strong>FigJam ERD + flows</strong></td>
+<td><a href="https://www.figma.com/board/CCsaj1dafvaX3xYUJSXuJs">FigJam board</a></td>
+</tr>
+<tr>
+<td><strong>Import manifest</strong></td>
+<td>[<code>../the blueprint import manifest</code>](../the blueprint import manifest)</td>
+</tr>
+<tr>
+<td><strong>PNG screenshots</strong></td>
+<td><code>../figma-export/screenshots/</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="2-what-this-project-is">2. What This Project Is</h2>
+<p>A <strong>full-stack travel agency CRM</strong> that unifies:</p>
+<ul>
+<li>Lead capture, assignment, and pipeline management — including <strong>public website inquiry</strong> (phone OTP → required fields → auto-assign to next available agent)</li>
+<li>Customer profiles and booking workflows</li>
+<li>Financial accounting, invoicing, and expense controls</li>
+<li>Staff performance and HR metrics</li>
+<li>WhatsApp automation and multi-channel notifications</li>
+<li>Reporting, analytics, and multi-branch scalability</li>
+</ul>
+<p><strong>Phase 0 (current)</strong> delivers the approved blueprint: screen flows, data model, component library, and requirements specification. <strong>Development (Phases 1–3)</strong> begins only after client approval of the Figma blueprint.</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Focus</th>
+<th>Screens</th>
+<th>Cost (PKR)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>0</strong></td>
+<td>Blueprint — flows, ERD, components</td>
+<td>4 overview + planning</td>
+<td>80,000</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>Core CRM, leads, customers, bookings</td>
+<td>01–12 (+ 05a–05d)</td>
+<td>220,000</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Accounting, expenses, HR</td>
+<td>13–23</td>
+<td>200,000</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Reports, automation, multi-branch</td>
+<td>24–33</td>
+<td>150,000</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total</strong></td>
+<td><strong>37 app screens</strong></td>
+<td><strong>650,000</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<pre><code>travel_crm/
+├── README.md                  ← Root pointer to docs/
+├── docs/                      ← All software development documentation
+│   ├── PROJECT_MASTER.md      ← YOU ARE HERE — project entry point
+│   ├── README.md              ← Documentation index
+│   ├── requirements/
+│   │   ├── SRS.md             ← Authoritative spec (Appendices A–D incl. lead creation &amp; third-party)
+│   │   └── PHASE_0_ACCEPTANCE.md  ← Client signing form for Phase 0 blueprint approval
+│   ├── client/
+│   │   └── LEAD_LIFECYCLE.md  ← Client-facing lead pipeline summary
+│   ├── blueprint/
+│   │   ├── BLUEPRINT_DELIVERABLE.md
+│   │   └── FIGMA_IMPORT_GUIDE.md
+│   ├── design/
+│   │   ├── SOFTWARE_DESIGN_DOCUMENT.md
+│   │   ├── DATABASE_SCHEMA.md
+│   │   └── API_INTEGRATIONS.md
+│   ├── development/
+│   │   ├── DEVELOPMENT_GUIDE.md
+│   │   ├── TESTING_STRATEGY.md
+│   │   └── DEPLOYMENT_CHECKLIST.md
+│   └── diagrams/              ← Mermaid source files (.mmd)
+│       ├── erd.mmd
+│       ├── system-architecture.mmd
+│       └── … (see diagrams/README.md)
+│
+├── the blueprint import manifest ← Screen → URL → Figma page mapping
+│
+├── prototype/                 ← Interactive HTML blueprint (40 files)
+│   ├── cover.html             ← Phase 0 cover &amp; index
+│   ├── index.html             ← Master screen flow diagram
+│   ├── components.html        ← UI component library
+│   ├── data-architecture.html ← ERD view
+│   ├── screens-index.html     ← QA table of all screens
+│   ├── styles.css             ← Shared prototype styles
+│   ├── nav.js                 ← Shared navigation
+│   ├── lead-form-shared.js    ← Shared lead form logic
+│   ├── *.html                 ← 33 application screen prototypes
+│   └── *.js                   ← Screen-specific interactivity
+│
+├── figma-export/
+│   └── screenshots/           ← Pre-captured PNGs by phase folder
+│
+├── figma-scripts/
+│   └── 01-create-pages.js     ← Figma MCP page creation script
+│
+├── scripts/
+│   ├── capture-screenshots.mjs  ← Re-capture PNGs via Playwright
+│   └── wire-prototype-links.mjs ← Wire inter-screen navigation
+│
+└── node_modules/              ← Playwright (screenshot tooling only)
+</code></pre>
+<hr>
+<h2 id="4-documentation-index">4. Documentation Index</h2>
+<p>Client-facing reference documents (PDF set):</p>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Project Master Overview</strong></td>
+<td>Project hub, phases, screen inventory, dependencies</td>
+</tr>
+<tr>
+<td><strong>Software Requirements Specification (SRS)</strong></td>
+<td>Authoritative requirements baseline (Phases 0–3)</td>
+</tr>
+<tr>
+<td><strong>Phase 0 Acceptance Form</strong></td>
+<td>Blueprint attestation and scope decisions</td>
+</tr>
+<tr>
+<td><strong>Lead Lifecycle Summary</strong></td>
+<td>Pipeline stages, transitions, and agent actions</td>
+</tr>
+<tr>
+<td><strong>Blueprint Deliverable Summary</strong></td>
+<td>Phase 0 completion status and screen list</td>
+</tr>
+<tr>
+<td><strong>Deployment Checklist</strong></td>
+<td>Production go-live steps for client IT</td>
+</tr>
+<tr>
+<td><strong>Architecture Diagrams</strong></td>
+<td>ERD, flows, lifecycle, and delivery timeline (PDF set)</td>
+</tr>
+</tbody></table>
+<h3 id="document-hierarchy">Document hierarchy</h3>
+<pre><code>Accepted Proposal
+    └── Project Master Overview
+            ├── Software Requirements Specification (SRS)
+            ├── Phase 0 Acceptance Form
+            ├── Lead Lifecycle Summary
+            ├── Blueprint Deliverable Summary
+            ├── Deployment Checklist
+            └── Architecture Diagrams (PDF set)
+</code></pre>
+<p><strong>Rule:</strong> The SRS is the authoritative requirements document. The HTML prototype and FigJam board are visual references for blueprint review.</p>
+<hr>
+<h2 id="5-interactive-prototype">5. Interactive Prototype</h2>
+<p>The <strong>Interactive Prototype (40 screens)</strong> folder is a <strong>clickable HTML blueprint</strong> — not production code. It demonstrates layout, navigation, fields, and flows at 1440px width.</p>
+<h3 id="overview-frames-phase-0">Overview frames (Phase 0)</h3>
+<table>
+<thead>
+<tr>
+<th>Frame</th>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cover &amp; Index</td>
+<td><code>cover.html</code></td>
+<td>Project summary, phase costs, quick links</td>
+</tr>
+<tr>
+<td>Master Screen Flow</td>
+<td><code>index.html</code></td>
+<td>Visual map of all 37 screens and connections</td>
+</tr>
+<tr>
+<td>Component Library</td>
+<td><code>components.html</code></td>
+<td>Buttons, badges, cards, tables, form fields</td>
+</tr>
+<tr>
+<td>Data Architecture</td>
+<td><code>data-architecture.html</code></td>
+<td>ERD diagram (links to FigJam)</td>
+</tr>
+<tr>
+<td>Screen Index (QA)</td>
+<td><code>screens-index.html</code></td>
+<td>Sortable table of every frame</td>
+</tr>
+</tbody></table>
+<h3 id="shared-assets">Shared assets</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>styles.css</code></td>
+<td>Design tokens, layout, components</td>
+</tr>
+<tr>
+<td><code>nav.js</code></td>
+<td>Top navigation bar across screens</td>
+</tr>
+<tr>
+<td><code>lead-form-shared.js</code></td>
+<td>Dynamic lead type fields, subject generation</td>
+</tr>
+<tr>
+<td><code>leads-create.js</code></td>
+<td>Staff create lead interactivity</td>
+</tr>
+<tr>
+<td><code>inquiry-otp.js</code> / <code>inquiry-create.js</code></td>
+<td>Public website OTP verification + inquiry form submit</td>
+</tr>
+</tbody></table>
+<h3 id="public-website-inquiry-flow-phase-1">Public website inquiry flow (Phase 1)</h3>
+<p>Customers submit leads on the agency <strong>public website</strong> (<code>/inquiry</code>) without CRM login. Full spec: <a href="requirements/SRS.md"><code>requirements/SRS.md</code></a> <a href="requirements/SRS.md#1a-public-inquiry-flow-customer-pre-login">Appendix C §1a</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Prototype</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>inquiry-otp.html</code> (05b)</td>
+<td>Customer enters mobile number; system sends 6-digit SMS OTP</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>inquiry-otp.html</code> (05b)</td>
+<td>Customer verifies OTP; verified phone stored in session</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>inquiry-create.html</code> (05c)</td>
+<td>Customer completes <strong>required</strong> fields (name, service type, type-specific fields, dates &amp; travelers)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>System (AUTO-02)</td>
+<td>Lead saved with <code>lead_via</code> = Website; <strong>auto-assigned to next available active agent</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>inquiry-success.html</code> (05d)</td>
+<td>Customer sees confirmation with reference ID (agent assignment is internal)</td>
+</tr>
+</tbody></table>
+<p>Staff Create Lead (<code>leads-create.html</code>) uses the same field model but requires CRM login and manual <strong>Lead Handling</strong> (Takeover / Others / Transfer).</p>
+<h3 id="key-user-journeys-prototype">Key user journeys (prototype)</h3>
+<table>
+<thead>
+<tr>
+<th>Journey</th>
+<th>Screens</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Staff login → dashboard → new lead</td>
+<td><code>login.html</code> → <code>dashboard.html</code> → <code>leads-create.html</code></td>
+</tr>
+<tr>
+<td><strong>Public website inquiry</strong> (no login)</td>
+<td><code>inquiry-otp.html</code> → <code>inquiry-create.html</code> → <code>inquiry-success.html</code></td>
+</tr>
+<tr>
+<td>Lead lifecycle</td>
+<td><code>leads-list.html</code> → <code>lead-detail.html</code> → <code>pipeline.html</code></td>
+</tr>
+<tr>
+<td>WhatsApp capture</td>
+<td><code>whatsapp-inbox.html</code> → <code>leads-create.html</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="6-figma-design-assets">6. Figma &amp; Design Assets</h2>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>URL / Path</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Figma Design File</strong></td>
+<td><a href="https://www.figma.com/design/mQTFdHu1KppUnKmFy12DLv/design-travel_crm">design-travel_crm</a></td>
+<td>Ready to import (see guide)</td>
+</tr>
+<tr>
+<td><strong>FigJam — ERD + Flows</strong></td>
+<td><a href="https://www.figma.com/board/CCsaj1dafvaX3xYUJSXuJs">Board</a></td>
+<td>Complete</td>
+</tr>
+<tr>
+<td><strong>PNG Screenshots</strong></td>
+<td><code>figma-export/screenshots/</code></td>
+<td>Complete (37 + overview)</td>
+</tr>
+<tr>
+<td><strong>Import manifest</strong></td>
+<td><code>the blueprint import manifest</code></td>
+<td>Maps every screen → Figma page</td>
+</tr>
+</tbody></table>
+<h3 id="figma-page-structure">Figma page structure</h3>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>00 — Cover &amp; Index</code></td>
+<td>Cover frame</td>
+</tr>
+<tr>
+<td><code>01 — Master Screen Flow</code></td>
+<td>Flow diagram</td>
+</tr>
+<tr>
+<td><code>02 — Phase 1: Core CRM</code></td>
+<td>Screens 01–12, 05a–05d</td>
+</tr>
+<tr>
+<td><code>03 — Phase 2: Financials &amp; HR</code></td>
+<td>Screens 13–23</td>
+</tr>
+<tr>
+<td><code>04 — Phase 3: Automation &amp; Scale</code></td>
+<td>Screens 24–33</td>
+</tr>
+<tr>
+<td><code>05 — Components</code></td>
+<td>Component library</td>
+</tr>
+</tbody></table>
+<p>See <a href="blueprint/FIGMA_IMPORT_GUIDE.md"><code>blueprint/FIGMA_IMPORT_GUIDE.md</code></a> for import options (html.to.design plugin, PNG drag, or Figma MCP).</p>
+<hr>
+<h2 id="7-delivery-phases-modules">7. Delivery Phases &amp; Modules</h2>
+<h3 id="phase-1-core-crm-screens-0112">Phase 1 — Core CRM (Screens 01–12)</h3>
+<p>Authentication, RBAC, dashboard, advanced lead management (staff create + <strong>public website inquiry with OTP and auto-assignment</strong>), pipeline, WhatsApp inbox, customers, bookings.</p>
+<p><strong>Key specs:</strong> SRS §4.1 (FR-18*, AUTO-02), SRS <a href="requirements/SRS.md#1a-public-inquiry-flow-customer-pre-login">Appendix C §1a</a> (public), <a href="requirements/SRS.md#2-user-flow-staff">Appendix C §2</a> (staff)</p>
+<h3 id="phase-2-financials-hr-screens-1323">Phase 2 — Financials &amp; HR (Screens 13–23)</h3>
+<p>Accounting dashboard, revenue, invoices, payments, financial reports, expenses, approvals, staff performance, attendance, cost centres.</p>
+<p><strong>Key specs:</strong> SRS §4.2</p>
+<h3 id="phase-3-automation-scale-screens-2433">Phase 3 — Automation &amp; Scale (Screens 24–33)</h3>
+<p>Reports hub, custom report builder, notifications, communication templates, channel settings, automation rules, workflow triggers, multi-branch, consolidated view, system settings.</p>
+<p><strong>Key specs:</strong> SRS §4.3, §5 (automation)</p>
+<h3 id="user-roles">User roles</h3>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Primary modules</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Administrator</td>
+<td>All modules, settings, automation, branches</td>
+</tr>
+<tr>
+<td>Sales Manager</td>
+<td>Leads, team, reports, approvals</td>
+</tr>
+<tr>
+<td>Travel Agent</td>
+<td>Leads, customers, bookings, WhatsApp</td>
+</tr>
+<tr>
+<td>Finance User</td>
+<td>Accounting, invoices, expenses (Phase 2)</td>
+</tr>
+<tr>
+<td>HR/Manager</td>
+<td>Performance, attendance (Phase 2)</td>
+</tr>
+</tbody></table>
+<p>Full RBAC matrix: SRS §3.1</p>
+<hr>
+<h2 id="8-screen-inventory">8. Screen Inventory</h2>
+<h3 id="phase-0-overview-4-frames">Phase 0 — Overview (4 frames)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Screen</th>
+<th>Prototype File</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>—</td>
+<td>Cover &amp; Index</td>
+<td><strong>Interactive Prototype (cover page)</strong></td>
+</tr>
+<tr>
+<td>—</td>
+<td>Master Screen Flow</td>
+<td><strong>Interactive Prototype</strong></td>
+</tr>
+<tr>
+<td>—</td>
+<td>Component Library</td>
+<td><strong>Component Blueprint Library</strong></td>
+</tr>
+<tr>
+<td>—</td>
+<td>Data Architecture ERD</td>
+<td><code>prototype/data-architecture.html</code></td>
+</tr>
+</tbody></table>
+<h3 id="phase-1-core-crm-16-screens">Phase 1 — Core CRM (16 screens)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Screen</th>
+<th>Prototype File</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td>Login</td>
+<td><code>prototype/login.html</code></td>
+</tr>
+<tr>
+<td>02</td>
+<td>User Management</td>
+<td><code>prototype/user-management.html</code></td>
+</tr>
+<tr>
+<td>03</td>
+<td>Roles &amp; Permissions</td>
+<td><code>prototype/roles-permissions.html</code></td>
+</tr>
+<tr>
+<td>04</td>
+<td>Dashboard</td>
+<td><code>prototype/dashboard.html</code></td>
+</tr>
+<tr>
+<td>05</td>
+<td>Leads List</td>
+<td><code>prototype/leads-list.html</code></td>
+</tr>
+<tr>
+<td>05a</td>
+<td>Create Lead (Staff)</td>
+<td><code>prototype/leads-create.html</code></td>
+</tr>
+<tr>
+<td>05b</td>
+<td>Verify Phone (OTP) — Public Website</td>
+<td><code>prototype/inquiry-otp.html</code></td>
+</tr>
+<tr>
+<td>05c</td>
+<td>Public Inquiry Form — Required Fields</td>
+<td><code>prototype/inquiry-create.html</code></td>
+</tr>
+<tr>
+<td>05d</td>
+<td>Inquiry Submitted — Confirmation</td>
+<td><code>prototype/inquiry-success.html</code></td>
+</tr>
+<tr>
+<td>06</td>
+<td>Lead Pipeline</td>
+<td><code>prototype/pipeline.html</code></td>
+</tr>
+<tr>
+<td>07</td>
+<td>Lead Detail</td>
+<td><code>prototype/lead-detail.html</code></td>
+</tr>
+<tr>
+<td>08</td>
+<td>WhatsApp Inbox</td>
+<td><code>prototype/whatsapp-inbox.html</code></td>
+</tr>
+<tr>
+<td>09</td>
+<td>Customer List (full mockup)</td>
+<td><code>prototype/customer-list.html</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Customer Profile (full mockup)</td>
+<td><code>prototype/customer-profile.html</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Booking List</td>
+<td><code>prototype/booking-list.html</code></td>
+</tr>
+<tr>
+<td>11a</td>
+<td>New Booking</td>
+<td><code>prototype/booking-create.html</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Booking Detail</td>
+<td><code>prototype/booking-detail.html</code></td>
+</tr>
+</tbody></table>
+<h3 id="phase-2-financials-hr-11-screens">Phase 2 — Financials &amp; HR (11 screens)</h3>
+<p>Accounts top-nav dropdown groups: <strong>Customers</strong> · <strong>Receivables</strong> (Finance Dashboard, Payment Queue, Invoices, Revenue Adjustments) · <strong>Payables</strong> (Expenses, Log Expense, Expense Approvals, Cost Centres) · <strong>Analysis</strong> (Financial Reports). See <a href="../prototype/nav.js">the approved blueprint navigation</a> and SRS §4.2.1a.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Screen</th>
+<th>Prototype File</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>13</td>
+<td>Finance Dashboard</td>
+<td><code>prototype/accounting-dashboard.html</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Revenue Adjustments</td>
+<td><code>prototype/revenue-recording.html</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Invoice List</td>
+<td><code>prototype/invoice-list.html</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Payment Queue</td>
+<td><code>prototype/payment-tracking.html</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Financial Reports (full mockup)</td>
+<td><code>prototype/financial-reports.html</code></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Expense List (full mockup)</td>
+<td><code>prototype/expense-list.html</code></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Log Expense (full mockup)</td>
+<td><code>prototype/log-expense.html</code></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Expense Approvals (full mockup)</td>
+<td><code>prototype/expense-approvals.html</code></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Staff Performance</td>
+<td><code>prototype/staff-performance.html</code></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Attendance &amp; HR</td>
+<td><code>prototype/attendance-hr.html</code></td>
+</tr>
+<tr>
+<td>23</td>
+<td>Cost Centres (full mockup)</td>
+<td><code>prototype/cost-centres.html</code></td>
+</tr>
+</tbody></table>
+<h3 id="phase-3-automation-scale-10-screens">Phase 3 — Automation &amp; Scale (10 screens)</h3>
+<p>Reports top-nav dropdown groups: <strong>Reports Hub</strong> · <strong>Report Builder</strong> · <strong>Performance</strong> (Staff Performance, Attendance &amp; HR) · <strong>Management</strong> (Consolidated View). Financial Reports remains under Accounts → Analysis. See <a href="../prototype/nav.js">the approved blueprint navigation</a> and SRS §4.3.1a.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Screen</th>
+<th>Prototype File</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>24</td>
+<td>Reports Hub</td>
+<td><code>prototype/reports-hub.html</code></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Report Builder</td>
+<td><code>prototype/report-builder.html</code></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Notifications</td>
+<td><code>prototype/notifications-center.html</code></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Templates</td>
+<td><code>prototype/communication-templates.html</code></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Channel Settings</td>
+<td><code>prototype/channel-settings.html</code></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Automation Rules</td>
+<td><code>prototype/automation-rules.html</code></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Workflow Triggers</td>
+<td><code>prototype/workflow-triggers.html</code></td>
+</tr>
+<tr>
+<td>31</td>
+<td>Multi-Branch</td>
+<td><code>prototype/multi-branch.html</code></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Consolidated View</td>
+<td><code>prototype/consolidated-view.html</code></td>
+</tr>
+<tr>
+<td>33</td>
+<td>System Settings</td>
+<td><code>prototype/system-settings.html</code></td>
+</tr>
+</tbody></table>
+<p>Full requirement IDs per screen: SRS §4 and Appendix A.</p>
+<hr>
+<h2 id="9-technology-stack">9. Technology Stack</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Backend (planned)</strong></td>
+<td>Laravel (PHP 8.x)</td>
+</tr>
+<tr>
+<td><strong>Database (planned)</strong></td>
+<td>MySQL 8.x</td>
+</tr>
+<tr>
+<td><strong>Frontend (planned)</strong></td>
+<td>Laravel Blade, component-based UI</td>
+</tr>
+<tr>
+<td><strong>Messaging</strong></td>
+<td>WhatsApp Business API (client-provisioned) — see SRS <a href="requirements/SRS.md#appendix-d--required-third-party-services-client-provisioned">Appendix D</a></td>
+</tr>
+<tr>
+<td><strong>Public inquiry OTP</strong></td>
+<td>SMS gateway (client-provisioned) — see SRS <a href="requirements/SRS.md#appendix-d--required-third-party-services-client-provisioned">Appendix D</a></td>
+</tr>
+<tr>
+<td><strong>Email</strong></td>
+<td>SMTP (client-provisioned) — see SRS <a href="requirements/SRS.md#appendix-d--required-third-party-services-client-provisioned">Appendix D</a></td>
+</tr>
+<tr>
+<td><strong>Blueprint prototype</strong></td>
+<td>Static HTML/CSS/JS</td>
+</tr>
+<tr>
+<td><strong>Screenshot tooling</strong></td>
+<td>Playwright (Node.js)</td>
+</tr>
+<tr>
+<td><strong>Design</strong></td>
+<td>Figma + FigJam</td>
+</tr>
+</tbody></table>
+<p>Production application code is <strong>not yet in this repository</strong> — current contents are Phase 0 blueprint artifacts only.</p>
+<hr>
+<h3 id="prototype-server">Prototype server</h3>
+<pre><code class="language-bash">cd C:/laragon/www/travel_crm/prototype &amp;&amp; php -S 127.0.0.1:8765
+</code></pre>
+<h3 id="re-capture-figma-png-screenshots">Re-capture Figma PNG screenshots</h3>
+<p>Scripts auto-start the PHP server from <strong>Interactive Prototype (40 screens)</strong> (required — starting from repo root causes 404 screenshots):</p>
+<pre><code class="language-bash">cd C:/laragon/www/travel_crm
+node scripts/capture-screenshots.mjs
+node scripts/capture-lead-creation-screenshots.mjs
+</code></pre>
+<p>Output: <code>figma-export/screenshots/</code> and <code>lead creation/</code></p>
+<p>If you start the server manually, <strong>must</strong> use:</p>
+<pre><code class="language-bash">cd C:/laragon/www/travel_crm/prototype &amp;&amp; php -S 127.0.0.1:8765
+</code></pre>
+<h3 id="wire-prototype-navigation-links">Wire prototype navigation links</h3>
+<pre><code class="language-bash">cd C:/laragon/www/travel_crm
+node scripts/wire-prototype-links.mjs
+</code></pre>
+<h3 id="figma-mcp-import-when-pro-plan-available">Figma MCP import (when Pro plan available)</h3>
+<ol>
+<li>Run <code>figma-scripts/01-create-pages.js</code> via Figma MCP <code>use_figma</code></li>
+<li>Run <code>generate_figma_design</code> for each URL in <code>the blueprint import manifest</code></li>
+</ol>
+<hr>
+<h2 id="11-change-management">11. Change Management</h2>
+<p>After Phase 0 blueprint approval, the accepted SRS and Figma blueprint are the <strong>locked baseline</strong> for development.</p>
+<ul>
+<li>Post-approval changes to screens, fields, flows, or scope require <strong>written agreement</strong> between Client and Vendor</li>
+<li>Commercial terms and pricing remain governed by the accepted proposal</li>
+<li>Client dependencies (server, WhatsApp, SMS, SMTP) must be ready per the timelines in the SRS</li>
+</ul>
+<p>For questions about scope or acceptance criteria, refer to the SRS §9 (Phase-wise Delivery &amp; Acceptance).</p>
+<hr>
+<h2 id="client-dependencies-before-phase-1-development">Client Dependencies (Before Phase 1 Development)</h2>
+<p>Full detail, credentials checklist, and go-live requirements: <strong><a href="requirements/SRS.md#appendix-d--required-third-party-services-client-provisioned"><code>requirements/SRS.md</code> Appendix D</a></strong> and <strong><strong>Deployment Checklist</strong></strong></p>
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Required before</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Figma blueprint approval</td>
+<td>Phase 1 start</td>
+</tr>
+<tr>
+<td>Server provisioning (PHP, MySQL, HTTPS)</td>
+<td>Phase 1 start</td>
+</tr>
+<tr>
+<td>WhatsApp Business API access</td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td>SMS gateway for public inquiry OTP</td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td>Email SMTP (transactional)</td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td>Designated project email contacts</td>
+<td>Project commencement</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Maintained as part of the Alsultania Travel CRM Phase 0 blueprint. For questions about scope or acceptance criteria, refer to <code>requirements/SRS.md</code> §9.</em></p>
+</main>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true },
+    });
+    const nodes = document.querySelectorAll('pre.mermaid');
+    if (nodes.length) await mermaid.run({ nodes });
+  </script>
+</body>
+</html>

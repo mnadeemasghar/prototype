@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lead Lifecycle — Pipeline Stages & Transitions</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 40px;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      background: #fff;
+    }
+    .header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #145374;
+    }
+    .badge {
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+     text-transform: uppercase;
+      color: #145374;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 18pt;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #0c2d48;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #4a6275;
+      margin: 0;
+    }
+    .diagram {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Reference Diagram — Client Document</div>
+    <h1>Lead Lifecycle — Pipeline Stages & Transitions</h1>
+    <p class="subtitle">Alsultania Travel CRM & Management System</p>
+  </div>
+  <div class="diagram mermaid-wrap">
+    <pre class="mermaid">stateDiagram-v2
+  [*] --> New: Lead created\n(staff or public inquiry)
+
+  New --> Contacted: Agent first contact
+  New --> Lost: Mark lost
+
+  Contacted --> Quoted: Quotation sent
+  Contacted --> Lost: No response / declined
+
+  Quoted --> Negotiation: Customer negotiating\nor quote rejected — negotiate anyway
+  Quoted --> Booked: Customer accepts
+
+  Negotiation --> Quoted: Revised quotation sent
+  Negotiation --> Booked: Deal closed
+  Negotiation --> Lost: Deal lost
+
+  Booked --> [*]: Convert to customer/booking
+
+  note right of New
+    Public inquiry: AUTO-02
+    round-robin assignment
+  end note
+
+  note right of Booked
+    FR-16 / FR-20a: Convert to customer
+    and Create Booking (Draft)
+  end note
+</pre>
+  </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    await mermaid.run({ nodes: document.querySelectorAll('pre.mermaid') });
+  </script>
+</body>
+</html>

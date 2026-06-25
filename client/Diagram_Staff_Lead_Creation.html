@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staff Lead Creation Flow</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 40px;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      background: #fff;
+    }
+    .header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #145374;
+    }
+    .badge {
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+     text-transform: uppercase;
+      color: #145374;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 18pt;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #0c2d48;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #4a6275;
+      margin: 0;
+    }
+    .diagram {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Reference Diagram — Client Document</div>
+    <h1>Staff Lead Creation Flow</h1>
+    <p class="subtitle">Alsultania Travel CRM & Management System</p>
+  </div>
+  <div class="diagram mermaid-wrap">
+    <pre class="mermaid">flowchart TD
+  A[User navigates to Leads module] --> B{How did they arrive?}
+  B -->|Inbound call / WhatsApp| C[Phone number pre-filled in header]
+  B -->|Manual from Leads list| D[Open Create Lead — phone may be entered separately]
+  C --> E[Create Lead screen loads]
+  D --> E
+  E --> F[Previous Leads panel loads for phone number]
+  F --> G[User fills Customer Name + Lead Type]
+  G --> H[Dynamic section renders for selected Lead Type]
+  H --> I[User completes Dates and Travelers]
+  I --> J[Optional: Remarks]
+  J --> K[User selects Lead Handling option]
+  K --> L{Handling choice}
+  L -->|Takeover| M[Lead assigned to current user]
+  L -->|Create for Others| N[User selects target agent]
+  L -->|Transfer to Staff| O[Lead queued for staff transfer]
+  M --> P[Click CREATE NEW LEAD]
+  N --> P
+  O --> P
+  P --> Q[System validates + saves lead]
+  Q --> R[Lead appears in list / assigned handler inbox]
+</pre>
+  </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    await mermaid.run({ nodes: document.querySelectorAll('pre.mermaid') });
+  </script>
+</body>
+</html>

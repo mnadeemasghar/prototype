@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public Website Inquiry Flow</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 40px;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      background: #fff;
+    }
+    .header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #145374;
+    }
+    .badge {
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+     text-transform: uppercase;
+      color: #145374;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 18pt;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #0c2d48;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #4a6275;
+      margin: 0;
+    }
+    .diagram {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Reference Diagram — Client Document</div>
+    <h1>Public Website Inquiry Flow</h1>
+    <p class="subtitle">Alsultania Travel CRM & Management System</p>
+  </div>
+  <div class="diagram mermaid-wrap">
+    <pre class="mermaid">flowchart TD
+  A[Customer opens public website /inquiry] --> B[Enter mobile number]
+  B --> C[System sends 6-digit SMS OTP]
+  C --> D[Customer enters OTP]
+  D --> E{OTP valid?}
+  E -->|No| F[Show error / allow resend after cooldown]
+  F --> D
+  E -->|Yes| G[Session marked phone-verified]
+  G --> H[Public inquiry form loads]
+  H --> I[Customer fills required fields: name, service type, type fields, dates/travelers]
+  I --> J[Optional: view Previous Inquiries for verified phone]
+  J --> K[Click Submit Inquiry]
+  K --> L[System validates required fields + saves lead]
+  L --> M["lead_via = Website · assign next available agent · created_by = null"]
+  M --> N[Confirmation screen with reference ID]
+  M --> O[Assigned agent notified in CRM inbox]
+</pre>
+  </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    await mermaid.run({ nodes: document.querySelectorAll('pre.mermaid') });
+  </script>
+</body>
+</html>

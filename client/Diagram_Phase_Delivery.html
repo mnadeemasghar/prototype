@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 0–3 Delivery Timeline</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 40px;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      background: #fff;
+    }
+    .header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #145374;
+    }
+    .badge {
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+     text-transform: uppercase;
+      color: #145374;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 18pt;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #0c2d48;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #4a6275;
+      margin: 0;
+    }
+    .diagram {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Reference Diagram — Client Document</div>
+    <h1>Phase 0–3 Delivery Timeline</h1>
+    <p class="subtitle">Alsultania Travel CRM & Management System</p>
+  </div>
+  <div class="diagram mermaid-wrap">
+    <pre class="mermaid">gantt
+  title Alsultania Travel CRM — Delivery Phases
+  dateFormat YYYY-MM-DD
+  axisFormat %b %Y
+
+  section Phase 0
+  Blueprint & Figma approval     :p0, 2026-05-01, 14d
+
+  section Phase 1
+  Auth, RBAC, Dashboard          :p1a, after p0, 7d
+  Leads + Public Inquiry OTP     :p1b, after p1a, 10d
+  Customers & Bookings           :p1c, after p1b, 7d
+  WhatsApp Integration           :p1d, after p1b, 7d
+  Phase 1 UAT & handover         :milestone, after p1c p1d, 0d
+
+  section Phase 2
+  Accounting & Invoices          :p2a, after p1c, 10d
+  Expenses & Approvals           :p2b, after p2a, 7d
+  HR & Performance               :p2c, after p2b, 7d
+  Phase 2 UAT & handover         :milestone, after p2c, 0d
+
+  section Phase 3
+  Reports & Notifications        :p3a, after p2c, 7d
+  Automation Engine              :p3b, after p3a, 7d
+  Multi-Branch & Settings        :p3c, after p3b, 7d
+  Phase 3 UAT & handover         :milestone, after p3c, 0d
+
+  section Totals
+  Full platform (~3 months)      :crit, after p0, 90d
+</pre>
+  </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    await mermaid.run({ nodes: document.querySelectorAll('pre.mermaid') });
+  </script>
+</body>
+</html>

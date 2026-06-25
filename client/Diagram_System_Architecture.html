@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>System Architecture Overview</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 40px;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      background: #fff;
+    }
+    .header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #145374;
+    }
+    .badge {
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+     text-transform: uppercase;
+      color: #145374;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 18pt;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #0c2d48;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #4a6275;
+      margin: 0;
+    }
+    .diagram {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Reference Diagram — Client Document</div>
+    <h1>System Architecture Overview</h1>
+    <p class="subtitle">Alsultania Travel CRM & Management System</p>
+  </div>
+  <div class="diagram mermaid-wrap">
+    <pre class="mermaid">flowchart TB
+  subgraph Client["Client Environment"]
+    Browser["Web Browser\n(CRM + Public /inquiry)"]
+    WhatsAppUser["WhatsApp Users"]
+  end
+
+  subgraph Server["Application Server (Laravel)"]
+    Web["Web Layer\nBlade + Controllers"]
+    Auth["Auth & RBAC Middleware"]
+    Services["Domain Services\nLeads · Bookings · Finance"]
+    Jobs["Queue Workers\nWebhooks · OTP · Automation"]
+    Scheduler["Task Scheduler\nFollow-ups · Reminders"]
+  end
+
+  subgraph Data["Data Layer"]
+    MySQL[("MySQL 8.x")]
+    Storage["Private File Storage\nDocuments · Receipts"]
+  end
+
+  subgraph External["Client-Provisioned APIs"]
+    WhatsAppAPI["WhatsApp Business API"]
+    SMS["SMS Gateway\n(Public OTP)"]
+    SMTP["SMTP\n(Transactional Email)"]
+  end
+
+  Browser -->|HTTPS| Web
+  Web --> Auth
+  Auth --> Services
+  Services --> MySQL
+  Services --> Storage
+  Services --> Jobs
+
+  WhatsAppUser &lt;-->|Messages| WhatsAppAPI
+  WhatsAppAPI -->|Webhook| Jobs
+  Jobs --> Services
+  Jobs --> WhatsAppAPI
+  Jobs --> SMS
+  Jobs --> SMTP
+
+  Browser -->|OTP request| Web
+  Web --> SMS
+
+  Scheduler --> Jobs
+</pre>
+  </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    await mermaid.run({ nodes: document.querySelectorAll('pre.mermaid') });
+  </script>
+</body>
+</html>

@@ -1,0 +1,4960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software Requirements Specification — Alsultania Travel CRM & Management System</title>
+  <style>
+    @page { size: A4; margin: 22mm 18mm 24mm 18mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #1a1a2e;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cover {
+      page-break-after: always;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 40px;
+      background: linear-gradient(160deg, #0c2d48 0%, #145374 55%, #1a6b8a 100%);
+      color: #fff;
+    }
+    .cover-badge {
+      display: inline-block;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a8d4e8;
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      color: #fff;
+      border: none;
+      padding: 0;
+    }
+    .cover h2 {
+      font-size: 14pt;
+      font-weight: 400;
+      margin: 0 0 40px;
+      color: #d4eaf5;
+      border: none;
+      padding: 0;
+    }
+    .cover-meta {
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+      font-size: 10pt;
+    }
+    .cover-meta dt {
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8ec4dc;
+      margin-bottom: 4px;
+    }
+    .cover-meta dd { margin: 0; color: #fff; font-weight: 500; }
+    .cover-confidential {
+      margin-top: 32px;
+      font-size: 9pt;
+      color: #8ec4dc;
+      font-style: italic;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #0c2d48;
+      line-height: 1.3;
+      page-break-after: avoid;
+    }
+    h1 {
+      font-size: 20pt;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #145374;
+    }
+    h2 {
+      font-size: 14pt;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #c5dde8;
+      page-break-before: always;
+    }
+    .content > h2:first-child,
+    h2#table-of-contents { page-break-before: avoid; }
+    h3 { font-size: 12pt; margin: 20px 0 10px; }
+    h4 { font-size: 11pt; margin: 16px 0 8px; color: #145374; }
+    h5, h6 { font-size: 10.5pt; margin: 12px 0 6px; }
+    p { margin: 0 0 10px; }
+    a { color: #145374; text-decoration: none; }
+    strong { color: #0c2d48; }
+    hr { border: none; border-top: 1px solid #d0dde5; margin: 24px 0; }
+    ul, ol { margin: 0 0 12px; padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    thead { display: table-header-group; }
+    th {
+      background: #0c2d48;
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid #0c2d48;
+    }
+    td {
+      padding: 7px 10px;
+      border: 1px solid #c5dde8;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f4f8fb; }
+    blockquote {
+      margin: 12px 0;
+      padding: 10px 16px;
+      border-left: 4px solid #145374;
+      background: #f0f6fa;
+      color: #2a3f52;
+      font-size: 10pt;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 9pt;
+      background: #eef3f7;
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #0c2d48;
+    }
+    pre {
+      background: #f4f8fb;
+      border: 1px solid #c5dde8;
+      border-radius: 4px;
+      padding: 12px;
+      overflow-x: auto;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      page-break-inside: avoid;
+    }
+    pre code { background: none; padding: 0; }
+    .mermaid-wrap {
+      margin: 16px 0 20px;
+      padding: 12px;
+      background: #fafcfd;
+      border: 1px solid #d0dde5;
+      border-radius: 6px;
+      page-break-inside: avoid;
+      overflow: hidden;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <div class="cover-badge">Confidential — Client Document</div>
+    <h1>Software Requirements Specification</h1>
+    <h2>Alsultania Travel CRM & Management System</h2>
+    <dl class="cover-meta">
+      
+      <div>
+        <dt>Prepared For</dt>
+        <dd>Alsultania Travel and Tourism Co. L.L.C<br>Dubai, United Arab Emirates</dd>
+      </div>
+      <div>
+        <dt>Prepared By</dt>
+        <dd>AnyMatch Technologies Private Limited</dd>
+      </div>
+      <div>
+        <dt>Version</dt>
+        <dd>1.0</dd>
+      </div>
+      <div>
+        <dt>Date</dt>
+        <dd>11 June 2026</dd>
+      </div>
+      <div>
+        <dt>Status</dt>
+        <dd>Pending Client Approval — v1.0</dd>
+      </div>
+    </dl>
+    <p class="cover-confidential">This document is confidential and prepared exclusively for Alsultania Travel and Tourism Co. L.L.C and AnyMatch Technologies Private Limited.</p>
+  </section>
+  <main class="content"><hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p>This document contains ten main sections plus appendices. Use your PDF reader&#39;s bookmark or outline panel for navigation.</p>
+<ol>
+<li>Introduction</li>
+<li>Overall Description</li>
+<li>User Roles &amp; Permissions</li>
+<li>Functional Requirements</li>
+<li>Automation &amp; Workflow Requirements</li>
+<li>Data Requirements</li>
+<li>External Interface Requirements</li>
+<li>Non-Functional Requirements</li>
+<li>Phase-wise Delivery &amp; Acceptance</li>
+<li>Appendices (A — Screen Inventory, B — Components, C — Lead Creation, D — Third-Party Services)</li>
+</ol>
+<hr>
+<h2 id="1-introduction">1. Introduction</h2>
+<h3 id="11-purpose">1.1 Purpose</h3>
+<p>This Software Requirements Specification (SRS) defines the functional and non-functional requirements for the <strong>Alsultania Travel CRM &amp; Management System</strong> — a purpose-built, full-stack travel agency platform. It serves as the authoritative requirements baseline for design, development, testing, and client acceptance across all project phases.</p>
+<h3 id="12-scope">1.2 Scope</h3>
+<p>The System consolidates the following into a single unified platform:</p>
+<ul>
+<li>Lead capture, assignment, and lifecycle management</li>
+<li>Customer profiles and booking workflows</li>
+<li>Financial accounting, invoicing, and expense controls</li>
+<li>Staff performance and HR metrics</li>
+<li>WhatsApp automation and multi-channel notifications</li>
+<li>Reporting, analytics, and multi-branch scalability</li>
+</ul>
+<p><strong>In scope:</strong> All modules defined in Phases 0–3 of the accepted proposal.</p>
+<p><strong>Out of scope (unless agreed in writing post-blueprint approval):</strong></p>
+<ul>
+<li>Custom branding/design beyond structural blueprint</li>
+<li>Third-party WhatsApp API provisioning (Client responsibility)</li>
+<li>Server/hosting provisioning (Client responsibility)</li>
+<li>Features not mapped in the approved Phase 0 blueprint</li>
+<li>Public website inquiry with SMS OTP (SRS §4.1.3b) unless accepted on Phase 0 Acceptance Form</li>
+</ul>
+<h3 id="13-definitions-acronyms">1.3 Definitions &amp; Acronyms</h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Lead</strong></td>
+<td>A prospective customer inquiry not yet converted to a booking; typed by service category (Flight, Hotel, Visa, etc.) with auto-generated subject</td>
+</tr>
+<tr>
+<td><strong>Lead Type</strong></td>
+<td>Service category enum that drives dynamic capture fields on Create Lead</td>
+</tr>
+<tr>
+<td><strong>Subject</strong></td>
+<td>Auto-generated summary line built from type-specific lead fields (e.g. route, room count)</td>
+</tr>
+<tr>
+<td><strong>Lead Via</strong></td>
+<td>Channel through which the inquiry was received (WhatsApp, Phone, Walk-in, etc.)</td>
+</tr>
+<tr>
+<td><strong>Type Details</strong></td>
+<td>JSON payload storing fields specific to the selected Lead Type</td>
+</tr>
+<tr>
+<td><strong>Pipeline</strong></td>
+<td>Kanban-style visualisation of lead lifecycle stages</td>
+</tr>
+<tr>
+<td><strong>RBAC</strong></td>
+<td>Role-Based Access Control</td>
+</tr>
+<tr>
+<td><strong>ERD</strong></td>
+<td>Entity-Relationship Diagram</td>
+</tr>
+<tr>
+<td><strong>Blueprint</strong></td>
+<td>Phase 0 approved screen flows, data model, and component library</td>
+</tr>
+<tr>
+<td><strong>Branch</strong></td>
+<td>A physical or logical office location under Alsultania</td>
+</tr>
+<tr>
+<td><strong>OTP</strong></td>
+<td>One-time password sent via SMS to verify customer phone ownership before public inquiry submission</td>
+</tr>
+<tr>
+<td><strong>Public Inquiry</strong></td>
+<td>Pre-login lead submission on the public website (<code>/inquiry</code>): phone OTP verification → customer completes required inquiry fields → auto-assignment to next available active agent (round-robin, AUTO-02). <em>In scope only if accepted on Phase 0 Acceptance Form (see §4.1.3b).</em></td>
+</tr>
+</tbody></table>
+<h3 id="14-references">1.4 References</h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Project Master Overview</strong></td>
+<td><strong>Project Master Overview</strong></td>
+</tr>
+<tr>
+<td><strong>Phase 0 Acceptance Form</strong></td>
+<td><strong>Phase 0 Acceptance Form</strong></td>
+</tr>
+<tr>
+<td><strong>Software Design Document</strong></td>
+<td><strong>Software Design Document</strong></td>
+</tr>
+<tr>
+<td><strong>Database Schema</strong></td>
+<td><strong>Database Schema</strong></td>
+</tr>
+<tr>
+<td><strong>Diagrams</strong></td>
+<td><strong>Architecture Diagrams</strong></td>
+</tr>
+<tr>
+<td>Accepted Proposal</td>
+<td><code>Proposal_AnyMatch_Alsultania.pdf</code></td>
+</tr>
+<tr>
+<td>Interactive Prototype</td>
+<td><strong>Interactive Prototype (40 screens)</strong> (40 HTML screens)</td>
+</tr>
+<tr>
+<td>Data Architecture ERD</td>
+<td><a href="https://www.figma.com/board/CCsaj1dafvaX3xYUJSXuJs">FigJam Board</a></td>
+</tr>
+<tr>
+<td>Figma Design Blueprint</td>
+<td><a href="https://www.figma.com/design/mQTFdHu1KppUnKmFy12DLv/design-travel_crm">design-travel_crm</a></td>
+</tr>
+<tr>
+<td>Blueprint Deliverable Summary</td>
+<td><strong>Blueprint Deliverable Summary</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="2-overall-description">2. Overall Description</h2>
+<h3 id="21-product-perspective">2.1 Product Perspective</h3>
+<p>The System is a monolithic full-stack web application:</p>
+<ul>
+<li><strong>Backend:</strong> Laravel (PHP)</li>
+<li><strong>Database:</strong> MySQL</li>
+<li><strong>Frontend:</strong> Laravel Blade with component-based UI</li>
+<li><strong>Messaging:</strong> WhatsApp Business API (Client-provisioned)</li>
+<li><strong>Design baseline:</strong> Figma blueprint (structure, flows, fields — not branding)</li>
+</ul>
+<h3 id="22-business-objectives">2.2 Business Objectives</h3>
+<ol>
+<li>Eliminate fragmented tools and manual lead entry</li>
+<li>Automate WhatsApp inquiry capture and agent follow-ups</li>
+<li>Centralise lead-to-booking lifecycle tracking</li>
+<li>Provide financial visibility and staff performance metrics</li>
+<li>Support multi-branch growth with segregated data and consolidated reporting</li>
+</ol>
+<h3 id="23-user-classes">2.3 User Classes</h3>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Administrator</strong></td>
+<td>Full system access — users, roles, settings, branches, automation rules</td>
+</tr>
+<tr>
+<td><strong>Sales Manager</strong></td>
+<td>Team oversight — lead assignment, approvals, reports, performance</td>
+</tr>
+<tr>
+<td><strong>Travel Agent</strong></td>
+<td>Day-to-day CRM — leads, customers, bookings, WhatsApp conversations</td>
+</tr>
+<tr>
+<td><strong>Finance User</strong></td>
+<td>Accounting, invoices, payments, expenses (Phase 2)</td>
+</tr>
+<tr>
+<td><strong>HR/Manager</strong></td>
+<td>Staff performance, attendance, HR reports (Phase 2)</td>
+</tr>
+</tbody></table>
+<h3 id="24-operating-environment">2.4 Operating Environment</h3>
+<ul>
+<li>Desktop-first web application (1440px design baseline)</li>
+<li>Modern browsers (Chrome, Edge, Firefox, Safari — latest two versions)</li>
+<li>Client-provisioned server with PHP 8.x, MySQL 8.x, HTTPS</li>
+<li>WhatsApp Business API credentials provided by Client before Phase 1 go-live</li>
+</ul>
+<h3 id="25-constraints">2.5 Constraints</h3>
+<ul>
+<li>Development shall not commence until Phase 0 blueprint is client-approved in Figma</li>
+<li>Approved blueprint is locked; scope changes require written agreement</li>
+<li>3-month delivery timeline contingent on timely client feedback and third-party readiness</li>
+<li>WhatsApp API and server provisioning are Client dependencies</li>
+</ul>
+<h3 id="26-assumptions">2.6 Assumptions</h3>
+<ul>
+<li>Client designates active email addresses for formal project communication</li>
+<li>Agents have stable internet access during business hours</li>
+<li>Lead sources include WhatsApp, website forms, walk-in, and referral</li>
+<li>Currency for financial modules defaults to AED unless configured otherwise</li>
+</ul>
+<hr>
+<h2 id="3-user-roles-permissions">3. User Roles &amp; Permissions</h2>
+<h3 id="31-role-matrix-high-level">3.1 Role Matrix (High Level)</h3>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Administrator</th>
+<th>Sales Manager</th>
+<th>Travel Agent</th>
+<th>Finance</th>
+<th>HR</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User Management</td>
+<td>✓</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Roles &amp; Permissions</td>
+<td>✓</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Lead Management</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Customers &amp; Bookings</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Accounting &amp; Invoices</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+<td>✓</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Expenses &amp; Budgets</td>
+<td>✓</td>
+<td>✓</td>
+<td>—</td>
+<td>✓</td>
+<td>—</td>
+</tr>
+<tr>
+<td>HR &amp; Performance</td>
+<td>✓</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Reports</td>
+<td>✓</td>
+<td>✓</td>
+<td>R</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Automation &amp; Settings</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Multi-Branch Admin</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p><em>✓ = Full access · R = Read-only · — = No access (configurable via RBAC matrix)</em></p>
+<h3 id="32-authentication-requirements">3.2 Authentication Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AUTH-01</td>
+<td>System shall provide email/password login</td>
+</tr>
+<tr>
+<td>AUTH-02</td>
+<td>System shall enforce role-based access on every protected route</td>
+</tr>
+<tr>
+<td>AUTH-03</td>
+<td>System shall support session management with secure logout</td>
+</tr>
+<tr>
+<td>AUTH-04</td>
+<td>System shall allow Administrators to invite, activate, and deactivate users</td>
+</tr>
+<tr>
+<td>AUTH-05</td>
+<td>System shall support password reset via Administrator</td>
+</tr>
+<tr>
+<td>AUTH-06</td>
+<td>Failed login attempts shall be logged</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4-functional-requirements">4. Functional Requirements</h2>
+<p>Requirements are grouped by delivery phase and <strong>proposal sub-modules</strong> (<code>Proposal_AnyMatch_Alsultania.pdf</code>, §3 Scope of Work). Screen IDs correspond to the Phase 0 blueprint (<strong>Interactive Prototype</strong>). Sub-module structure and scope summaries: <a href="#911-sub-module-breakdown-accepted-proposal">§9.1.1</a>.</p>
+<h3 id="41-phase-1-core-crm-customer-booking-management-screens-0112-05a05d">4.1 Phase 1 — Core CRM, Customer &amp; Booking Management (Screens 01–12, 05a–05d)</h3>
+<h4 id="410-end-to-end-sales-payment-journey">4.1.0 End-to-End Sales &amp; Payment Journey</h4>
+<p><em>Authoritative cross-phase narrative from lead capture through the Payment Queue operational report. Navbar structure: <a href="#411a-navigation--leads--bookings">§4.1.1a</a>, <a href="#421a-unified-billing--payment-flow">§4.2.1a</a>, <a href="#431a-reports-navigation">§4.3.1a</a>, <a href="#433a-navigation--tools">§4.3.3a</a>.</em></p>
+<p><strong>Terminal screen:</strong> <strong>Payment Queue</strong> (Screen 16, <code>payment-tracking.html</code>) — outstanding and overdue payment operations report. <strong>Financial Reports</strong> (Screen 17) is a separate P&amp;L analysis screen and is not the endpoint of this journey.</p>
+<p><strong>Phase boundary:</strong> Steps 1–6 ship in Phase 1; steps 7–9 require Phase 2 accounting modules.</p>
+<div class="mermaid-wrap"><pre class="mermaid">flowchart TD
+  subgraph phase0 [PreCRM_Public]
+    OTP[VerifyPhone]
+    Inquiry[PublicInquiry]
+    Success[InquirySubmitted]
+    OTP --> Inquiry --> Success
+  end
+
+  subgraph phase1 [Phase1_LeadsTab]
+    CreateLead[CreateLead]
+    LeadsList[LeadsList]
+    Pipeline[Pipeline]
+    LeadDetail[LeadDetail]
+    WhatsApp[WhatsAppInbox]
+    CreateLead --> LeadDetail
+    LeadsList --> LeadDetail
+    Pipeline --> LeadDetail
+    WhatsApp --> CreateLead
+    Success -.->|AUTO-02| LeadsList
+  end
+
+  subgraph phase1b [Phase1_BookingsTab]
+    NewBooking[NewBooking]
+    BookingList[BookingList]
+    BookingDetail[BookingDetail]
+    CustomerProfile[CustomerProfile]
+    LeadDetail -->|Booked_CreateBooking| NewBooking
+    LeadDetail -->|ConvertToCustomer| CustomerProfile
+    CustomerProfile --> NewBooking
+    NewBooking --> BookingDetail
+    BookingList --> BookingDetail
+  end
+
+  subgraph phase2 [Phase2_AccountsTab]
+    InvoiceList[Invoices]
+    PaymentQueue[PaymentQueue]
+    BookingDetail -->|GenerateInvoice| InvoiceList
+    BookingDetail -->|RecordPayment| BookingDetail
+    InvoiceList --> BookingDetail
+    PaymentQueue -->|readOnly_linkBack| BookingDetail
+    BookingDetail --> PaymentQueue
+  end</pre></div>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Actor</th>
+<th>Screen</th>
+<th>Nav tab / entry</th>
+<th>SRS reference</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0 (optional)</td>
+<td>Customer</td>
+<td>Public OTP → Inquiry → Success</td>
+<td>No app shell</td>
+<td><a href="#413b-public-website-inquiry--blueprint-elaboration-pre-login-otp">§4.1.3b</a>, <a href="#1a-public-inquiry-flow-customer-pre-login">Appendix C §1a</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Agent</td>
+<td>Create Lead</td>
+<td><strong>Leads → Create Lead</strong></td>
+<td><a href="#413a-create-lead">§4.1.3a</a>, FR-18a–18m</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Agent</td>
+<td>Leads List / Pipeline</td>
+<td><strong>Leads → Leads List / Pipeline</strong></td>
+<td><a href="#413-advanced-lead-management">§4.1.3</a>, FR-08–12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Agent</td>
+<td>Lead Detail</td>
+<td>Deep link from list, pipeline, or WhatsApp</td>
+<td>FR-13–16</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Agent</td>
+<td>Customer Profile (if converting)</td>
+<td><strong>Accounts → Customers</strong> (deep link)</td>
+<td><a href="#414-customer--booking-management">§4.1.4</a>, FR-19–21</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Agent</td>
+<td>New Booking</td>
+<td><strong>Bookings → New Booking</strong> or Lead Detail CTA</td>
+<td>FR-20a, FR-22a</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Agent</td>
+<td>Booking Detail</td>
+<td>Deep link from booking list</td>
+<td>FR-23–25</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Agent / Finance</td>
+<td>Generate Invoice</td>
+<td><strong>Booking Detail</strong> action → <strong>Accounts → Invoices</strong></td>
+<td><a href="#421a-unified-billing--payment-flow">§4.2.1a</a> step 2</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Agent / Finance</td>
+<td>Record Payment</td>
+<td><strong>Booking Detail → Record Payment</strong> (primary write path)</td>
+<td>§4.2.1a step 3, FR-25</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Finance</td>
+<td>Payment Queue</td>
+<td><strong>Accounts → Receivables → Payment Queue</strong></td>
+<td>§4.2.1a step 6 — <strong>terminal report screen</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Flow rules:</strong></p>
+<ul>
+<li><strong>Detail pages are not nav items</strong> — Lead Detail, Booking Detail, and Customer Profile are reached from lists, CTAs, or deep links only.</li>
+<li><strong>Payment Queue is read-only</strong> — Finance views outstanding and overdue payments; payment recording happens on Booking Detail. Travel Agents may record deposit payments on assigned bookings only (<a href="#31-role-matrix-high-level">§3.1</a>).</li>
+<li><strong>Dashboard is a hub, not a top tab</strong> — brand logo navigates to Dashboard; <strong>+ New Lead</strong> enters step 1 (FR-18a).</li>
+<li><strong>Public inquiry</strong> — step 0 feeds step 2 via AUTO-02 round-robin; inquiry success has no CRM nav link (customer has no login).</li>
+<li><strong>WhatsApp alternate entry</strong> — Tools → WhatsApp Inbox can launch Create Lead (step 1) via AUTO-01 auto-capture or manual <strong>+ New Lead</strong>.</li>
+</ul>
+<p><strong>Navbar tab involvement:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Top tab</th>
+<th>Role in this journey</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Leads</td>
+<td>Capture, pipeline, qualification (steps 1–3)</td>
+</tr>
+<tr>
+<td>Bookings</td>
+<td>Draft booking creation and management (steps 5–6)</td>
+</tr>
+<tr>
+<td>Accounts</td>
+<td>Invoicing (step 7) and Payment Queue report (step 9)</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>WhatsApp Inbox as alternate lead entry (step 1)</td>
+</tr>
+<tr>
+<td>Reports</td>
+<td>Out of scope for this journey</td>
+</tr>
+</tbody></table>
+<h4 id="411-crm-foundation-authentication">4.1.1 CRM Foundation &amp; Authentication</h4>
+<p><em>Proposal scope: role-based access control, user management, session handling, and foundational CRM infrastructure.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-01</td>
+<td>Login</td>
+<td>User shall authenticate with email, password, and role context</td>
+</tr>
+<tr>
+<td>FR-02</td>
+<td>User Management</td>
+<td>Admin shall create, edit, deactivate users and assign roles</td>
+</tr>
+<tr>
+<td>FR-03</td>
+<td>Roles &amp; Permissions</td>
+<td>Admin shall configure module-level permissions per role via RBAC matrix</td>
+</tr>
+</tbody></table>
+<h4 id="411a-navigation-leads-bookings">4.1.1a Navigation — Leads &amp; Bookings</h4>
+<p><em>Canonical source: the approved blueprint navigation. Part of UI-01 top navigation.</em></p>
+<p><strong>Leads dropdown:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Screen</th>
+<th>Default tab click</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Leads List</td>
+<td><code>leads-list.html</code></td>
+<td>✓ (default)</td>
+</tr>
+<tr>
+<td>Create Lead</td>
+<td><code>leads-create.html</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Pipeline</td>
+<td><code>pipeline.html</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Bookings dropdown:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Screen</th>
+<th>Default tab click</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Booking List</td>
+<td><code>booking-list.html</code></td>
+<td>✓ (default)</td>
+</tr>
+<tr>
+<td>New Booking</td>
+<td><code>booking-create.html</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Active top-nav highlighting:</strong> The active tab is determined by the current screen. Detail pages highlight their parent tab:</p>
+<table>
+<thead>
+<tr>
+<th>Screen</th>
+<th>Active top tab</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>leads-list.html</code>, <code>leads-create.html</code>, <code>lead-detail.html</code>, <code>pipeline.html</code></td>
+<td>Leads</td>
+</tr>
+<tr>
+<td><code>booking-list.html</code>, <code>booking-create.html</code>, <code>booking-detail.html</code></td>
+<td>Bookings</td>
+</tr>
+</tbody></table>
+<p><strong>Dashboard:</strong> Not a top-nav item. Brand logo click navigates to <code>dashboard.html</code> (Screen 04). Dashboard has no active top-nav highlight (<code>PAGE_TOP_NAV</code> = null).</p>
+<h4>4.1.2 Dashboard <em>(included in CRM Foundation &amp; Authentication)</em></h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-04</td>
+<td>Dashboard</td>
+<td>System shall display KPI cards: new leads today, active pipeline, bookings this week, conversion rate</td>
+</tr>
+<tr>
+<td>FR-05</td>
+<td>Dashboard</td>
+<td>System shall show recent leads table with source, agent, status, and last contact</td>
+</tr>
+<tr>
+<td>FR-06</td>
+<td>Dashboard</td>
+<td>User shall filter recent leads by source (All, WhatsApp, Web Form, Walk-in, Referral)</td>
+</tr>
+<tr>
+<td>FR-07</td>
+<td>Dashboard</td>
+<td>User shall initiate &quot;New Lead&quot; from dashboard, navigating to the Create Lead screen</td>
+</tr>
+</tbody></table>
+<h4 id="413-advanced-lead-management">4.1.3 Advanced Lead Management</h4>
+<p><em>Proposal scope: full lead pipeline — capture, assignment, status tracking, and WhatsApp-integrated follow-ups.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-08</td>
+<td>Leads List</td>
+<td>System shall list all leads with search, status chips, and pagination</td>
+</tr>
+<tr>
+<td>FR-09</td>
+<td>Leads List</td>
+<td>Manager shall bulk-assign leads to agents</td>
+</tr>
+<tr>
+<td>FR-10</td>
+<td>Leads List</td>
+<td>Lead record shall include: ID, customer name, email, phone, lead type, subject, lead via, customer location, type details, departure/return dates, traveler counts (adults, children, infants), remarks, assigned agent, status, created date</td>
+</tr>
+<tr>
+<td>FR-11</td>
+<td>Pipeline</td>
+<td>System shall display Kanban board with stages: New, Contacted, Quoted, Negotiation, Booked, Lost</td>
+</tr>
+<tr>
+<td>FR-12</td>
+<td>Pipeline</td>
+<td>Agent shall drag leads between pipeline stages (status update)</td>
+</tr>
+<tr>
+<td>FR-13</td>
+<td>Lead Detail</td>
+<td>System shall show lead profile: customer name, phone, email, lead type, auto-generated subject, lead via, customer location, type-specific details, traveler counts, travel dates, remarks, assigned agent, created timestamp</td>
+</tr>
+<tr>
+<td>FR-14</td>
+<td>Lead Detail</td>
+<td>System shall maintain activity timeline (creation, subject generation, auto-capture, assignment, messages, status changes)</td>
+</tr>
+<tr>
+<td>FR-15</td>
+<td>Lead Detail</td>
+<td>Agent shall send WhatsApp message, schedule follow-up, and create quotation from lead</td>
+</tr>
+<tr>
+<td>FR-16</td>
+<td>Lead Detail</td>
+<td>Agent shall change status, reassign agent, add internal note, convert to customer, and create booking when lead status is Booked</td>
+</tr>
+<tr>
+<td>FR-17</td>
+<td>WhatsApp Inbox</td>
+<td>System shall display incoming WhatsApp messages with capture status</td>
+</tr>
+<tr>
+<td>FR-18</td>
+<td>WhatsApp Inbox</td>
+<td>System shall show conversation thread with auto-reply and manual reply capability</td>
+</tr>
+</tbody></table>
+<h4 id="413a-create-lead">4.1.3a Create Lead</h4>
+<p>Full field-level specification: <a href="#appendix-c--lead-creation-user-flow-fields--data-types">Appendix C</a></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-18a</td>
+<td>Create Lead</td>
+<td>User shall create a lead from Dashboard, Leads List, Pipeline, or WhatsApp Inbox via <strong>+ New Lead</strong> / <strong>+ Add Lead</strong> — step 1 of <a href="#410-end-to-end-sales--payment-journey">§4.1.0 End-to-End Sales &amp; Payment Journey</a></td>
+</tr>
+<tr>
+<td>FR-18b</td>
+<td>Create Lead</td>
+<td>When arriving from an inbound contact, system shall pre-fill and display the customer phone number (E.164) in the page header</td>
+</tr>
+<tr>
+<td>FR-18c</td>
+<td>Create Lead</td>
+<td>System shall display a <strong>Previous Leads</strong> panel for the customer phone, showing: ID, created date, name, type, subject, status, handler</td>
+</tr>
+<tr>
+<td>FR-18d</td>
+<td>Create Lead</td>
+<td>Form shall capture common fields: customer name (required), email (optional), lead type (required), lead via (required), customer location (optional), remarks (optional)</td>
+</tr>
+<tr>
+<td>FR-18e</td>
+<td>Create Lead</td>
+<td><strong>Lead Type</strong> shall support: <code>Flight</code>, <code>Hotel</code>, <code>Visa</code>, <code>Tour</code>, <code>Umrah</code>, <code>Hajj</code>, <code>Insurance</code>, <code>Package</code>, <code>Other</code></td>
+</tr>
+<tr>
+<td>FR-18f</td>
+<td>Create Lead</td>
+<td>System shall render type-specific fields dynamically when Lead Type changes (see <a href="#5-lead-type--dynamic-fields">Appendix C §5</a>)</td>
+</tr>
+<tr>
+<td>FR-18g</td>
+<td>Create Lead</td>
+<td>System shall capture <strong>Dates &amp; Travelers</strong>: departure/return with checkbox-enabled date pickers, adult/child/infant counts (defaults: 1/0/0); date labels shall vary by lead type</td>
+</tr>
+<tr>
+<td>FR-18h</td>
+<td>Create Lead</td>
+<td><strong>Lead Handling</strong> radio options: <code>Create and Takeover (Handle Myself)</code>, <code>Create for Others</code>, <code>Create and Transfer to Staff</code></td>
+</tr>
+<tr>
+<td>FR-18i</td>
+<td>Create Lead</td>
+<td>When handling is not Takeover, user shall select a target agent before submit</td>
+</tr>
+<tr>
+<td>FR-18j</td>
+<td>Create Lead</td>
+<td>System shall auto-generate a <strong>subject</strong> line from type-specific fields (e.g. <code>LHE - KHI (OW) Economy</code>, <code>1 Room Economy in JED (Room Only)</code>)</td>
+</tr>
+<tr>
+<td>FR-18k</td>
+<td>Create Lead</td>
+<td>System shall validate required fields per lead type before save; return date shall be ≥ departure when both are provided</td>
+</tr>
+<tr>
+<td>FR-18l</td>
+<td>Create Lead</td>
+<td>On successful save, lead status shall default to <code>New</code> and assignment shall follow the selected handling option</td>
+</tr>
+<tr>
+<td>FR-18m</td>
+<td>Create Lead</td>
+<td>Type-specific field values shall be stored in <code>type_details</code> JSON column on the <code>leads</code> table</td>
+</tr>
+</tbody></table>
+<h4>4.1.3b Public Website Inquiry — Blueprint Elaboration (Pre-Login, OTP) <em>(Conditional — §4.1.3b)</em></h4>
+<blockquote>
+<p><strong>Conditional scope:</strong> Client selects <strong>Accepted</strong> or <strong>Declined</strong> on <a href="PHASE_0_ACCEPTANCE.md">Phase 0 Acceptance Form</a>. If <strong>Declined</strong>, FR-18n–FR-18t and Screens 05b–05d are excluded; website leads may be captured via staff manual entry or alternate channel only.</p>
+<p><strong>Proposal anchor:</strong> Phase 1 — Advanced Lead Management (<em>capture, assignment, status tracking</em>). The public website flow with SMS OTP (Screens 05b–05d) is a <strong>Phase 0 blueprint elaboration</strong> — not explicitly named in the proposal.</p>
+</blockquote>
+<p>Full field-level specification: <a href="#1a-public-inquiry-flow-customer-pre-login">Appendix C §1a</a></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-18n</td>
+<td>Public Inquiry</td>
+<td>Customer shall submit a travel inquiry <strong>without CRM login</strong> via a public URL (<code>/inquiry</code>)</td>
+</tr>
+<tr>
+<td>FR-18o</td>
+<td>Verify Phone</td>
+<td>Customer shall enter mobile number (E.164 with country code); system shall send a 6-digit SMS OTP</td>
+</tr>
+<tr>
+<td>FR-18p</td>
+<td>Verify Phone</td>
+<td>Customer shall enter OTP to verify ownership of the phone number before accessing the inquiry form</td>
+</tr>
+<tr>
+<td>FR-18q</td>
+<td>Verify Phone</td>
+<td>System shall enforce OTP expiry, resend cooldown, and maximum failed attempts; verified phone shall be stored in session</td>
+</tr>
+<tr>
+<td>FR-18r</td>
+<td>Public Inquiry</td>
+<td>Verified customer shall complete required lead capture fields on the public website: customer name, service type (lead type), type-specific required fields per selected type, dates &amp; travelers; optional email, city, and notes; <strong>Lead Handling</strong> and <strong>Lead Via</strong> are excluded (see <a href="#1a2-required-information-public-form">Appendix C §1a.2</a>)</td>
+</tr>
+<tr>
+<td>FR-18s</td>
+<td>Public Inquiry</td>
+<td>On public submit: <code>lead_via</code> = <code>Website</code>, <code>created_by</code> = null, status = <code>New</code>; system shall <strong>auto-assign the lead to the next available active agent</strong> via round-robin (AUTO-02); assigned agent shall be notified in CRM; customer sees confirmation with lead reference only (no agent name)</td>
+</tr>
+<tr>
+<td>FR-18t</td>
+<td>Public Inquiry</td>
+<td>System shall display customer&#39;s <strong>Previous Inquiries</strong> for the verified phone (read-only, no handler column)</td>
+</tr>
+</tbody></table>
+<p><strong>Lead status values:</strong> <code>New</code>, <code>Contacted</code>, <code>Quoted</code>, <code>Negotiation</code>, <code>Booked</code>, <code>Lost</code></p>
+<p><strong>Lead type values:</strong> <code>Flight</code>, <code>Hotel</code>, <code>Visa</code>, <code>Tour</code>, <code>Umrah</code>, <code>Hajj</code>, <code>Insurance</code>, <code>Package</code>, <code>Other</code></p>
+<p><strong>Lead via (source) values:</strong> <code>WhatsApp</code>, <code>Phone</code>, <code>Walk-in</code>, <code>Website</code>, <code>Referral</code>, <code>Email</code>, <code>Manual</code></p>
+<p><strong>Lead handling values:</strong> <code>Takeover</code>, <code>Create for Others</code>, <code>Transfer to Staff</code></p>
+<h4 id="414-customer-booking-management">4.1.4 Customer &amp; Booking Management</h4>
+<p><em>Proposal scope: customer profiles, booking creation and management, travel itinerary tracking, and document management.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-19</td>
+<td>Customer List</td>
+<td>System shall list customers with search, tags, and booking count</td>
+</tr>
+<tr>
+<td>FR-20</td>
+<td>Customer List</td>
+<td>System shall support lead-to-customer conversion</td>
+</tr>
+<tr>
+<td>FR-20a</td>
+<td>Lead Detail</td>
+<td>When lead status is <code>Booked</code>, agent shall create a linked Draft booking (customer created if needed); lead fields prefill the booking form</td>
+</tr>
+<tr>
+<td>FR-21</td>
+<td>Customer Profile</td>
+<td>Profile shall store contact info, preferences, notes, and booking history</td>
+</tr>
+<tr>
+<td>FR-22</td>
+<td>Booking List</td>
+<td>System shall list bookings with status, destination, payment state, and linked customer</td>
+</tr>
+<tr>
+<td>FR-22a</td>
+<td>New Booking</td>
+<td>Agent shall create a Draft booking from Booking List, Customer Profile, or Lead Detail (prefilled from lead when applicable)</td>
+</tr>
+<tr>
+<td>FR-23</td>
+<td>Booking Detail</td>
+<td>Booking shall include itinerary (dates, destinations, flights, hotels), traveler details</td>
+</tr>
+<tr>
+<td>FR-24</td>
+<td>Booking Detail</td>
+<td>System shall support document upload: passports, visas, tickets</td>
+</tr>
+<tr>
+<td>FR-25</td>
+<td>Booking Detail</td>
+<td>System shall track payment milestones: deposit, balance, reminders; <strong>Booking Detail is the primary write path for recording payments</strong>; Payment Queue (FR-29) is the read-only operational payment report destination (step 9 of <a href="#410-end-to-end-sales--payment-journey">§4.1.0</a>)</td>
+</tr>
+</tbody></table>
+<p><strong>Booking status values:</strong> <code>Draft</code>, <code>Confirmed</code>, <code>In Progress</code>, <code>Completed</code>, <code>Cancelled</code></p>
+<hr>
+<h3 id="42-phase-2-financials-expenses-hr-metrics-screens-1323">4.2 Phase 2 — Financials, Expenses &amp; HR Metrics (Screens 13–23)</h3>
+<h4 id="421-accounting-foundation">4.2.1 Accounting Foundation</h4>
+<p><em>Proposal scope: revenue recording, invoice generation, payment tracking, and financial reporting.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-26</td>
+<td>Finance Dashboard</td>
+<td>System shall show revenue summary, outstanding balances, overdue counts, and deep links to finance work queues (payment queue, expense approvals, pending revenue)</td>
+</tr>
+<tr>
+<td>FR-27</td>
+<td>Revenue Adjustments</td>
+<td>Finance user shall review auto-posted revenue and create manual adjustments (corrections, reversals, accruals) linked to a booking</td>
+</tr>
+<tr>
+<td>FR-28</td>
+<td>Invoice List</td>
+<td>System shall list, preview PDF, send, and remind on invoices; <strong>invoice generation originates on Booking Detail</strong> — Invoice List is document management, not the primary create path</td>
+</tr>
+<tr>
+<td>FR-29</td>
+<td>Payment Queue</td>
+<td>System shall display partial/full payment status per booking (outstanding, overdue, reminders); <strong>read-only queue — payments are recorded on Booking Detail</strong></td>
+</tr>
+<tr>
+<td>FR-30</td>
+<td>Financial Reports</td>
+<td>System shall produce preset finance-operational reports: P&amp;L and revenue breakdown by agent and destination; Reports Hub (FR-40) links here for the Financials category</td>
+</tr>
+</tbody></table>
+<h4 id="421a-unified-billing-payment-flow">4.2.1a Unified Billing &amp; Payment Flow</h4>
+<p><em>Booking is the anchor; payment is the event; invoice is the document; revenue is derived (cash basis).</em></p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Actor</th>
+<th>UI</th>
+<th>System behaviour</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Agent</td>
+<td>New Booking / Lead Detail → Create Booking</td>
+<td>Create booking in <code>Draft</code>; copy lead <code>type_details</code>, dates, travelers when linked</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Agent / Finance</td>
+<td>Booking Detail → Generate Invoice</td>
+<td>Create primary invoice (<code>draft</code>); PDF optional before send</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Agent (deposit) / Finance (all)</td>
+<td><strong>Booking Detail → Record Payment</strong></td>
+<td>Create <code>payment</code> against invoice; update <code>booking.balance_due</code> and milestones; fire <code>PaymentReceived</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>System</td>
+<td>—</td>
+<td>Auto-post <code>revenue_entry</code> from payment (DATA-18); if cumulative paid ≥ deposit, transition <code>Draft → Confirmed</code> (DATA-15)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Finance</td>
+<td>Revenue Adjustments</td>
+<td>Manual entries for corrections/reversals only; require approval when flagged</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Finance</td>
+<td>Payment Queue</td>
+<td>View outstanding/overdue queues and reminders; link to Booking Detail to record payment — <strong>terminal operational payment report</strong> for the <a href="#410-end-to-end-sales--payment-journey">§4.1.0</a> journey</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Agent / System</td>
+<td>Booking Detail or automation</td>
+<td>Send payment reminders (AUTO-03)</td>
+</tr>
+</tbody></table>
+<p><strong>Payment Queue vs Financial Reports:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Screen</th>
+<th>Nav location</th>
+<th>Purpose</th>
+<th>In §4.1.0 journey?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Payment Queue (<code>payment-tracking.html</code>)</td>
+<td>Accounts → Receivables</td>
+<td>Outstanding/overdue payment operations report; read-only queue linking back to Booking Detail</td>
+<td><strong>Yes — terminal screen</strong></td>
+</tr>
+<tr>
+<td>Financial Reports (<code>financial-reports.html</code>)</td>
+<td>Accounts → Analysis</td>
+<td>P&amp;L and revenue breakdown by agent and destination (FR-30)</td>
+<td>No — separate analysis module</td>
+</tr>
+</tbody></table>
+<p><strong>Journey nav map</strong> (cross-reference <a href="#410-end-to-end-sales--payment-journey">§4.1.0</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Journey step</th>
+<th>Nav tab</th>
+<th>Screen</th>
+<th>In dropdown?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1–3</td>
+<td>Leads</td>
+<td><code>leads-create.html</code>, <code>leads-list.html</code>, <code>pipeline.html</code>, <code>lead-detail.html</code></td>
+<td>List items + deep link</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Accounts</td>
+<td><code>customer-profile.html</code></td>
+<td>Deep link from Customers</td>
+</tr>
+<tr>
+<td>5–6</td>
+<td>Bookings</td>
+<td><code>booking-create.html</code>, <code>booking-list.html</code>, <code>booking-detail.html</code></td>
+<td>List items + deep link</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Accounts → Receivables</td>
+<td><code>invoice-list.html</code></td>
+<td>✓</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Bookings (deep link)</td>
+<td><code>booking-detail.html</code></td>
+<td>Deep link — primary write path</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Accounts → Receivables</td>
+<td><code>payment-tracking.html</code></td>
+<td>✓ — terminal report</td>
+</tr>
+</tbody></table>
+<p><strong>Navigation (UI-01):</strong> Top nav <strong>Leads · Bookings · Accounts · Tools · Reports</strong>. Operational booking screens under <strong>Bookings</strong>; billing/finance list screens under <strong>Accounts</strong> (grouped dropdown: Customers · Receivables · Payables · Analysis). Detail pages (Booking Detail, Customer Profile, Lead Detail) are not top-nav items — reached from lists or deep links. Leads and Bookings dropdowns: <a href="#411a-navigation--leads--bookings">§4.1.1a</a>. Tools dropdown: <a href="#433a-navigation--tools">§4.3.3a</a>.</p>
+<p><strong>Accounts dropdown structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Items</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>(ungrouped)</em></td>
+<td>Customers</td>
+</tr>
+<tr>
+<td>Receivables</td>
+<td>Finance Dashboard, Payment Queue, Invoices, Revenue Adjustments</td>
+</tr>
+<tr>
+<td>Payables</td>
+<td>Expenses, Log Expense, Expense Approvals (badge: pending count), Cost Centres</td>
+</tr>
+<tr>
+<td>Analysis</td>
+<td>Financial Reports</td>
+</tr>
+</tbody></table>
+<p><strong>Default landing (role-aware):</strong> Finance User and Administrator → Finance Dashboard; Sales Manager and Travel Agent → Customer List.</p>
+<p><strong>Finance sub-nav</strong> (on Accounts finance screens): Overdue Payments · Pending Approvals · Pending Revenue — replaces global reminders sub-nav on those pages.</p>
+<p><strong>Screens with finance sub-nav:</strong> Finance Dashboard, Payment Queue, Invoices, Revenue Adjustments, Financial Reports, Expense List, Log Expense, Expense Approvals, Cost Centres.</p>
+<p><strong>Finance sub-nav link targets:</strong> Overdue Payments → <code>payment-tracking.html?status=overdue</code> · Pending Approvals → <code>expense-approvals.html</code> · Pending Revenue → <code>revenue-recording.html?status=pending</code>.</p>
+<p><strong>RBAC nav visibility:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Group / Item</th>
+<th>Admin</th>
+<th>Sales Mgr</th>
+<th>Agent</th>
+<th>Finance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Customers</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>R</td>
+</tr>
+<tr>
+<td>Receivables (all)</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Payables</td>
+<td>✓</td>
+<td>✓</td>
+<td>—</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Financial Reports</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+<td>✓</td>
+</tr>
+</tbody></table>
+<p><strong>RBAC:</strong> Travel Agent may record deposit payments on assigned bookings only; Finance User has full payment and adjustment access; Payment Queue and Revenue Adjustments are Finance-primary modules (SRS §3.1).</p>
+<h4 id="422-expense-financial-controls">4.2.2 Expense &amp; Financial Controls</h4>
+<p><em>Proposal scope: expense logging, budget tracking, cost-centre allocation, and approval workflows.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-31</td>
+<td>Expense List</td>
+<td>System shall list expenses filterable by cost centre and approval status</td>
+</tr>
+<tr>
+<td>FR-32</td>
+<td>Log Expense</td>
+<td>User shall log expenses with category, amount, receipt, and cost centre</td>
+</tr>
+<tr>
+<td>FR-33</td>
+<td>Log Expense</td>
+<td>System shall track monthly budget vs actual spend</td>
+</tr>
+<tr>
+<td>FR-34</td>
+<td>Expense Approvals</td>
+<td>Manager shall approve, reject, or request info on pending expenses</td>
+</tr>
+<tr>
+<td>FR-35</td>
+<td>Cost Centres</td>
+<td>Admin shall define branches/departments and allocate expenses</td>
+</tr>
+</tbody></table>
+<p><strong>Expense status values:</strong> <code>Pending</code>, <code>Approved</code>, <code>Rejected</code></p>
+<h4 id="423-staff-performance-hr-metrics">4.2.3 Staff Performance &amp; HR Metrics</h4>
+<p><em>Proposal scope: agent productivity dashboards, lead conversion rates, attendance, and HR reporting.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-36</td>
+<td>Staff Performance</td>
+<td>System shall display agent leaderboard by conversions and revenue</td>
+</tr>
+<tr>
+<td>FR-37</td>
+<td>Staff Performance</td>
+<td>Metrics shall include leads handled, conversion %, average response time</td>
+</tr>
+<tr>
+<td>FR-38</td>
+<td>Attendance &amp; HR</td>
+<td>System shall log attendance (check-in/out) and leave balance</td>
+</tr>
+<tr>
+<td>FR-39</td>
+<td>Attendance &amp; HR</td>
+<td>System shall export HR productivity and attendance reports</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="43-phase-3-automation-advanced-enterprise-scalability-screens-2433">4.3 Phase 3 — Automation &amp; Advanced Enterprise Scalability (Screens 24–33)</h3>
+<h4 id="431-reporting-analytics-suite">4.3.1 Reporting &amp; Analytics Suite</h4>
+<p><em>Proposal scope: customizable reports across sales, bookings, financials, and agent performance.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-40</td>
+<td>Reports Hub</td>
+<td>System shall categorise reports: Sales, Bookings, Financials (links to Financial Reports screen), Agent Performance</td>
+</tr>
+<tr>
+<td>FR-41</td>
+<td>Report Builder</td>
+<td>User shall build custom reports with date range, agent, destination, and status filters</td>
+</tr>
+<tr>
+<td>FR-42</td>
+<td>Report Builder</td>
+<td>System shall export reports to CSV and PDF</td>
+</tr>
+</tbody></table>
+<h4 id="431a-reports-navigation">4.3.1a Reports Navigation</h4>
+<p><strong>Reports dropdown structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Items</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>(ungrouped)</em></td>
+<td>Reports Hub, Report Builder</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Staff Performance, Attendance &amp; HR</td>
+</tr>
+<tr>
+<td>Management</td>
+<td>Consolidated View</td>
+</tr>
+</tbody></table>
+<p><strong>Default landing:</strong> Reports Hub (<code>reports-hub.html</code>).</p>
+<p><strong>Financial Reports relationship:</strong> Preset finance-operational reports (FR-30) remain under <strong>Accounts → Analysis</strong>. Reports Hub (FR-40) links to Financial Reports for the Financials category; Financial Reports page links back to Reports Hub for sales, agent, and custom analytics.</p>
+<p><strong>RBAC nav visibility:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Admin</th>
+<th>Sales Mgr</th>
+<th>Agent</th>
+<th>Finance</th>
+<th>HR</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reports Hub</td>
+<td>✓</td>
+<td>✓</td>
+<td>R</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Report Builder</td>
+<td>✓</td>
+<td>✓</td>
+<td>R</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Staff Performance</td>
+<td>✓</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Attendance &amp; HR</td>
+<td>✓</td>
+<td>✓</td>
+<td>—</td>
+<td>—</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Consolidated View</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p><em>✓ = Full access · R = Read-only · — = Hidden (configurable via RBAC matrix)</em></p>
+<h4 id="432-notifications-communication">4.3.2 Notifications &amp; Communication</h4>
+<p><em>Proposal scope: multi-channel notification engine covering WhatsApp, email, and in-app alerts.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-43</td>
+<td>Notifications Center</td>
+<td>System shall display in-app alerts: lead assigned, payment received, follow-up due</td>
+</tr>
+<tr>
+<td>FR-44</td>
+<td>Notifications Center</td>
+<td>User shall filter notifications by read/unread and type</td>
+</tr>
+<tr>
+<td>FR-45</td>
+<td>Communication Templates</td>
+<td>Admin shall create/edit WhatsApp and email templates with variable placeholders</td>
+</tr>
+<tr>
+<td>FR-46</td>
+<td>Channel Settings</td>
+<td>Admin shall configure WhatsApp API credentials and email SMTP settings</td>
+</tr>
+</tbody></table>
+<h4 id="433a-navigation-tools">4.3.3a Navigation — Tools</h4>
+<p><em>Canonical source: the approved blueprint navigation. Part of UI-01 top navigation.</em></p>
+<p><strong>Tools dropdown structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Items</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>(ungrouped)</em></td>
+<td>WhatsApp Inbox</td>
+</tr>
+<tr>
+<td>Administration</td>
+<td>User Management, Roles &amp; Permissions, Multi-Branch</td>
+</tr>
+<tr>
+<td>Communications</td>
+<td>Notifications, Communication Templates, Channel Settings</td>
+</tr>
+<tr>
+<td>Automation</td>
+<td>Automation Rules, Workflow Triggers, System Settings</td>
+</tr>
+</tbody></table>
+<p><strong>Default landing:</strong> WhatsApp Inbox (<code>whatsapp-inbox.html</code>).</p>
+<p><strong>Lead-capture entry:</strong> WhatsApp Inbox is an alternate entry point to Create Lead (step 1 of <a href="#410-end-to-end-sales--payment-journey">§4.1.0</a>) via AUTO-01 auto-capture or manual <strong>+ New Lead</strong> (FR-17, FR-18, FR-18a).</p>
+<p><strong>Active top-nav highlighting:</strong> All Tools screens highlight the Tools tab.</p>
+<p><strong>RBAC nav visibility:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Group / Item</th>
+<th>Admin</th>
+<th>Sales Mgr</th>
+<th>Agent</th>
+<th>Finance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>WhatsApp Inbox</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Administration (all)</td>
+<td>✓</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Notifications</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Communications (templates, channels)</td>
+<td>✓</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Automation (rules, triggers, settings)</td>
+<td>✓</td>
+<td>R</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p><em>✓ = Full access · R = Read-only · — = Hidden (configurable via RBAC matrix)</em></p>
+<h4 id="433-automation-workflow-engine">4.3.3 Automation &amp; Workflow Engine</h4>
+<p><em>Proposal scope: full rule-based automation for lead routing, reminders, status triggers, and scheduled tasks.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-47</td>
+<td>Automation Rules</td>
+<td>Admin shall define IF/THEN rules (e.g. status change → send notification)</td>
+</tr>
+<tr>
+<td>FR-48</td>
+<td>Workflow Triggers</td>
+<td>Admin shall schedule tasks: daily follow-ups, payment reminders</td>
+</tr>
+<tr>
+<td>FR-49</td>
+<td>System Settings</td>
+<td>Admin shall configure lead rotation rules and FAQ keyword auto-replies</td>
+</tr>
+</tbody></table>
+<h4 id="434-multi-branch-scalability">4.3.4 Multi Branch &amp; Scalability</h4>
+<p><em>Proposal scope: branch-level data segregation, consolidated management views, and architecture optimized for growth.</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Screen</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR-50</td>
+<td>Multi-Branch Management</td>
+<td>Admin shall create branches with data segregation rules</td>
+</tr>
+<tr>
+<td>FR-51</td>
+<td>Consolidated View</td>
+<td>Management shall view cross-branch KPIs: leads, bookings, revenue</td>
+</tr>
+<tr>
+<td>FR-52</td>
+<td>Multi-Branch</td>
+<td>Users shall only access data for their assigned branch unless role grants cross-branch view</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="5-automation-workflow-requirements">5. Automation &amp; Workflow Requirements</h2>
+<p>Included across all phases per accepted proposal.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AUTO-01</td>
+<td>Incoming WhatsApp messages shall auto-create CRM leads without manual entry</td>
+</tr>
+<tr>
+<td>AUTO-02</td>
+<td>New leads (including public website inquiries) shall be auto-assigned to the <strong>next available active agent</strong> via configurable round-robin rotation; public submissions shall not accept client-supplied agent selection</td>
+</tr>
+<tr>
+<td>AUTO-03</td>
+<td>System shall send scheduled WhatsApp follow-ups, greetings, and payment/quotation reminders based on lead status and timelines</td>
+</tr>
+<tr>
+<td>AUTO-04</td>
+<td>System shall notify agent and customer via WhatsApp on lead status or payment status changes</td>
+</tr>
+<tr>
+<td>AUTO-05</td>
+<td>System shall auto-reply to FAQ queries using predefined keyword matching</td>
+</tr>
+<tr>
+<td>AUTO-06</td>
+<td>All automation events shall be logged in the lead activity timeline</td>
+</tr>
+<tr>
+<td>AUTO-07</td>
+<td>Admin shall enable/disable individual automation rules without code deployment</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="6-data-requirements">6. Data Requirements</h2>
+<h3 id="61-core-entities">6.1 Core Entities</h3>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Description</th>
+<th>Key Relationships</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>users</code></td>
+<td>System users (agents, managers, admins)</td>
+<td>belongs to <code>roles</code>, <code>branches</code>; assigns <code>leads</code></td>
+</tr>
+<tr>
+<td><code>roles</code></td>
+<td>RBAC role definitions</td>
+<td>has many <code>permissions</code></td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td>Module-level access grants</td>
+<td>belongs to <code>roles</code></td>
+</tr>
+<tr>
+<td><code>leads</code></td>
+<td>Prospective customer inquiries</td>
+<td>has <code>lead_activities</code>, <code>lead_assignments</code>; converts to <code>customers</code></td>
+</tr>
+<tr>
+<td><code>lead_activities</code></td>
+<td>Timeline events on a lead</td>
+<td>belongs to <code>leads</code></td>
+</tr>
+<tr>
+<td><code>lead_assignments</code></td>
+<td>Agent rotation history</td>
+<td>belongs to <code>leads</code>, <code>users</code></td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td>Converted contacts</td>
+<td>has many <code>bookings</code></td>
+</tr>
+<tr>
+<td><code>bookings</code></td>
+<td>Confirmed travel packages</td>
+<td>has <code>itineraries</code>, <code>documents</code>, <code>invoices</code>, <code>expenses</code></td>
+</tr>
+<tr>
+<td><code>itineraries</code></td>
+<td>Travel schedule per booking</td>
+<td>belongs to <code>bookings</code></td>
+</tr>
+<tr>
+<td><code>documents</code></td>
+<td>Uploaded files (passport, visa, ticket)</td>
+<td>belongs to <code>bookings</code></td>
+</tr>
+<tr>
+<td><code>invoices</code></td>
+<td>Billing records</td>
+<td>belongs to <code>bookings</code>; has <code>payments</code></td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td>Payment transactions</td>
+<td>belongs to <code>invoices</code>; triggers <code>revenue_entries</code> on create</td>
+</tr>
+<tr>
+<td><code>revenue_entries</code></td>
+<td>Recognized revenue (auto + manual)</td>
+<td>belongs to <code>bookings</code>; optional FK to <code>payments</code></td>
+</tr>
+<tr>
+<td><code>expenses</code></td>
+<td>Operational costs</td>
+<td>belongs to <code>bookings</code>, <code>cost_centres</code></td>
+</tr>
+<tr>
+<td><code>cost_centres</code></td>
+<td>Branch/department budget units</td>
+<td>has many <code>expenses</code></td>
+</tr>
+<tr>
+<td><code>attendance</code></td>
+<td>Staff check-in/out records</td>
+<td>belongs to <code>users</code></td>
+</tr>
+<tr>
+<td><code>performance_metrics</code></td>
+<td>Agent KPI snapshots</td>
+<td>belongs to <code>users</code></td>
+</tr>
+<tr>
+<td><code>branches</code></td>
+<td>Office locations</td>
+<td>has <code>users</code>, <code>leads</code></td>
+</tr>
+<tr>
+<td><code>notifications</code></td>
+<td>In-app alerts</td>
+<td>triggered by <code>automation_rules</code></td>
+</tr>
+<tr>
+<td><code>automation_rules</code></td>
+<td>IF/THEN workflow definitions</td>
+<td>triggers <code>notifications</code></td>
+</tr>
+<tr>
+<td><code>whatsapp_messages</code></td>
+<td>Inbound/outbound WhatsApp log</td>
+<td>belongs to <code>leads</code>; uses <code>communication_templates</code></td>
+</tr>
+<tr>
+<td><code>communication_templates</code></td>
+<td>Message templates</td>
+<td>used by <code>whatsapp_messages</code></td>
+</tr>
+<tr>
+<td><code>otp_verifications</code></td>
+<td>Pending SMS OTP codes for public phone verification</td>
+<td>keyed by E.164 phone; expires after configurable TTL</td>
+</tr>
+</tbody></table>
+<h3 id="62-data-integrity-rules">6.2 Data Integrity Rules</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DATA-01</td>
+<td>Every lead shall have a unique system-generated ID (format: <code>#LD-XXXX</code>)</td>
+</tr>
+<tr>
+<td>DATA-02</td>
+<td>Lead status transitions shall be validated against allowed pipeline stages</td>
+</tr>
+<tr>
+<td>DATA-03</td>
+<td>Converted customers shall retain link to originating lead</td>
+</tr>
+<tr>
+<td>DATA-04</td>
+<td>Financial records shall not be hard-deleted; soft-delete with audit trail</td>
+</tr>
+<tr>
+<td>DATA-05</td>
+<td>Branch segregation shall filter all queries by user&#39;s branch unless cross-branch role granted</td>
+</tr>
+<tr>
+<td>DATA-06</td>
+<td>All automation and user actions on leads shall append to <code>lead_activities</code></td>
+</tr>
+<tr>
+<td>DATA-07</td>
+<td>Every lead shall store <code>lead_type</code> as one of nine enumerated service categories</td>
+</tr>
+<tr>
+<td>DATA-08</td>
+<td>Type-specific lead fields shall be persisted in <code>type_details</code> JSON; schema varies by <code>lead_type</code> (see <a href="#82-suggested-type_details-schemas">Appendix C §8.2</a>)</td>
+</tr>
+<tr>
+<td>DATA-09</td>
+<td>System shall auto-generate and store <code>subject</code> from <code>type_details</code> on lead creation</td>
+</tr>
+<tr>
+<td>DATA-10</td>
+<td>Lead phone numbers shall be stored in E.164 format and indexed for Previous Leads lookup</td>
+</tr>
+<tr>
+<td>DATA-11</td>
+<td>Traveler counts (<code>adults</code>, <code>children</code>, <code>infants</code>) shall default to 1, 0, 0 respectively</td>
+</tr>
+<tr>
+<td>DATA-12</td>
+<td><code>departure_date</code> and <code>return_date</code> shall be nullable; enabled only when user checks the corresponding date toggle</td>
+</tr>
+<tr>
+<td>DATA-13</td>
+<td>Public inquiry leads shall set <code>created_by</code> to null, <code>lead_via</code> to <code>Website</code>, and <code>assigned_user_id</code> via AUTO-02 (next available agent)</td>
+</tr>
+<tr>
+<td>DATA-14</td>
+<td>OTP codes shall be stored hashed; plain-text codes shall not be persisted after verification</td>
+</tr>
+<tr>
+<td>DATA-15</td>
+<td>When cumulative payments for a booking reach or exceed <code>deposit_amount</code>, booking status shall auto-transition from <code>Draft</code> to <code>Confirmed</code></td>
+</tr>
+<tr>
+<td>DATA-16</td>
+<td><code>booking.balance_due</code> shall equal <code>total_amount</code> minus the sum of all <code>payments.amount</code> for invoices linked to that booking</td>
+</tr>
+<tr>
+<td>DATA-17</td>
+<td>Each booking shall have one primary invoice unless explicitly split (e.g. separate deposit and balance invoices)</td>
+</tr>
+<tr>
+<td>DATA-18</td>
+<td>System shall auto-create a <code>revenue_entry</code> when a payment is recorded (cash basis); manual revenue entries require Finance approval when marked pending</td>
+</tr>
+<tr>
+<td>DATA-19</td>
+<td>Lead status <code>Booked</code> shall require a linked booking or prompt the agent to create one via Lead Detail → Create Booking on save</td>
+</tr>
+</tbody></table>
+<h3 id="63-leads-table-extended-field-reference">6.3 Leads Table — Extended Field Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>phone</code></td>
+<td><code>VARCHAR(20)</code></td>
+<td>Yes</td>
+<td>E.164; links customer history</td>
+</tr>
+<tr>
+<td><code>customer_name</code></td>
+<td><code>VARCHAR(255)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>VARCHAR(255)</code></td>
+<td>No</td>
+<td>Validated if provided</td>
+</tr>
+<tr>
+<td><code>lead_type</code></td>
+<td><code>ENUM</code></td>
+<td>Yes</td>
+<td>Flight, Hotel, Visa, Tour, Umrah, Hajj, Insurance, Package, Other</td>
+</tr>
+<tr>
+<td><code>lead_via</code></td>
+<td><code>ENUM</code></td>
+<td>Yes</td>
+<td>WhatsApp, Phone, Walk-in, Website, Referral, Email, Manual</td>
+</tr>
+<tr>
+<td><code>customer_location</code></td>
+<td><code>VARCHAR(100)</code></td>
+<td>No</td>
+<td>City</td>
+</tr>
+<tr>
+<td><code>type_details</code></td>
+<td><code>JSON</code></td>
+<td>Yes</td>
+<td>Polymorphic per <code>lead_type</code></td>
+</tr>
+<tr>
+<td><code>departure_date</code></td>
+<td><code>DATE</code></td>
+<td>No</td>
+<td>Label varies by type</td>
+</tr>
+<tr>
+<td><code>return_date</code></td>
+<td><code>DATE</code></td>
+<td>No</td>
+<td>Must be ≥ <code>departure_date</code> when set</td>
+</tr>
+<tr>
+<td><code>adults</code></td>
+<td><code>TINYINT UNSIGNED</code></td>
+<td>Yes</td>
+<td>Default 1</td>
+</tr>
+<tr>
+<td><code>children</code></td>
+<td><code>TINYINT UNSIGNED</code></td>
+<td>Yes</td>
+<td>Default 0</td>
+</tr>
+<tr>
+<td><code>infants</code></td>
+<td><code>TINYINT UNSIGNED</code></td>
+<td>Yes</td>
+<td>Default 0</td>
+</tr>
+<tr>
+<td><code>remarks</code></td>
+<td><code>TEXT</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subject</code></td>
+<td><code>VARCHAR(500)</code></td>
+<td>Yes</td>
+<td>Auto-generated</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>ENUM</code></td>
+<td>Yes</td>
+<td>Default <code>New</code></td>
+</tr>
+<tr>
+<td><code>assigned_user_id</code></td>
+<td><code>FK → users</code></td>
+<td>Yes*</td>
+<td>*Public inquiry: next available agent (AUTO-02); staff: per Lead Handling</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td><code>FK → users</code></td>
+<td>No**</td>
+<td>**Required for staff; null for public OTP submissions</td>
+</tr>
+</tbody></table>
+<h3 id="64-erd-reference">6.4 ERD Reference</h3>
+<p>Full entity-relationship diagram: <a href="https://www.figma.com/board/CCsaj1dafvaX3xYUJSXuJs">FigJam ERD Board</a></p>
+<hr>
+<h2 id="7-external-interface-requirements">7. External Interface Requirements</h2>
+<h3 id="71-whatsapp-business-api">7.1 WhatsApp Business API</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EXT-01</td>
+<td>System shall integrate with Client-provisioned WhatsApp Business API</td>
+</tr>
+<tr>
+<td>EXT-02</td>
+<td>System shall receive inbound messages via webhook</td>
+</tr>
+<tr>
+<td>EXT-03</td>
+<td>System shall send outbound messages (manual, automated, template-based)</td>
+</tr>
+<tr>
+<td>EXT-04</td>
+<td>API credentials shall be stored encrypted in <code>channel_settings</code></td>
+</tr>
+</tbody></table>
+<h3 id="72-sms-otp-public-inquiry">7.2 SMS OTP (Public Inquiry)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EXT-07</td>
+<td>System shall integrate with SMS gateway (Client-provisioned) for public inquiry OTP delivery</td>
+</tr>
+<tr>
+<td>EXT-08</td>
+<td>OTP send rate shall be limited per phone number to prevent abuse</td>
+</tr>
+</tbody></table>
+<h3 id="73-email-smtp">7.3 Email (SMTP)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EXT-05</td>
+<td>System shall send transactional emails via configurable SMTP</td>
+</tr>
+<tr>
+<td>EXT-06</td>
+<td>Email templates shall support variable substitution</td>
+</tr>
+</tbody></table>
+<h3 id="74-user-interface">7.4 User Interface</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UI-01</td>
+<td>Desktop layout baseline: 1440px width, top navigation (Leads · Bookings · Accounts · Tools · Reports). Full dropdown specifications: Leads &amp; Bookings <a href="#411a-navigation--leads--bookings">§4.1.1a</a>, Accounts <a href="#421a-unified-billing--payment-flow">§4.2.1a</a>, Tools <a href="#433a-navigation--tools">§4.3.3a</a>, Reports <a href="#431a-reports-navigation">§4.3.1a</a>. Dashboard accessed via brand logo click (not a top tab). Global sub-nav on Leads, Bookings, Tools, and Reports screens; finance sub-nav on Accounts finance screens (see UI-01 detail below). Role-aware Accounts default: Finance/Admin → Finance Dashboard; Sales Manager/Agent → Customer List</td>
+</tr>
+<tr>
+<td>UI-02</td>
+<td>UI shall follow approved Phase 0 component blueprint library</td>
+</tr>
+<tr>
+<td>UI-03</td>
+<td>Primary interaction colour: <code>#17608c</code> (structural, not final branding)</td>
+</tr>
+<tr>
+<td>UI-04</td>
+<td>Typography: Inter (Regular, Semi Bold, Bold)</td>
+</tr>
+</tbody></table>
+<p><strong>UI-01 — Navigation detail:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Top tabs</td>
+<td>Leads · Bookings · Accounts · Tools · Reports</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>Brand logo → <code>dashboard.html</code>; not a top-nav item</td>
+</tr>
+<tr>
+<td>Leads dropdown</td>
+<td>Leads List, Create Lead, Pipeline — <a href="#411a-navigation--leads--bookings">§4.1.1a</a></td>
+</tr>
+<tr>
+<td>Bookings dropdown</td>
+<td>Booking List, New Booking — <a href="#411a-navigation--leads--bookings">§4.1.1a</a></td>
+</tr>
+<tr>
+<td>Accounts dropdown</td>
+<td>Customers · Receivables · Payables · Analysis — <a href="#421a-unified-billing--payment-flow">§4.2.1a</a></td>
+</tr>
+<tr>
+<td>Tools dropdown</td>
+<td>WhatsApp Inbox · Administration · Communications · Automation — <a href="#433a-navigation--tools">§4.3.3a</a></td>
+</tr>
+<tr>
+<td>Reports dropdown</td>
+<td>Reports Hub · Report Builder · Performance · Management — <a href="#431a-reports-navigation">§4.3.1a</a></td>
+</tr>
+<tr>
+<td>Global sub-nav</td>
+<td>My Reminders · Add Reminder · Links — on Leads, Bookings, Tools, and Reports screens</td>
+</tr>
+<tr>
+<td>Finance sub-nav</td>
+<td>Overdue Payments · Pending Approvals · Pending Revenue — on Finance Dashboard, Payment Queue, Invoices, Revenue Adjustments, Financial Reports, Expense List, Log Expense, Expense Approvals, Cost Centres</td>
+</tr>
+<tr>
+<td>End-to-end journey</td>
+<td>Lead creation through Payment Queue — <a href="#410-end-to-end-sales--payment-journey">§4.1.0</a></td>
+</tr>
+</tbody></table>
+<h3 id="75-api-integration-internal">7.5 API &amp; Integration (Internal)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>API-01</td>
+<td>Monolithic Laravel architecture — no separate public API in Phase 1–3 unless scoped</td>
+</tr>
+<tr>
+<td>API-02</td>
+<td>All forms shall use server-side validation with user-friendly error messages</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="8-non-functional-requirements">8. Non-Functional Requirements</h2>
+<h3 id="81-performance">8.1 Performance</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NFR-01</td>
+<td>Dashboard and lead list shall load within 3 seconds on standard broadband</td>
+</tr>
+<tr>
+<td>NFR-02</td>
+<td>System shall support minimum 50 concurrent authenticated users</td>
+</tr>
+<tr>
+<td>NFR-03</td>
+<td>WhatsApp webhook processing shall complete within 5 seconds</td>
+</tr>
+</tbody></table>
+<h3 id="82-security">8.2 Security</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NFR-04</td>
+<td>All traffic shall be served over HTTPS</td>
+</tr>
+<tr>
+<td>NFR-05</td>
+<td>Passwords shall be hashed (bcrypt or Argon2)</td>
+</tr>
+<tr>
+<td>NFR-06</td>
+<td>RBAC shall be enforced server-side on every request</td>
+</tr>
+<tr>
+<td>NFR-07</td>
+<td>Uploaded documents shall be stored outside public web root</td>
+</tr>
+<tr>
+<td>NFR-08</td>
+<td>Session tokens shall expire after configurable inactivity period</td>
+</tr>
+<tr>
+<td>NFR-11</td>
+<td>Public inquiry OTP session shall expire after configurable timeout (e.g. 30 minutes post-verification)</td>
+</tr>
+<tr>
+<td>NFR-12</td>
+<td>Public inquiry routes shall be rate-limited independently of authenticated CRM routes</td>
+</tr>
+</tbody></table>
+<h3 id="83-availability-backup">8.3 Availability &amp; Backup</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NFR-09</td>
+<td>Target uptime: 99% during business hours (Client-hosted environment)</td>
+</tr>
+<tr>
+<td>NFR-10</td>
+<td>Database backups shall be performed daily (Client or AnyMatch per hosting agreement)</td>
+</tr>
+</tbody></table>
+<h3 id="84-maintainability">8.4 Maintainability</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NFR-11</td>
+<td>Codebase shall follow Laravel conventions and PSR standards</td>
+</tr>
+<tr>
+<td>NFR-12</td>
+<td>Database migrations shall be version-controlled</td>
+</tr>
+<tr>
+<td>NFR-13</td>
+<td>30-day bug-fix warranty per phase following handover</td>
+</tr>
+</tbody></table>
+<h3 id="85-usability">8.5 Usability</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NFR-14</td>
+<td>Core agent workflows (view lead, reply WhatsApp, update status) shall require ≤ 3 clicks</td>
+</tr>
+<tr>
+<td>NFR-15</td>
+<td>Status badges and pipeline colours shall be consistent across all screens</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="9-phase-wise-delivery-acceptance">9. Phase-wise Delivery &amp; Acceptance</h2>
+<h3 id="91-delivery-phases">9.1 Delivery Phases</h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Duration</th>
+<th>Phase deliverable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Phase 0</strong></td>
+<td>1–2 weeks</td>
+<td>Rapid Implementation Blueprint</td>
+</tr>
+<tr>
+<td><strong>Phase 1</strong></td>
+<td>3–4 weeks</td>
+<td>Core CRM, Customer &amp; Booking Management</td>
+</tr>
+<tr>
+<td><strong>Phase 2</strong></td>
+<td>3–4 weeks</td>
+<td>Financials, Expenses &amp; HR Metrics</td>
+</tr>
+<tr>
+<td><strong>Phase 3</strong></td>
+<td>3–4 weeks</td>
+<td>Automation &amp; Advanced Enterprise Scalability</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td>~3 months</td>
+<td>Full-stack Laravel platform</td>
+</tr>
+</tbody></table>
+<h3 id="911-sub-module-breakdown-accepted-proposal">9.1.1 Sub-Module Breakdown (Accepted Proposal)</h3>
+<p>Source: <code>Proposal_AnyMatch_Alsultania.pdf</code>, §3 Scope of Work. Functional requirements for each sub-module are in <a href="#4-functional-requirements">§4</a>. Commercial terms and pricing: see the accepted proposal only.</p>
+<h4 id="phase-0-rapid-implementation-blueprint">Phase 0 — Rapid Implementation Blueprint</h4>
+<p>Mandatory technical prerequisite; client-approved in Figma before Phase 1 development begins. Not a branding exercise — structural design of the entire system. Once approved, the blueprint is locked; post-approval scope changes require written agreement.</p>
+<table>
+<thead>
+<tr>
+<th>Sub-deliverable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Screen Flow Mapping</td>
+<td>All screen flows and UI layouts mapped in Figma</td>
+</tr>
+<tr>
+<td>Data Architecture</td>
+<td>Database schema and entity relationships defined</td>
+</tr>
+<tr>
+<td>Component Blueprint Library</td>
+<td>Full reusable component blueprint library produced</td>
+</tr>
+</tbody></table>
+<h4 id="phase-1-core-crm-customer-booking-management">Phase 1 — Core CRM, Customer &amp; Booking Management</h4>
+<table>
+<thead>
+<tr>
+<th>Sub-module</th>
+<th>Proposal scope summary</th>
+<th>SRS §</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CRM Foundation &amp; Authentication</td>
+<td>Role-based access control, user management, session handling, and foundational CRM infrastructure</td>
+<td>§4.1.1, §4.1.2</td>
+</tr>
+<tr>
+<td>Advanced Lead Management</td>
+<td>Full lead pipeline — capture, assignment, status tracking, and WhatsApp-integrated follow-ups</td>
+<td>§4.1.0, §4.1.3–§4.1.3b</td>
+</tr>
+<tr>
+<td>Customer &amp; Booking Management</td>
+<td>Customer profiles, booking creation and management, travel itinerary tracking, and document management</td>
+<td>§4.1.0, §4.1.4</td>
+</tr>
+</tbody></table>
+<p><strong>Screens:</strong> 01–12, 05a–05d (16 screens).</p>
+<h4 id="phase-2-financials-expenses-hr-metrics">Phase 2 — Financials, Expenses &amp; HR Metrics</h4>
+<table>
+<thead>
+<tr>
+<th>Sub-module</th>
+<th>Proposal scope summary</th>
+<th>SRS §</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accounting Foundation</td>
+<td>Revenue recording, invoice generation, payment tracking, and financial reporting</td>
+<td>§4.1.0, §4.2.1</td>
+</tr>
+<tr>
+<td>Expense &amp; Financial Controls</td>
+<td>Expense logging, budget tracking, cost-centre allocation, and approval workflows</td>
+<td>§4.2.2</td>
+</tr>
+<tr>
+<td>Staff Performance &amp; HR Metrics</td>
+<td>Agent productivity dashboards, lead conversion rates, attendance, and HR reporting</td>
+<td>§4.2.3</td>
+</tr>
+</tbody></table>
+<p><strong>Screens:</strong> 13–23</p>
+<h4 id="phase-3-automation-advanced-enterprise-scalability">Phase 3 — Automation &amp; Advanced Enterprise Scalability</h4>
+<table>
+<thead>
+<tr>
+<th>Sub-module</th>
+<th>Proposal scope summary</th>
+<th>SRS §</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reporting &amp; Analytics Suite</td>
+<td>Customizable reports across sales, bookings, financials, and agent performance</td>
+<td>§4.3.1</td>
+</tr>
+<tr>
+<td>Notifications &amp; Communication</td>
+<td>Multi-channel notification engine covering WhatsApp, email, and in-app alerts</td>
+<td>§4.3.2</td>
+</tr>
+<tr>
+<td>Automation &amp; Workflow Engine</td>
+<td>Full rule-based automation for lead routing, reminders, status triggers, and scheduled tasks</td>
+<td>§4.3.3</td>
+</tr>
+<tr>
+<td>Multi Branch &amp; Scalability</td>
+<td>Branch-level data segregation, consolidated management views, and architecture optimized for growth</td>
+<td>§4.3.4</td>
+</tr>
+</tbody></table>
+<p><strong>Screens:</strong> 24–33</p>
+<h4 id="cross-cutting-core-automation-workflow-engine">Cross-cutting — Core Automation &amp; Workflow Engine</h4>
+<p>Included across all phases per accepted proposal (Proposal §2). Requirements: <a href="#5-automation--workflow-requirements">§5</a> (AUTO-01–AUTO-07).</p>
+<h3 id="92-phase-0-acceptance-criteria">9.2 Phase 0 Acceptance Criteria</h3>
+<blockquote>
+<p><strong>Formal attestation:</strong> see <strong>Phase 0 Acceptance Form</strong>. Checkboxes below are updated after the client signs.</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> All 37 application screens mapped and client-approved in Figma</li>
+<li><input disabled="" type="checkbox"> Data architecture ERD reviewed and signed off</li>
+<li><input disabled="" type="checkbox"> Component blueprint library documented</li>
+<li><input disabled="" type="checkbox"> Blueprint treated as locked baseline for development</li>
+</ul>
+<h3 id="93-phase-1-acceptance-criteria">9.3 Phase 1 Acceptance Criteria</h3>
+<ul>
+<li><input disabled="" type="checkbox"> AUTH-01 through AUTH-06 implemented and tested</li>
+<li><input disabled="" type="checkbox"> FR-01 through FR-25 and FR-18a through FR-18t implemented per blueprint screens</li>
+<li><input disabled="" type="checkbox"> AUTO-01 through AUTO-06 operational with test WhatsApp account</li>
+<li><input disabled="" type="checkbox"> RBAC enforced for Admin, Manager, and Agent roles</li>
+<li><input disabled="" type="checkbox"> 14-day post-handover validation period</li>
+</ul>
+<h3 id="94-phase-2-acceptance-criteria">9.4 Phase 2 Acceptance Criteria</h3>
+<ul>
+<li><input disabled="" type="checkbox"> FR-26 through FR-39 implemented</li>
+<li><input disabled="" type="checkbox"> Invoice PDF generation and payment tracking verified</li>
+<li><input disabled="" type="checkbox"> Expense approval workflow tested end-to-end</li>
+<li><input disabled="" type="checkbox"> Agent performance metrics match sample data</li>
+<li><input disabled="" type="checkbox"> 14-day post-handover validation period</li>
+</ul>
+<h3 id="95-phase-3-acceptance-criteria">9.5 Phase 3 Acceptance Criteria</h3>
+<ul>
+<li><input disabled="" type="checkbox"> FR-40 through FR-52 implemented</li>
+<li><input disabled="" type="checkbox"> Custom report export (CSV/PDF) verified</li>
+<li><input disabled="" type="checkbox"> Automation rules trigger correctly on status changes</li>
+<li><input disabled="" type="checkbox"> Multi-branch data segregation tested with ≥ 2 branches</li>
+<li><input disabled="" type="checkbox"> 14-day post-handover validation period</li>
+</ul>
+<h3 id="96-client-dependencies">9.6 Client Dependencies</h3>
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Required Before</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Figma blueprint approval</td>
+<td>Phase 1 start</td>
+</tr>
+<tr>
+<td>Server provisioning (PHP, MySQL, HTTPS)</td>
+<td>Phase 1 start</td>
+</tr>
+<tr>
+<td>WhatsApp Business API access</td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td>SMS gateway for public inquiry OTP (if §4.1.3b accepted on Phase 0 Acceptance Form)</td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td>Designated project email contacts</td>
+<td>Project commencement</td>
+</tr>
+</tbody></table>
+<p>Full provisioning detail, checklists, and credential requirements: <a href="#appendix-d--required-third-party-services-client-provisioned">Appendix D</a>.</p>
+<h3 id="97-client-approval-record">9.7 Client Approval Record</h3>
+<p>SRS <strong>v1.0</strong> is submitted for client review together with the <strong>Phase 0 Acceptance Form</strong>.</p>
+<p><strong>After client signs</strong> (signed copy retained by both parties):</p>
+<ol>
+<li>Client records approval date and Public Inquiry decision on the acceptance form</li>
+<li>Vendor updates project status to Phase 0 approved</li>
+<li>Phase 0 acceptance criteria (§9.2) are verified before development commences</li>
+<li>If Public Inquiry was <strong>Declined</strong>, that feature remains explicitly out of scope per §1.2</li>
+</ol>
+<hr>
+<h2 id="10-appendices">10. Appendices</h2>
+<h3 id="appendix-a-screen-inventory">Appendix A — Screen Inventory</h3>
+<p><em>Nav tab column maps each screen to its active top-nav parent per the approved blueprint navigation <code>PAGE_TOP_NAV</code>. Detail pages highlight parent tab but are not dropdown items. Dashboard (04) has no nav tab — accessed via brand logo.</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Screen</th>
+<th>Phase</th>
+<th>Nav tab</th>
+<th>Blueprint File</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td>Login</td>
+<td>1</td>
+<td>—</td>
+<td><code>prototype/login.html</code></td>
+</tr>
+<tr>
+<td>02</td>
+<td>User Management</td>
+<td>1</td>
+<td>Tools</td>
+<td><code>prototype/user-management.html</code></td>
+</tr>
+<tr>
+<td>03</td>
+<td>Roles &amp; Permissions</td>
+<td>1</td>
+<td>Tools</td>
+<td><code>prototype/roles-permissions.html</code></td>
+</tr>
+<tr>
+<td>04</td>
+<td>Dashboard</td>
+<td>1</td>
+<td>—</td>
+<td><code>prototype/dashboard.html</code></td>
+</tr>
+<tr>
+<td>05</td>
+<td>Leads List</td>
+<td>1</td>
+<td>Leads</td>
+<td><code>prototype/leads-list.html</code></td>
+</tr>
+<tr>
+<td>05a</td>
+<td>Create Lead (Staff)</td>
+<td>1</td>
+<td>Leads</td>
+<td><code>prototype/leads-create.html</code></td>
+</tr>
+<tr>
+<td>05b</td>
+<td>Verify Phone (OTP — Public Website)</td>
+<td>1</td>
+<td>—</td>
+<td><code>prototype/inquiry-otp.html</code></td>
+</tr>
+<tr>
+<td>05c</td>
+<td>Public Inquiry Form (Required Fields)</td>
+<td>1</td>
+<td>—</td>
+<td><code>prototype/inquiry-create.html</code></td>
+</tr>
+<tr>
+<td>05d</td>
+<td>Inquiry Submitted (Confirmation)</td>
+<td>1</td>
+<td>—</td>
+<td><code>prototype/inquiry-success.html</code></td>
+</tr>
+<tr>
+<td>06</td>
+<td>Lead Pipeline</td>
+<td>1</td>
+<td>Leads</td>
+<td><code>prototype/pipeline.html</code></td>
+</tr>
+<tr>
+<td>07</td>
+<td>Lead Detail</td>
+<td>1</td>
+<td>Leads</td>
+<td><code>prototype/lead-detail.html</code></td>
+</tr>
+<tr>
+<td>08</td>
+<td>WhatsApp Inbox</td>
+<td>1</td>
+<td>Tools</td>
+<td><code>prototype/whatsapp-inbox.html</code></td>
+</tr>
+<tr>
+<td>09</td>
+<td>Customer List</td>
+<td>1</td>
+<td>Accounts</td>
+<td><code>prototype/customer-list.html</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Customer Profile</td>
+<td>1</td>
+<td>Accounts</td>
+<td><code>prototype/customer-profile.html</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Booking List</td>
+<td>1</td>
+<td>Bookings</td>
+<td><code>prototype/booking-list.html</code></td>
+</tr>
+<tr>
+<td>11a</td>
+<td>New Booking</td>
+<td>1</td>
+<td>Bookings</td>
+<td><code>prototype/booking-create.html</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Booking Detail</td>
+<td>1</td>
+<td>Bookings</td>
+<td><code>prototype/booking-detail.html</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Finance Dashboard</td>
+<td>2</td>
+<td>Accounts</td>
+<td><code>prototype/accounting-dashboard.html</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Revenue Adjustments</td>
+<td>2</td>
+<td>Accounts</td>
+<td><code>prototype/revenue-recording.html</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Invoice List</td>
+<td>2</td>
+<td>Accounts</td>
+<td><code>prototype/invoice-list.html</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Payment Queue</td>
+<td>2</td>
+<td>Accounts</td>
+<td><code>prototype/payment-tracking.html</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Financial Reports</td>
+<td>2</td>
+<td>Accounts</td>
+<td><code>prototype/financial-reports.html</code></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Expense List</td>
+<td>2</td>
+<td>Accounts</td>
+<td><code>prototype/expense-list.html</code></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Log Expense / Budget</td>
+<td>2</td>
+<td>Accounts</td>
+<td><code>prototype/log-expense.html</code></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Expense Approvals</td>
+<td>2</td>
+<td>Accounts</td>
+<td><code>prototype/expense-approvals.html</code></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Staff Performance</td>
+<td>2</td>
+<td>Reports</td>
+<td><code>prototype/staff-performance.html</code></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Attendance &amp; HR</td>
+<td>2</td>
+<td>Reports</td>
+<td><code>prototype/attendance-hr.html</code></td>
+</tr>
+<tr>
+<td>23</td>
+<td>Cost Centres</td>
+<td>2</td>
+<td>Accounts</td>
+<td><code>prototype/cost-centres.html</code></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Reports Hub</td>
+<td>3</td>
+<td>Reports</td>
+<td><code>prototype/reports-hub.html</code></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Custom Report Builder</td>
+<td>3</td>
+<td>Reports</td>
+<td><code>prototype/report-builder.html</code></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Notifications Center</td>
+<td>3</td>
+<td>Tools</td>
+<td><code>prototype/notifications-center.html</code></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Communication Templates</td>
+<td>3</td>
+<td>Tools</td>
+<td><code>prototype/communication-templates.html</code></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Channel Settings</td>
+<td>3</td>
+<td>Tools</td>
+<td><code>prototype/channel-settings.html</code></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Automation Rules</td>
+<td>3</td>
+<td>Tools</td>
+<td><code>prototype/automation-rules.html</code></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Workflow Triggers</td>
+<td>3</td>
+<td>Tools</td>
+<td><code>prototype/workflow-triggers.html</code></td>
+</tr>
+<tr>
+<td>31</td>
+<td>Multi-Branch Management</td>
+<td>3</td>
+<td>Tools</td>
+<td><code>prototype/multi-branch.html</code></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Consolidated Branch View</td>
+<td>3</td>
+<td>Reports</td>
+<td><code>prototype/consolidated-view.html</code></td>
+</tr>
+<tr>
+<td>33</td>
+<td>System Settings</td>
+<td>3</td>
+<td>Tools</td>
+<td><code>prototype/system-settings.html</code></td>
+</tr>
+</tbody></table>
+<h3 id="appendix-b-component-blueprint-library">Appendix B — Component Blueprint Library</h3>
+<p>Reusable UI primitives defined in <strong>Component Blueprint Library</strong>:</p>
+<ul>
+<li>Primary / Secondary buttons</li>
+<li>Status badges (New, Contacted, Quoted, Booked, Lost, Pending, Approved)</li>
+<li>Stat cards, filter chips, form fields</li>
+<li>Data table rows, pipeline cards</li>
+<li>Timeline items, WhatsApp message bubbles</li>
+<li>OTP input group, step indicator, public inquiry layout</li>
+<li>Top navigation, sub-nav, page header layout</li>
+</ul>
+<h3 id="appendix-c-lead-creation-user-flow-fields-data-types">Appendix C — Lead Creation: User Flow, Fields &amp; Data Types</h3>
+<p>Lead creation happens in <strong>two contexts</strong>: customers may submit inquiries on the <strong>public website</strong> (phone-verified, no CRM login — <em>in scope only if accepted on Phase 0 Acceptance Form, see §4.1.3b</em>), and staff capture leads inside the CRM. Both paths persist the same lead model; only auth, assignment, and a few UI labels differ.</p>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Reference UI</th>
+<th>Screenshots / prototype</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Public Inquiry</strong></td>
+<td>Website <code>/inquiry</code></td>
+<td><code>prototype/inquiry-otp.html</code> → <code>inquiry-create.html</code> → <code>inquiry-success.html</code></td>
+</tr>
+<tr>
+<td><strong>Staff Create Lead</strong></td>
+<td>CRM <code>/leads/create</code></td>
+<td><code>lead creation/</code> (9 captures, one per <strong>Lead Type</strong> variant)</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="1-overview">1. Overview</h4>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Actor</th>
+<th>Auth</th>
+<th>Entry point</th>
+<th>Assignment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Public Inquiry</strong></td>
+<td>Customer</td>
+<td><strong>No login</strong> — phone verified via SMS OTP</td>
+<td>Public website <code>/inquiry</code></td>
+<td><strong>Auto-assigned to the next available agent</strong> (round-robin, AUTO-02)</td>
+</tr>
+<tr>
+<td><strong>Staff Create Lead</strong></td>
+<td>Agent / Manager</td>
+<td>Logged in (RBAC)</td>
+<td>Dashboard, Leads List, Pipeline, WhatsApp Inbox, or inbound contact</td>
+<td>Per <strong>Lead Handling</strong> choice (Takeover / Others / Transfer)</td>
+</tr>
+</tbody></table>
+<h5 id="public-website-flow-summary">Public website flow (summary)</h5>
+<ol>
+<li>Customer opens the public inquiry page on the agency website.</li>
+<li>Customer enters a mobile number and verifies it with a <strong>6-digit SMS OTP</strong>.</li>
+<li>After verification, the customer completes the inquiry form with <strong>all required information</strong> (name, service type, type-specific fields, dates &amp; travelers).</li>
+<li>On submit, the system saves the lead with status <code>New</code>, sets <code>lead_via</code> = <code>Website</code>, and <strong>automatically assigns it to the next available active agent</strong> in the rotation queue — the customer does not choose an agent.</li>
+<li>Customer sees a confirmation screen with a lead reference ID.</li>
+</ol>
+<h5 id="staff-create-flow-summary">Staff create flow (summary)</h5>
+<p>Agents capture a new travel inquiry for a customer identified by phone number. The staff form is split into:</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Left — Create New Lead</strong></td>
+<td>Data entry form with type-specific fields</td>
+</tr>
+<tr>
+<td><strong>Right — Previous Leads</strong></td>
+<td>History for the same phone number (read-only context)</td>
+</tr>
+</tbody></table>
+<p>The <strong>Public Inquiry</strong> form reuses the same type-specific fields and dates/travelers block, but <strong>omits Lead Handling</strong> (assignment is automatic) and sets <strong>Lead Via</strong> to <code>Website</code> without user input.</p>
+<hr>
+<h4 id="1a-public-inquiry-flow-customer-pre-login">1a. Public Inquiry Flow (Customer, Pre-Login)</h4>
+<p>Customers submit travel inquiries on the <strong>public website</strong> without a CRM account. Identity is established by <strong>phone verification</strong> (SMS OTP). After verification, the customer fills the inquiry form with required information; on submit the lead is <strong>auto-assigned to the next available agent</strong> — no manual routing by the customer.</p>
+<div class="mermaid-wrap"><pre class="mermaid">flowchart TD
+    A[Customer opens public website /inquiry] --> B[Enter mobile number]
+    B --> C[System sends 6-digit SMS OTP]
+    C --> D[Customer enters OTP]
+    D --> E{OTP valid?}
+    E -->|No| F[Show error / allow resend after cooldown]
+    F --> D
+    E -->|Yes| G[Session marked phone-verified]
+    G --> H[Public inquiry form loads]
+    H --> I[Customer fills required fields: name, service type, type fields, dates/travelers]
+    I --> J[Optional: view Previous Inquiries for verified phone]
+    J --> K[Click Submit Inquiry]
+    K --> L[System validates required fields + saves lead]
+    L --> M[lead_via = Website · assign next available agent · created_by = null]
+    M --> N[Confirmation screen with reference ID]
+    M --> O[Assigned agent notified in CRM inbox]</pre></div>
+<h5 id="1a1-step-by-step-public">1a.1 Step-by-step (public)</h5>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Actor</th>
+<th>Action</th>
+<th>System response</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Customer</td>
+<td>Opens <code>/inquiry</code> on the public website (no login)</td>
+<td>Shows phone entry + country code</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Customer</td>
+<td>Enters mobile number, clicks <strong>Send verification code</strong></td>
+<td>Sends SMS OTP; starts resend cooldown (e.g. 60s)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Customer</td>
+<td>Enters 6-digit OTP</td>
+<td>Validates code against <code>otp_verifications</code> record</td>
+</tr>
+<tr>
+<td>4</td>
+<td>System</td>
+<td>OTP verified</td>
+<td>Creates short-lived verified-phone session; loads inquiry form with verified phone locked</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Customer</td>
+<td>Completes <strong>required</strong> fields: name, service type, type-specific fields, dates/travelers; optional email, city, notes</td>
+<td>Same field validation as staff form (minus Lead Handling and Lead Via)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Customer</td>
+<td>Submits inquiry</td>
+<td>Lead saved with status <code>New</code>; <strong>auto-assigned to next available active agent</strong> (AUTO-02); confirmation shown with reference ID</td>
+</tr>
+</tbody></table>
+<h5 id="1a2-required-information-public-form">1a.2 Required information (public form)</h5>
+<p>After phone verification, the customer must provide the following before submit succeeds:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Required fields</th>
+<th>Optional fields</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Identity</strong></td>
+<td>Customer name</td>
+<td>Email, city/location</td>
+</tr>
+<tr>
+<td><strong>Service</strong></td>
+<td>Service type (Lead Type)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Type-specific</strong></td>
+<td>All fields marked required for the selected type (see §5.3–5.11)</td>
+<td>Type-dependent optional fields</td>
+</tr>
+<tr>
+<td><strong>Dates &amp; travelers</strong></td>
+<td>Adult count (default 1)</td>
+<td>Departure/return dates (when checkbox enabled), child/infant counts</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td>—</td>
+<td>Additional notes (maps to <code>remarks</code>)</td>
+</tr>
+</tbody></table>
+<p>Fields <strong>not shown</strong> on the public form: Lead Via (fixed <code>Website</code>), Lead Handling, Target Agent.</p>
+<h5 id="1a3-auto-assignment-to-next-available-agent-auto-02">1a.3 Auto-assignment to next available agent (AUTO-02)</h5>
+<p>When a public inquiry is submitted, the system assigns the lead without customer or staff input:</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Trigger</td>
+<td>Successful public form submit (and staff leads using Transfer / default rotation where applicable)</td>
+</tr>
+<tr>
+<td>Pool</td>
+<td>Active agents eligible for lead assignment (configurable)</td>
+</tr>
+<tr>
+<td>Algorithm</td>
+<td><strong>Round-robin</strong> — next agent in rotation after the last assignment</td>
+</tr>
+<tr>
+<td>Result</td>
+<td><code>assigned_user_id</code> set to the selected agent; rotation pointer advanced</td>
+</tr>
+<tr>
+<td>Customer visibility</td>
+<td>Assignment is internal only; confirmation shows reference ID, not agent name</td>
+</tr>
+<tr>
+<td>Agent visibility</td>
+<td>Assigned agent sees the new lead in their CRM inbox / My Leads</td>
+</tr>
+</tbody></table>
+<p>See §4.1.3, §5, §6 AUTO-02 and FR-18s. Diagram: <code>[../diagrams/public-inquiry-flow.mmd](../diagrams/public-inquiry-flow.mmd)</code>.</p>
+<h5 id="1a4-public-vs-staff-differences">1a.4 Public vs staff differences</h5>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Staff (<code>leads-create</code>)</th>
+<th>Public (<code>inquiry-create</code>)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authentication</td>
+<td>CRM login required</td>
+<td>Phone OTP only</td>
+</tr>
+<tr>
+<td>Phone number</td>
+<td>Pre-filled from inbound / header</td>
+<td>Set and locked by OTP verification</td>
+</tr>
+<tr>
+<td>Lead Via</td>
+<td>User selects</td>
+<td>Fixed: <code>Website</code></td>
+</tr>
+<tr>
+<td>Lead Handling</td>
+<td>Takeover / Others / Transfer</td>
+<td><strong>Hidden</strong> — next available agent (AUTO-02)</td>
+</tr>
+<tr>
+<td>Target Agent</td>
+<td>Shown when not Takeover</td>
+<td>N/A — system assigns automatically</td>
+</tr>
+<tr>
+<td>Remarks label</td>
+<td>Internal remarks</td>
+<td>Additional notes (customer-facing)</td>
+</tr>
+<tr>
+<td>Previous leads panel</td>
+<td>Full columns incl. handler</td>
+<td>Customer view — no handler column</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td>Current user FK</td>
+<td><code>NULL</code> (public submission)</td>
+</tr>
+<tr>
+<td>Post-submit</td>
+<td>Lead detail / list</td>
+<td>Confirmation page with reference</td>
+</tr>
+</tbody></table>
+<h5 id="1a5-public-screen-layout">1a.5 Public screen layout</h5>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────┐
+│  Alsultania Travel · Travel &amp; Tourism          Verified Phone: +971…   │
+│  [Change number]                                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│  1. Phone ✓   2. OTP ✓   3. Inquiry                                     │
+├──────────────────────────────┬──────────────────────────────────────────┤
+│  YOUR TRAVEL INQUIRY         │  YOUR PREVIOUS INQUIRIES                 │
+│  Your Details (name*, type*) │  ID | Created | Name | Type | Subject   │
+│  Type-specific section       │  | Status (no handler column)           │
+│  Dates &amp; Travelers           │                                          │
+│  Additional notes (optional) │                                          │
+│  [SUBMIT INQUIRY]            │                                          │
+└──────────────────────────────┴──────────────────────────────────────────┘
+</code></pre>
+<h5 id="1a6-otp-rules-inferred">1a.6 OTP rules (inferred)</h5>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Code length</td>
+<td>6 digits</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>SMS to E.164 number</td>
+</tr>
+<tr>
+<td>Expiry</td>
+<td>e.g. 10 minutes</td>
+</tr>
+<tr>
+<td>Resend cooldown</td>
+<td>e.g. 60 seconds between sends</td>
+</tr>
+<tr>
+<td>Max attempts</td>
+<td>e.g. 5 failed attempts before lockout</td>
+</tr>
+<tr>
+<td>Session</td>
+<td>Verified phone stored in session until submit or timeout</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="2-user-flow-staff">2. User Flow (Staff)</h4>
+<p>The <strong>Lead Type</strong> dropdown drives which service-specific fields appear below the common customer section. All types share the same <strong>Dates &amp; Travelers</strong>, <strong>Remarks</strong>, and <strong>Lead Handling</strong> blocks.</p>
+<div class="mermaid-wrap"><pre class="mermaid">flowchart TD
+    A[User navigates to Leads module] --> B{How did they arrive?}
+    B -->|Inbound call / WhatsApp| C[Phone number pre-filled in header]
+    B -->|Manual from Leads list| D[Open Create Lead — phone may be entered separately]
+    C --> E[Create Lead screen loads]
+    D --> E
+    E --> F[Previous Leads panel loads for phone number]
+    F --> G[User fills Customer Name + Lead Type]
+    G --> H[Dynamic section renders for selected Lead Type]
+    H --> I[User completes Dates & Travelers]
+    I --> J[Optional: Remarks]
+    J --> K[User selects Lead Handling option]
+    K --> L{Handling choice}
+    L -->|Takeover| M[Lead assigned to current user]
+    L -->|Create for Others| N[User selects target agent]
+    L -->|Transfer to Staff| O[Lead queued for staff transfer]
+    M --> P[Click CREATE NEW LEAD]
+    N --> P
+    O --> P
+    P --> Q[System validates + saves lead]
+    Q --> R[Lead appears in list / assigned handler inbox]</pre></div>
+<h5 id="21-step-by-step">2.1 Step-by-step</h5>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Actor</th>
+<th>Action</th>
+<th>System response</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Agent</td>
+<td>Lands on <strong>Create Lead</strong> (typically from an inbound contact)</td>
+<td>Displays phone number in header (e.g. <code>+923110000000</code>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>System</td>
+<td>Loads <strong>Previous Leads</strong> for that phone</td>
+<td>Table shows ID, created date, name, type, subject, status, handler</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Agent</td>
+<td>Enters <strong>Customer Name</strong> (required)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Agent</td>
+<td>Optionally enters <strong>Email</strong> and <strong>Customer Location</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Agent</td>
+<td>Selects <strong>Lead Type</strong></td>
+<td>Dynamic fields section updates (Flight, Hotel, Visa, etc.)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Agent</td>
+<td>Selects <strong>Lead Via</strong> (source channel)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Agent</td>
+<td>Fills type-specific fields</td>
+<td>Validation rules apply per type</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Agent</td>
+<td>Sets travel dates (checkbox + date picker) and traveler counts</td>
+<td>Departure/Return optional via checkbox</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Agent</td>
+<td>Adds <strong>Remarks</strong> if needed</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Agent</td>
+<td>Chooses <strong>Lead Handling</strong> radio option</td>
+<td>May reveal agent picker for “Others” / “Transfer”</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Agent</td>
+<td>Clicks <strong>CREATE NEW LEAD</strong></td>
+<td>Lead saved; handler assigned per selection; subject line auto-generated from type fields</td>
+</tr>
+</tbody></table>
+<h5 id="22-navigation-context-from-screenshots">2.2 Navigation context (from screenshots)</h5>
+<ul>
+<li><strong>Top nav:</strong> Leads · Bookings · Accounts · Tools · Reports  </li>
+<li><strong>Sub-nav:</strong> My Reminders · Add Reminder · Links  </li>
+<li><strong>Page title:</strong> Create Lead  </li>
+<li><strong>Header context:</strong> Phone Number (read-only, ties form to customer record)</li>
+</ul>
+<hr>
+<h4 id="3-screen-layout">3. Screen Layout</h4>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────┐
+│  Al-Sultania Travel    Leads | Bookings | Accounts | Tools | Reports │
+│  My Reminders | Add Reminder | Links                    🔍 🔔 👤        │
+├─────────────────────────────────────────────────────────────────────────┤
+│  Create Lead                                    Phone: +923110000000    │
+├──────────────────────────────┬──────────────────────────────────────────┤
+│  CREATE NEW LEAD             │  N Previous Leads                        │
+│  ┌────────────────────────┐  │  ┌────────────────────────────────────┐  │
+│  │ Customer info (common) │  │  │ ID | Created | Name | Type | ...  │  │
+│  │ Type-specific section  │  │  │ ...                                │  │
+│  │ Dates &amp; Travelers      │  │  └────────────────────────────────────┘  │
+│  │ Remarks                │  │                                          │
+│  │ Lead Handling          │  │                                          │
+│  │ [CREATE NEW LEAD]      │  │                                          │
+│  └────────────────────────┘  │                                          │
+└──────────────────────────────┴──────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h4 id="4-common-fields-all-lead-types">4. Common Fields (All Lead Types)</h4>
+<p>These fields are always visible regardless of <strong>Lead Type</strong> (staff form). On the <strong>public website</strong> form, phone is shown as verified in the header; Lead Via and Lead Handling are omitted (see §1a.2).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Field label</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Max / format</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>—</td>
+<td>Phone Number</td>
+<td>Read-only text (header)</td>
+<td><code>string</code> (E.164)</td>
+<td>Yes (context)</td>
+<td>e.g. <code>+923110000000</code></td>
+<td>Staff: pre-filled from inbound. Public: locked after OTP verification</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Customer Name</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Staff placeholder: <code>CUSTOMER NAME</code>. Public: <code>YOUR NAME</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Email</td>
+<td>Text input</td>
+<td><code>string</code> (email)</td>
+<td>No</td>
+<td>RFC 5322</td>
+<td>Placeholder: <code>Optional</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Lead Type</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>Yes</td>
+<td>See §5</td>
+<td>Public label: <strong>Service Type</strong>; drives dynamic section</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Lead Via</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>Yes* (staff only)</td>
+<td>See §5.1</td>
+<td>Public: hidden, fixed <code>Website</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Customer Location</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>No</td>
+<td>—</td>
+<td>Public label: <strong>Your City</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Remarks</td>
+<td>Textarea</td>
+<td><code>text</code></td>
+<td>No</td>
+<td>—</td>
+<td>Staff: <code>REMARKS (OPTIONAL)</code>. Public: <strong>Additional notes</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Lead Handling</td>
+<td>Radio group</td>
+<td><code>enum</code></td>
+<td>Yes (staff only)</td>
+<td>See §7</td>
+<td>Public: omitted — auto-assign to next available agent</td>
+</tr>
+</tbody></table>
+<p> <em>Lead Via appears required in staff production UI; dropdown may start empty until user selects.</em></p>
+<h5 id="41-dates-travelers-shared-block">4.1 Dates &amp; Travelers (shared block)</h5>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Field label</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8</td>
+<td>Departure / Travel Start / Check-in / Service Date / Travel Date</td>
+<td>Checkbox + date picker</td>
+<td><code>date</code> + <code>boolean</code></td>
+<td>Conditional</td>
+<td>Unchecked</td>
+<td>Label varies by lead type (see §5)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Return / Travel End / Check-out</td>
+<td>Checkbox + date picker</td>
+<td><code>date</code> + <code>boolean</code></td>
+<td>Conditional</td>
+<td>Unchecked</td>
+<td>Not shown for all types; checkbox enables field</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Adult</td>
+<td>Dropdown (numeric)</td>
+<td><code>unsignedTinyInteger</code></td>
+<td>Yes</td>
+<td><code>1</code></td>
+<td>Range typically 0–9+</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Child</td>
+<td>Dropdown (numeric)</td>
+<td><code>unsignedTinyInteger</code></td>
+<td>Yes</td>
+<td><code>0</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Infant</td>
+<td>Dropdown (numeric)</td>
+<td><code>unsignedTinyInteger</code></td>
+<td>Yes</td>
+<td><code>0</code></td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p><strong>Date field naming by type:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Lead Type</th>
+<th>Departure label</th>
+<th>Return label</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FLIGHT</td>
+<td>Departure</td>
+<td>Return</td>
+</tr>
+<tr>
+<td>HOTEL</td>
+<td>Check-in</td>
+<td>Check-out</td>
+</tr>
+<tr>
+<td>VISA</td>
+<td>Travel Date</td>
+<td>Return</td>
+</tr>
+<tr>
+<td>TOUR</td>
+<td>Departure</td>
+<td>Return</td>
+</tr>
+<tr>
+<td>UMRAH</td>
+<td>Departure</td>
+<td>Return</td>
+</tr>
+<tr>
+<td>HAJJ</td>
+<td>Departure</td>
+<td>Return</td>
+</tr>
+<tr>
+<td>INSURANCE</td>
+<td>Travel Start</td>
+<td>Travel End</td>
+</tr>
+<tr>
+<td>PACKAGE</td>
+<td>Departure</td>
+<td>Return</td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>Service Date</td>
+<td>Return</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="5-lead-type-dynamic-fields">5. Lead Type — Dynamic Fields</h4>
+<p>Selecting <strong>Lead Type</strong> swaps the middle section of the form. Nine variants are documented in the reference screenshots.</p>
+<h5 id="51-lead-type-enum">5.1 Lead Type enum</h5>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Screenshot reference</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>FLIGHT</code></td>
+<td><code>screencapture-...-00_04_26.png</code></td>
+</tr>
+<tr>
+<td><code>HOTEL</code></td>
+<td><code>screencapture-...-00_04_47.png</code></td>
+</tr>
+<tr>
+<td><code>VISA</code></td>
+<td><code>screencapture-...-00_04_59.png</code></td>
+</tr>
+<tr>
+<td><code>TOUR</code></td>
+<td><code>screencapture-...-00_05_10.png</code></td>
+</tr>
+<tr>
+<td><code>UMRAH</code></td>
+<td><code>screencapture-...-00_05_24.png</code></td>
+</tr>
+<tr>
+<td><code>HAJJ</code></td>
+<td><code>screencapture-...-00_05_36.png</code></td>
+</tr>
+<tr>
+<td><code>INSURANCE</code></td>
+<td><code>screencapture-...-00_05_48.png</code></td>
+</tr>
+<tr>
+<td><code>PACKAGE</code></td>
+<td><code>screencapture-...-00_06_02.png</code></td>
+</tr>
+<tr>
+<td><code>OTHER</code></td>
+<td><code>screencapture-...-00_06_26.png</code></td>
+</tr>
+</tbody></table>
+<h5 id="52-lead-via-enum-inferred">5.2 Lead Via enum (inferred)</h5>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>WHATSAPP</code></td>
+<td>WhatsApp inquiry</td>
+</tr>
+<tr>
+<td><code>PHONE</code></td>
+<td>Phone call</td>
+</tr>
+<tr>
+<td><code>WALK_IN</code></td>
+<td>Walk-in customer</td>
+</tr>
+<tr>
+<td><code>WEBSITE</code></td>
+<td>Website form</td>
+</tr>
+<tr>
+<td><code>REFERRAL</code></td>
+<td>Referral</td>
+</tr>
+<tr>
+<td><code>EMAIL</code></td>
+<td>Email</td>
+</tr>
+<tr>
+<td><code>MANUAL</code></td>
+<td>Manual staff entry</td>
+</tr>
+</tbody></table>
+<p><em>Exact options not visible in screenshots; align with SRS source values where applicable.</em></p>
+<hr>
+<h5 id="53-flight">5.3 FLIGHT</h5>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>From</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Departure city/airport (IATA or city name)</td>
+</tr>
+<tr>
+<td>To</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Arrival city/airport</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>Yes</td>
+<td>e.g. <code>ONE_WAY</code>, <code>RETURN</code>, <code>MULTI_CITY</code></td>
+</tr>
+<tr>
+<td>Class</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>Yes</td>
+<td>e.g. <code>ECONOMY</code>, <code>PREMIUM_ECONOMY</code>, <code>BUSINESS</code>, <code>FIRST</code></td>
+</tr>
+</tbody></table>
+<p><strong>Auto-generated subject example:</strong> <code>LHE - KHI (OW) ECONOMY</code></p>
+<hr>
+<h5 id="54-hotel">5.4 HOTEL</h5>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>City</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Destination city</td>
+</tr>
+<tr>
+<td>Rating</td>
+<td>Dropdown</td>
+<td><code>enum</code> / <code>unsignedTinyInteger</code></td>
+<td>No</td>
+<td>Star rating filter</td>
+</tr>
+<tr>
+<td>Rooms</td>
+<td>Dropdown</td>
+<td><code>unsignedTinyInteger</code></td>
+<td>Yes</td>
+<td>Default: <code>1</code></td>
+</tr>
+<tr>
+<td>Board Basis</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>Yes</td>
+<td>e.g. <code>ROOM_ONLY</code>, <code>BB</code>, <code>HB</code>, <code>FB</code>, <code>AI</code></td>
+</tr>
+</tbody></table>
+<p><strong>Auto-generated subject example:</strong> <code>1 ROOM ECONOMY IN JED (ROOM ONLY)</code></p>
+<hr>
+<h5 id="55-visa">5.5 VISA</h5>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Country</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Destination country</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Visa category (Tourist, Business, etc.)</td>
+</tr>
+</tbody></table>
+<hr>
+<h5 id="56-tour">5.6 TOUR</h5>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Destination City (or Cities)</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>One or more cities</td>
+</tr>
+<tr>
+<td>Need Visa</td>
+<td>Dropdown</td>
+<td><code>boolean</code> / <code>enum</code></td>
+<td>No</td>
+<td><code>YES</code> / <code>NO</code></td>
+</tr>
+<tr>
+<td>Hotel</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>No</td>
+<td>Hotel tier or inclusion</td>
+</tr>
+<tr>
+<td>Days</td>
+<td>Dropdown</td>
+<td><code>unsignedSmallInteger</code></td>
+<td>Yes</td>
+<td>Tour duration</td>
+</tr>
+</tbody></table>
+<hr>
+<h5 id="57-umrah">5.7 UMRAH</h5>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Route</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>Yes</td>
+<td>e.g. package route</td>
+</tr>
+<tr>
+<td>Makkah</td>
+<td>Dropdown (Nights)</td>
+<td><code>unsignedTinyInteger</code></td>
+<td>Yes</td>
+<td>Nights in Makkah</td>
+</tr>
+<tr>
+<td>Madina</td>
+<td>Dropdown (Nights)</td>
+<td><code>unsignedTinyInteger</code></td>
+<td>Yes</td>
+<td>Nights in Madina</td>
+</tr>
+<tr>
+<td>Package</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>Yes</td>
+<td>Predefined Umrah package</td>
+</tr>
+</tbody></table>
+<hr>
+<h5 id="58-hajj">5.8 HAJJ</h5>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Package</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>Yes</td>
+<td>Hajj package selection</td>
+</tr>
+<tr>
+<td>Days</td>
+<td>Dropdown / input</td>
+<td><code>unsignedSmallInteger</code></td>
+<td>Yes</td>
+<td>Package duration</td>
+</tr>
+</tbody></table>
+<hr>
+<h5 id="59-insurance">5.9 INSURANCE</h5>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Country</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Coverage destination</td>
+</tr>
+<tr>
+<td>Stay</td>
+<td>Dropdown</td>
+<td><code>enum</code></td>
+<td>Yes</td>
+<td>Duration tier</td>
+</tr>
+<tr>
+<td>Vendor</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Placeholder: <code>OPTIONAL</code></td>
+</tr>
+<tr>
+<td>Plan Name</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Placeholder: <code>OPTIONAL</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h5 id="510-package">5.10 PACKAGE</h5>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Required At (City/Country)</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Service location</td>
+</tr>
+<tr>
+<td>Package/Service Detail</td>
+<td>Text input</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Free-text package description</td>
+</tr>
+</tbody></table>
+<hr>
+<h5 id="511-other">5.11 OTHER</h5>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Required Service Detail</td>
+<td>Text input / textarea</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Catch-all service description</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="6-previous-leads-panel-read-only">6. Previous Leads Panel (Read-only)</h4>
+<p>Displayed on the right when a phone number is known. Helps agents avoid duplicate entries and see customer history.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Data type</th>
+<th>Example</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ID</td>
+<td><code>unsignedInteger</code></td>
+<td><code>1080</code></td>
+<td>System-generated lead ID</td>
+</tr>
+<tr>
+<td>Created</td>
+<td><code>date</code></td>
+<td><code>06-JUN-26</code></td>
+<td>Format: <code>DD-MMM-YY</code></td>
+</tr>
+<tr>
+<td>Name</td>
+<td><code>string</code></td>
+<td><code>NEW CUSTOMER</code></td>
+<td>Customer name at time of lead</td>
+</tr>
+<tr>
+<td>Type</td>
+<td><code>enum</code></td>
+<td><code>HOTEL</code>, <code>FLIGHT</code></td>
+<td>Same as Lead Type</td>
+</tr>
+<tr>
+<td>Subject</td>
+<td><code>string</code></td>
+<td><code>1 ROOM ECONOMY IN JED (ROOM ONLY)</code></td>
+<td>Auto-generated summary</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><code>enum</code></td>
+<td><code>SUCCESS</code>, <code>CLOSED</code></td>
+<td>Color-coded badge</td>
+</tr>
+<tr>
+<td>Handler</td>
+<td><code>string</code></td>
+<td><code>Nadeem</code></td>
+<td>Assigned agent display name</td>
+</tr>
+</tbody></table>
+<p><strong>Status values observed:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>UI color</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SUCCESS</code></td>
+<td>Green</td>
+<td>Lead progressed / converted</td>
+</tr>
+<tr>
+<td><code>CLOSED</code></td>
+<td>Grey</td>
+<td>Lead closed without conversion</td>
+</tr>
+</tbody></table>
+<p><em>Map to Alsultania CRM pipeline statuses (<code>New</code>, <code>Contacted</code>, <code>Quoted</code>, etc.) during implementation.</em></p>
+<hr>
+<h4 id="7-lead-handling-options">7. Lead Handling Options</h4>
+<p>Radio group — exactly one must be selected before submit.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Label</th>
+<th>Data type</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TAKEOVER</code></td>
+<td>Create and Takeover (Handle Myself)</td>
+<td><code>enum</code></td>
+<td><code>assigned_user_id</code> = current logged-in user</td>
+</tr>
+<tr>
+<td><code>CREATE_FOR_OTHERS</code></td>
+<td>Create for Others</td>
+<td><code>enum</code></td>
+<td>User picks target agent; lead owned by selected agent</td>
+</tr>
+<tr>
+<td><code>TRANSFER_TO_STAFF</code></td>
+<td>Create and Transfer to Staff</td>
+<td><code>enum</code></td>
+<td>Lead enters staff queue / rotation for assignment</td>
+</tr>
+</tbody></table>
+<p><strong>Additional field when not TAKEOVER:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>UI control</th>
+<th>Data type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Target Agent</td>
+<td>Dropdown / searchable select</td>
+<td><code>foreignId</code> → <code>users.id</code></td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="8-submit-action">8. Submit Action</h4>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Element</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Staff</td>
+<td><strong>CREATE NEW LEAD</strong></td>
+<td>Primary button (green, full width)</td>
+<td>Validates + saves; assignment per Lead Handling</td>
+</tr>
+<tr>
+<td>Public</td>
+<td><strong>SUBMIT INQUIRY</strong></td>
+<td>Primary button (full width)</td>
+<td>Validates required fields + saves; <strong>auto-assigns to next available agent</strong></td>
+</tr>
+</tbody></table>
+<h5 id="81-expected-server-side-payload-staff-conceptual">8.1 Expected server-side payload — staff (conceptual)</h5>
+<pre><code class="language-json">{
+  &quot;phone&quot;: &quot;+923110000000&quot;,
+  &quot;customer_name&quot;: &quot;string&quot;,
+  &quot;email&quot;: &quot;string|null&quot;,
+  &quot;lead_type&quot;: &quot;FLIGHT|HOTEL|VISA|TOUR|UMRAH|HAJJ|INSURANCE|PACKAGE|OTHER&quot;,
+  &quot;lead_via&quot;: &quot;WHATSAPP|PHONE|...&quot;,
+  &quot;customer_location&quot;: &quot;string|null&quot;,
+  &quot;type_details&quot;: { },
+  &quot;departure_date&quot;: &quot;date|null&quot;,
+  &quot;departure_enabled&quot;: &quot;boolean&quot;,
+  &quot;return_date&quot;: &quot;date|null&quot;,
+  &quot;return_enabled&quot;: &quot;boolean&quot;,
+  &quot;adults&quot;: 1,
+  &quot;children&quot;: 0,
+  &quot;infants&quot;: 0,
+  &quot;remarks&quot;: &quot;string|null&quot;,
+  &quot;handling&quot;: &quot;TAKEOVER|CREATE_FOR_OTHERS|TRANSFER_TO_STAFF&quot;,
+  &quot;assigned_user_id&quot;: &quot;integer|null&quot;
+}
+</code></pre>
+<h5 id="81a-expected-server-side-payload-public-inquiry-conceptual">8.1a Expected server-side payload — public inquiry (conceptual)</h5>
+<p>Phone comes from the verified session, not the request body. Assignment is computed server-side (AUTO-02); client must not send <code>handling</code> or <code>assigned_user_id</code>.</p>
+<pre><code class="language-json">{
+  &quot;customer_name&quot;: &quot;string&quot;,
+  &quot;email&quot;: &quot;string|null&quot;,
+  &quot;lead_type&quot;: &quot;FLIGHT|HOTEL|VISA|TOUR|UMRAH|HAJJ|INSURANCE|PACKAGE|OTHER&quot;,
+  &quot;customer_location&quot;: &quot;string|null&quot;,
+  &quot;type_details&quot;: { },
+  &quot;departure_date&quot;: &quot;date|null&quot;,
+  &quot;departure_enabled&quot;: &quot;boolean&quot;,
+  &quot;return_date&quot;: &quot;date|null&quot;,
+  &quot;return_enabled&quot;: &quot;boolean&quot;,
+  &quot;adults&quot;: 1,
+  &quot;children&quot;: 0,
+  &quot;infants&quot;: 0,
+  &quot;remarks&quot;: &quot;string|null&quot;
+}
+</code></pre>
+<p><strong>Server-set on public submit:</strong> <code>phone</code> (from session), <code>lead_via</code> = <code>Website</code>, <code>status</code> = <code>New</code>, <code>created_by</code> = <code>null</code>, <code>assigned_user_id</code> = next available agent (round-robin).</p>
+<p><code>type_details</code> is a JSON object whose shape depends on <code>lead_type</code> (see §5.3–5.11).</p>
+<h5>8.2 Suggested <code>type_details</code> schemas</h5>
+<table>
+<thead>
+<tr>
+<th><code>lead_type</code></th>
+<th>JSON keys</th>
+<th>Types</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>FLIGHT</code></td>
+<td><code>from</code>, <code>to</code>, <code>trip_type</code>, <code>class</code></td>
+<td><code>string</code>, <code>string</code>, <code>enum</code>, <code>enum</code></td>
+</tr>
+<tr>
+<td><code>HOTEL</code></td>
+<td><code>city</code>, <code>rating</code>, <code>rooms</code>, <code>board_basis</code></td>
+<td><code>string</code>, `enum</td>
+</tr>
+<tr>
+<td><code>VISA</code></td>
+<td><code>country</code>, <code>visa_type</code></td>
+<td><code>string</code>, <code>string</code></td>
+</tr>
+<tr>
+<td><code>TOUR</code></td>
+<td><code>destinations</code>, <code>need_visa</code>, <code>hotel</code>, <code>days</code></td>
+<td><code>string</code>, <code>boolean</code>, <code>enum</code>, <code>int</code></td>
+</tr>
+<tr>
+<td><code>UMRAH</code></td>
+<td><code>route</code>, <code>makkah_nights</code>, <code>madina_nights</code>, <code>package</code></td>
+<td><code>enum</code>, <code>int</code>, <code>int</code>, <code>enum</code></td>
+</tr>
+<tr>
+<td><code>HAJJ</code></td>
+<td><code>package</code>, <code>days</code></td>
+<td><code>enum</code>, <code>int</code></td>
+</tr>
+<tr>
+<td><code>INSURANCE</code></td>
+<td><code>country</code>, <code>stay</code>, <code>vendor</code>, <code>plan_name</code></td>
+<td><code>string</code>, <code>enum</code>, `string</td>
+</tr>
+<tr>
+<td><code>PACKAGE</code></td>
+<td><code>required_at</code>, <code>service_detail</code></td>
+<td><code>string</code>, <code>string</code></td>
+</tr>
+<tr>
+<td><code>OTHER</code></td>
+<td><code>service_detail</code></td>
+<td><code>string</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="9-suggested-database-mapping">9. Suggested Database Mapping</h4>
+<p>Aligns with Alsultania CRM <code>leads</code> entity (see §6).</p>
+<table>
+<thead>
+<tr>
+<th>DB column</th>
+<th>Source field</th>
+<th>SQL type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>—</td>
+<td><code>BIGINT UNSIGNED PK</code></td>
+<td>Auto-increment; display as <code>#LD-XXXX</code></td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>Header phone</td>
+<td><code>VARCHAR(20)</code></td>
+<td>Indexed; E.164 format</td>
+</tr>
+<tr>
+<td><code>customer_name</code></td>
+<td>Customer Name</td>
+<td><code>VARCHAR(255)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Email</td>
+<td><code>VARCHAR(255) NULL</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>lead_type</code></td>
+<td>Lead Type</td>
+<td><code>ENUM(...)</code></td>
+<td>9 values</td>
+</tr>
+<tr>
+<td><code>lead_via</code></td>
+<td>Lead Via</td>
+<td><code>ENUM(...)</code></td>
+<td>Source channel</td>
+</tr>
+<tr>
+<td><code>customer_location</code></td>
+<td>Customer Location</td>
+<td><code>VARCHAR(100) NULL</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>type_details</code></td>
+<td>Dynamic section</td>
+<td><code>JSON</code></td>
+<td>Polymorphic per type</td>
+</tr>
+<tr>
+<td><code>departure_date</code></td>
+<td>Departure / Check-in / etc.</td>
+<td><code>DATE NULL</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>return_date</code></td>
+<td>Return / Check-out / etc.</td>
+<td><code>DATE NULL</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>adults</code></td>
+<td>Adult</td>
+<td><code>TINYINT UNSIGNED</code></td>
+<td>Default 1</td>
+</tr>
+<tr>
+<td><code>children</code></td>
+<td>Child</td>
+<td><code>TINYINT UNSIGNED</code></td>
+<td>Default 0</td>
+</tr>
+<tr>
+<td><code>infants</code></td>
+<td>Infant</td>
+<td><code>TINYINT UNSIGNED</code></td>
+<td>Default 0</td>
+</tr>
+<tr>
+<td><code>remarks</code></td>
+<td>Remarks</td>
+<td><code>TEXT NULL</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>subject</code></td>
+<td>— (generated)</td>
+<td><code>VARCHAR(500)</code></td>
+<td>Built from type_details</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>—</td>
+<td><code>ENUM(...)</code></td>
+<td>Default <code>New</code></td>
+</tr>
+<tr>
+<td><code>assigned_user_id</code></td>
+<td>Lead Handling (staff) or AUTO-02 (public)</td>
+<td><code>FK → users</code></td>
+<td>Public: next available agent via round-robin</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td>Current user (staff)</td>
+<td><code>FK → users NULL</code></td>
+<td><code>NULL</code> for public website submissions</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>—</td>
+<td><code>TIMESTAMP</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>—</td>
+<td><code>TIMESTAMP</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Related tables:</strong></p>
+<ul>
+<li><code>lead_activities</code> — log creation event, assignment, status changes  </li>
+<li><code>lead_assignments</code> — rotation history when <code>TRANSFER_TO_STAFF</code> or reassignment occurs  </li>
+<li><code>otp_verifications</code> — stores pending OTP codes for public phone verification (phone, code hash, expires_at, attempts)</li>
+</ul>
+<hr>
+<h4 id="10-validation-rules-inferred">10. Validation Rules (Inferred)</h4>
+<h5 id="101-shared-staff-public">10.1 Shared (staff + public)</h5>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Applies to</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Verified phone session required (public only)</td>
+<td>Public submit</td>
+</tr>
+<tr>
+<td>Customer Name must not be empty</td>
+<td>All types</td>
+</tr>
+<tr>
+<td>Lead Type / Service Type must be selected</td>
+<td>All types</td>
+</tr>
+<tr>
+<td>Type-specific required fields must be filled</td>
+<td>Per §5</td>
+</tr>
+<tr>
+<td>If departure checkbox is checked, date must be provided</td>
+<td>Dates block</td>
+</tr>
+<tr>
+<td>If return checkbox is checked, date must be provided and ≥ departure</td>
+<td>Dates block</td>
+</tr>
+<tr>
+<td>Adults ≥ 1 recommended for travel leads</td>
+<td>Dates block</td>
+</tr>
+<tr>
+<td>Email, if provided, must be valid format</td>
+<td>Customer info</td>
+</tr>
+</tbody></table>
+<h5 id="102-staff-only">10.2 Staff only</h5>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Applies to</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Lead Via must be selected</td>
+<td>Staff submit</td>
+</tr>
+<tr>
+<td>Exactly one Lead Handling option selected</td>
+<td>Staff submit</td>
+</tr>
+<tr>
+<td>Target agent required when handling ≠ TAKEOVER</td>
+<td>Staff submit</td>
+</tr>
+</tbody></table>
+<h5 id="103-public-only">10.3 Public only</h5>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Applies to</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OTP must be verified before form access</td>
+<td>Public flow</td>
+</tr>
+<tr>
+<td><code>lead_via</code> forced to <code>Website</code></td>
+<td>Public submit</td>
+</tr>
+<tr>
+<td><code>assigned_user_id</code> set by server (next available agent)</td>
+<td>Public submit</td>
+</tr>
+<tr>
+<td>Customer must not supply <code>handling</code> or agent selection</td>
+<td>Public submit</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="11-reference-screenshots">11. Reference Screenshots</h4>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Lead Type shown</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>lead creation/screencapture-my-airtravelcrm-leads-create-2026-06-07-00_04_26.png</code></td>
+<td>FLIGHT</td>
+</tr>
+<tr>
+<td><code>lead creation/screencapture-my-airtravelcrm-leads-create-2026-06-07-00_04_47.png</code></td>
+<td>HOTEL</td>
+</tr>
+<tr>
+<td><code>lead creation/screencapture-my-airtravelcrm-leads-create-2026-06-07-00_04_59.png</code></td>
+<td>VISA</td>
+</tr>
+<tr>
+<td><code>lead creation/screencapture-my-airtravelcrm-leads-create-2026-06-07-00_05_10.png</code></td>
+<td>TOUR</td>
+</tr>
+<tr>
+<td><code>lead creation/screencapture-my-airtravelcrm-leads-create-2026-06-07-00_05_24.png</code></td>
+<td>UMRAH</td>
+</tr>
+<tr>
+<td><code>lead creation/screencapture-my-airtravelcrm-leads-create-2026-06-07-00_05_36.png</code></td>
+<td>HAJJ</td>
+</tr>
+<tr>
+<td><code>lead creation/screencapture-my-airtravelcrm-leads-create-2026-06-07-00_05_48.png</code></td>
+<td>INSURANCE</td>
+</tr>
+<tr>
+<td><code>lead creation/screencapture-my-airtravelcrm-leads-create-2026-06-07-00_06_02.png</code></td>
+<td>PACKAGE</td>
+</tr>
+<tr>
+<td><code>lead creation/screencapture-my-airtravelcrm-leads-create-2026-06-07-00_06_26.png</code></td>
+<td>OTHER</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="appendix-d-required-third-party-services-client-provisioned">Appendix D — Required Third-Party Services (Client-Provisioned)</h3>
+<blockquote>
+<p>Client-provisioned dependencies. AnyMatch integrates during development; the Client is responsible for accounts, billing, credentials, and ongoing subscription costs unless agreed otherwise in writing.</p>
+</blockquote>
+<h4 id="e0-summary">E.0 Summary</h4>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Service</th>
+<th>Purpose</th>
+<th>Provisioned by</th>
+<th>Required before</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a href="#1-hosting--server-infrastructure">Hosting &amp; server</a></td>
+<td>Run Laravel app, MySQL, HTTPS</td>
+<td>Client</td>
+<td>Phase 1 start</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="#2-domain--ssl-certificate">Domain &amp; SSL</a></td>
+<td>Public CRM URL + secure traffic</td>
+<td>Client</td>
+<td>Phase 1 start</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="#3-whatsapp-business-api">WhatsApp Business API</a></td>
+<td>Lead capture, inbox, automated messaging</td>
+<td>Client</td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="#4-sms-gateway-public-inquiry-otp">SMS gateway</a></td>
+<td>OTP verification on public inquiry</td>
+<td>Client</td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="#5-email-smtp">Email SMTP</a></td>
+<td>Transactional email, templates</td>
+<td>Client</td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="#6-database-backups">Database backups</a></td>
+<td>Daily data protection</td>
+<td>Client or AnyMatch</td>
+<td>Phase 1 go-live</td>
+</tr>
+</tbody></table>
+<p><strong>Out of scope (AnyMatch does not provision):</strong> WhatsApp API accounts, SMS credits, SMTP/email provider accounts, production servers, domain registration, or Meta Business verification — unless explicitly added to scope.</p>
+<hr>
+<h4 id="1-hosting-server-infrastructure">1. Hosting &amp; Server Infrastructure</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Purpose</strong></td>
+<td>Host the monolithic Laravel application and MySQL database in production</td>
+</tr>
+<tr>
+<td><strong>Provisioned by</strong></td>
+<td>Client (or hosting partner designated by Client)</td>
+</tr>
+<tr>
+<td><strong>Required before</strong></td>
+<td>Phase 1 development start</td>
+</tr>
+<tr>
+<td><strong>SRS reference</strong></td>
+<td>SRS §2.4, §2.5, §9.6 — server provisioning</td>
+</tr>
+</tbody></table>
+<h5 id="minimum-environment">Minimum environment</h5>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>OS</strong></td>
+<td>Linux recommended (Ubuntu 22.04+ or equivalent)</td>
+</tr>
+<tr>
+<td><strong>Web server</strong></td>
+<td>Nginx or Apache with PHP-FPM</td>
+</tr>
+<tr>
+<td><strong>PHP</strong></td>
+<td>8.x with extensions required by Laravel (mbstring, openssl, pdo_mysql, tokenizer, xml, ctype, json, bcmath, fileinfo)</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>MySQL 8.x</td>
+</tr>
+<tr>
+<td><strong>HTTPS</strong></td>
+<td>Valid TLS certificate (see §2)</td>
+</tr>
+<tr>
+<td><strong>Process manager</strong></td>
+<td>Queue worker support for WhatsApp webhooks, OTP, and scheduled jobs</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>Disk space for uploads (invoices, documents) — stored outside public web root (NFR-07)</td>
+</tr>
+<tr>
+<td><strong>Concurrency</strong></td>
+<td>Support minimum 50 concurrent authenticated users (NFR-02)</td>
+</tr>
+</tbody></table>
+<h5 id="client-must-provide">Client must provide</h5>
+<ul>
+<li><input disabled="" type="checkbox"> SSH/sFTP access for deployment (or agreed CI/CD pipeline)</li>
+<li><input disabled="" type="checkbox"> Staging environment (recommended before go-live)</li>
+<li><input disabled="" type="checkbox"> <code>.env</code> secrets vault or secure credential handoff process</li>
+<li><input disabled="" type="checkbox"> Firewall rules allowing inbound HTTPS and outbound API calls (WhatsApp, SMS, SMTP)</li>
+</ul>
+<h5 id="notes">Notes</h5>
+<ul>
+<li>Development and blueprint work run locally; this service applies to <strong>production/staging</strong> only.</li>
+<li>Backup responsibility: daily DB backups per NFR-10 (Client or AnyMatch per hosting agreement).</li>
+</ul>
+<hr>
+<h4 id="2-domain-ssl-certificate">2. Domain &amp; SSL Certificate</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Purpose</strong></td>
+<td>Public URL for CRM login, public inquiry (<code>/inquiry</code>), and WhatsApp webhook endpoint</td>
+</tr>
+<tr>
+<td><strong>Provisioned by</strong></td>
+<td>Client</td>
+</tr>
+<tr>
+<td><strong>Required before</strong></td>
+<td>Phase 1 start (staging); go-live (production domain)</td>
+</tr>
+<tr>
+<td><strong>SRS reference</strong></td>
+<td>NFR-04 — all traffic over HTTPS</td>
+</tr>
+</tbody></table>
+<h5 id="client-must-provide">Client must provide</h5>
+<ul>
+<li><input disabled="" type="checkbox"> Registered domain (e.g. <code>crm.alsultania.ae</code> or agreed subdomain)</li>
+<li><input disabled="" type="checkbox"> DNS access to point A/CNAME records to server IP</li>
+<li><input disabled="" type="checkbox"> TLS certificate (Let’s Encrypt or commercial CA)</li>
+<li><input disabled="" type="checkbox"> Stable <strong>webhook URL</strong> for WhatsApp (must remain reachable; see §3)</li>
+</ul>
+<h5 id="used-by">Used by</h5>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Endpoint (example)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CRM login</td>
+<td><code>https://{domain}/login</code></td>
+</tr>
+<tr>
+<td>Public inquiry</td>
+<td><code>https://{domain}/inquiry</code></td>
+</tr>
+<tr>
+<td>WhatsApp webhook</td>
+<td><code>https://{domain}/webhooks/whatsapp</code> (exact path TBD in Phase 1)</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="3-whatsapp-business-api">3. WhatsApp Business API</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Purpose</strong></td>
+<td>Inbound lead capture, agent inbox, manual replies, template-based automation</td>
+</tr>
+<tr>
+<td><strong>Provisioned by</strong></td>
+<td><strong>Client</strong></td>
+</tr>
+<tr>
+<td><strong>Required before</strong></td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td><strong>SRS reference</strong></td>
+<td>EXT-01–EXT-04, AUTO-01, AUTO-03, AUTO-04, FR-17, FR-18, NFR-03</td>
+</tr>
+<tr>
+<td><strong>Configured in</strong></td>
+<td>Screen 28 — Channel Settings (<code>channel-settings.html</code>)</td>
+</tr>
+</tbody></table>
+<h5 id="capabilities-required">Capabilities required</h5>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>CRM use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Inbound webhook</strong></td>
+<td>Receive customer messages; auto-create leads (AUTO-01)</td>
+</tr>
+<tr>
+<td><strong>Outbound messages</strong></td>
+<td>Agent manual reply from Lead Detail and WhatsApp Inbox</td>
+</tr>
+<tr>
+<td><strong>Message templates</strong></td>
+<td>Approved templates for follow-ups, status updates, payment reminders (AUTO-03, AUTO-04)</td>
+</tr>
+<tr>
+<td><strong>Phone number</strong></td>
+<td>Business number linked to Alsultania WhatsApp presence</td>
+</tr>
+</tbody></table>
+<h5 id="client-must-provide">Client must provide</h5>
+<ul>
+<li><input disabled="" type="checkbox"> Meta Business Manager account with verified business</li>
+<li><input disabled="" type="checkbox"> WhatsApp Business Platform access (Cloud API or approved BSP)</li>
+<li><input disabled="" type="checkbox"> Phone number registered and approved for API use</li>
+<li><input disabled="" type="checkbox"> API credentials: access token, phone number ID, business account ID, app secret</li>
+<li><input disabled="" type="checkbox"> Webhook verify token and public HTTPS callback URL</li>
+<li><input disabled="" type="checkbox"> Pre-approved message templates for automation flows (or plan for template approval lead time)</li>
+</ul>
+<h5 id="integration-notes">Integration notes</h5>
+<ul>
+<li>Credentials stored <strong>encrypted</strong> in <code>channel_settings</code> (EXT-04).</li>
+<li>Webhook processing target: complete within 5 seconds (NFR-03).</li>
+<li>Test WhatsApp account required for Phase 1 acceptance (AUTO-01 through AUTO-06).</li>
+<li>Typical providers: Meta Cloud API directly, or BSPs such as Twilio, 360dialog, MessageBird — <strong>Client chooses provider</strong>; AnyMatch implements against documented API.</li>
+</ul>
+<h5 id="automation-dependencies">Automation dependencies</h5>
+<table>
+<thead>
+<tr>
+<th>Rule ID</th>
+<th>Trigger</th>
+<th>WhatsApp action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AUTO-01</td>
+<td>Inbound message</td>
+<td>Auto-create lead</td>
+</tr>
+<tr>
+<td>AUTO-02</td>
+<td>New public website / staff lead</td>
+<td><strong>Next available agent</strong> via round-robin (AUTO-02); no WhatsApp required for assignment itself</td>
+</tr>
+<tr>
+<td>AUTO-03</td>
+<td>Scheduled / status-based</td>
+<td>Follow-up, greeting, payment/quotation reminders</td>
+</tr>
+<tr>
+<td>AUTO-04</td>
+<td>Status or payment change</td>
+<td>Notify agent and customer</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="4-sms-gateway-public-inquiry-otp">4. SMS Gateway (Public Inquiry OTP)</h4>
+<blockquote>
+<p><strong>Conditional dependency:</strong> Required only if Public Website Inquiry is <strong>Accepted</strong> on <a href="PHASE_0_ACCEPTANCE.md">Phase 0 Acceptance Form</a> (SRS §4.1.3b). If <strong>Declined</strong>, this service is not required for Phase 1 go-live.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Purpose</strong></td>
+<td>Send 6-digit OTP to verify customer phone before public website inquiry submission; after verification customer completes required fields and lead is auto-assigned to next available agent</td>
+</tr>
+<tr>
+<td><strong>Provisioned by</strong></td>
+<td><strong>Client</strong></td>
+</tr>
+<tr>
+<td><strong>Required before</strong></td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td><strong>SRS reference</strong></td>
+<td>EXT-07, EXT-08, FR-18o–FR-18t, NFR-11, NFR-12</td>
+</tr>
+<tr>
+<td><strong>Flow screens</strong></td>
+<td>05b OTP (<code>inquiry-otp.html</code>), 05c Public Inquiry (<code>inquiry-create.html</code>), 05d Submitted (<code>inquiry-success.html</code>)</td>
+</tr>
+<tr>
+<td><strong>Deep-dive</strong></td>
+<td>Appendix C §1a (OTP, required fields, AUTO-02 assignment)</td>
+</tr>
+</tbody></table>
+<h5 id="otp-behaviour">OTP behaviour</h5>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Code length</td>
+<td>6 digits</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>SMS to E.164 mobile number</td>
+</tr>
+<tr>
+<td>Expiry</td>
+<td>~10 minutes (configurable)</td>
+</tr>
+<tr>
+<td>Resend cooldown</td>
+<td>~60 seconds</td>
+</tr>
+<tr>
+<td>Max failed attempts</td>
+<td>~5 before lockout</td>
+</tr>
+<tr>
+<td>Rate limiting</td>
+<td>Per phone number (EXT-08)</td>
+</tr>
+</tbody></table>
+<h5 id="client-must-provide">Client must provide</h5>
+<ul>
+<li><input disabled="" type="checkbox"> SMS provider account with UAE/international send capability</li>
+<li><input disabled="" type="checkbox"> API credentials (API key, sender ID / alphanumeric sender as supported)</li>
+<li><input disabled="" type="checkbox"> Sufficient SMS credits for production volume</li>
+<li><input disabled="" type="checkbox"> Sender ID registered with provider (where required by TRA/local regulations)</li>
+</ul>
+<h5 id="typical-provider-categories">Typical provider categories</h5>
+<ul>
+<li>Regional SMS aggregators (UAE/GCC coverage)</li>
+<li>Global providers with UAE routes (Twilio, Vonage, etc.)</li>
+</ul>
+<p><strong>Client selects provider</strong> — AnyMatch integrates via REST API documented by the chosen gateway.</p>
+<h5 id="data-entity">Data entity</h5>
+<ul>
+<li>OTP records stored in <code>otp_verifications</code> (phone, code hash, expiry, attempt count).</li>
+</ul>
+<hr>
+<h4 id="5-email-smtp">5. Email SMTP</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Purpose</strong></td>
+<td>Transactional email — notifications, reports, template-based communication</td>
+</tr>
+<tr>
+<td><strong>Provisioned by</strong></td>
+<td><strong>Client</strong></td>
+</tr>
+<tr>
+<td><strong>Required before</strong></td>
+<td>Phase 1 go-live (if email notifications enabled at launch)</td>
+</tr>
+<tr>
+<td><strong>SRS reference</strong></td>
+<td>EXT-05, EXT-06, FR-45, FR-46</td>
+</tr>
+<tr>
+<td><strong>Configured in</strong></td>
+<td>Screen 28 — Channel Settings; Screen 27 — Communication Templates</td>
+</tr>
+</tbody></table>
+<h5 id="client-must-provide">Client must provide</h5>
+<ul>
+<li><input disabled="" type="checkbox"> SMTP host, port, encryption (TLS/SSL)</li>
+<li><input disabled="" type="checkbox"> Username and password or API key</li>
+<li><input disabled="" type="checkbox"> From address (e.g. <code>noreply@alsultania.ae</code>) and display name</li>
+<li><input disabled="" type="checkbox"> SPF/DKIM/DMARC DNS records (recommended for deliverability)</li>
+</ul>
+<h5 id="crm-use-cases">CRM use cases</h5>
+<table>
+<thead>
+<tr>
+<th>Use case</th>
+<th>Phase</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User invite / password reset (admin-initiated)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Email communication templates with variables</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Report export delivery (optional)</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>WhatsApp is the <strong>primary</strong> customer channel for Phase 1; email is secondary but must be configurable (EXT-05).</p>
+<hr>
+<h4 id="6-database-backups">6. Database Backups</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Purpose</strong></td>
+<td>Daily protection of CRM data (leads, bookings, financials)</td>
+</tr>
+<tr>
+<td><strong>Provisioned by</strong></td>
+<td>Client <strong>or</strong> AnyMatch — per hosting agreement</td>
+</tr>
+<tr>
+<td><strong>Required before</strong></td>
+<td>Phase 1 go-live</td>
+</tr>
+<tr>
+<td><strong>SRS reference</strong></td>
+<td>NFR-10</td>
+</tr>
+</tbody></table>
+<h5 id="requirements">Requirements</h5>
+<ul>
+<li><input disabled="" type="checkbox"> Automated daily MySQL backups</li>
+<li><input disabled="" type="checkbox"> Off-server or off-site backup storage</li>
+<li><input disabled="" type="checkbox"> Documented restore procedure and test restore before go-live</li>
+<li><input disabled="" type="checkbox"> Retention policy agreed with Client (e.g. 30 days rolling)</li>
+</ul>
+<hr>
+<h4 id="configuration-checklist-go-live">Configuration Checklist (Go-Live)</h4>
+<p>Use this checklist when handing credentials to AnyMatch for Phase 1 integration:</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Credentials received</th>
+<th>Tested in staging</th>
+<th>Production ready</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Server / SSH</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Domain + SSL</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>WhatsApp API + webhook</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>SMS gateway</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Daily backups</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+</tbody></table>
+<p>Enter production values via <strong>System Settings</strong> and <strong>Channel Settings</strong> (Screens 28, 33) — never commit secrets to the repository.</p>
+<hr>
+<h4 id="timeline-blocking-risks">Timeline &amp; Blocking Risks</h4>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Blocked without</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Phase 1 development start</strong></td>
+<td>Server, database, staging domain/SSL</td>
+</tr>
+<tr>
+<td><strong>Phase 1 UAT</strong></td>
+<td>Staging WhatsApp test number, SMS test credits</td>
+</tr>
+<tr>
+<td><strong>Phase 1 go-live</strong></td>
+<td>Production WhatsApp, SMS, SMTP, backups</td>
+</tr>
+<tr>
+<td><strong>Automation acceptance</strong></td>
+<td>WhatsApp templates approved by Meta</td>
+</tr>
+</tbody></table>
+<p>Delays in Client provisioning may shift the 3-month delivery timeline (SRS §2.5).</p>
+<hr>
+<h4 id="optional-future-services">Optional / Future Services</h4>
+<p>Not required for Phase 1–3 baseline unless scoped separately:</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Potential use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Payment gateway (Stripe, PayTabs, etc.)</td>
+<td>Online payment collection — not in current SRS</td>
+</tr>
+<tr>
+<td>Cloud object storage (S3, etc.)</td>
+<td>Large document archive — local disk sufficient for baseline</td>
+</tr>
+<tr>
+<td>Push notifications</td>
+<td>Mobile app — out of scope</td>
+</tr>
+<tr>
+<td>Analytics (Google Analytics, etc.)</td>
+<td>Marketing — out of scope</td>
+</tr>
+</tbody></table>
+<hr>
+<hr>
+<p><em>This document is confidential and prepared for Alsultania Travel and Tourism Co. L.L.C and AnyMatch Technologies Private Limited.</em></p>
+</main>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true },
+    });
+    const nodes = document.querySelectorAll('pre.mermaid');
+    if (nodes.length) await mermaid.run({ nodes });
+  </script>
+</body>
+</html>

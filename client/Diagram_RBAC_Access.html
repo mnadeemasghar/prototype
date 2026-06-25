@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Role-Based Access Control Matrix</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 40px;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      background: #fff;
+    }
+    .header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #145374;
+    }
+    .badge {
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+     text-transform: uppercase;
+      color: #145374;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 18pt;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #0c2d48;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #4a6275;
+      margin: 0;
+    }
+    .diagram {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Reference Diagram — Client Document</div>
+    <h1>Role-Based Access Control Matrix</h1>
+    <p class="subtitle">Alsultania Travel CRM & Management System</p>
+  </div>
+  <div class="diagram mermaid-wrap">
+    <pre class="mermaid">flowchart TB
+  subgraph Roles["User Roles"]
+    Admin[Administrator]
+    Mgr[Sales Manager]
+    Agent[Travel Agent]
+    Finance[Finance User]
+    HR[HR/Manager]
+  end
+
+  subgraph Modules["Modules"]
+    UM[User Management]
+    RP[Roles & Permissions]
+    Dash[Dashboard]
+    Leads[Lead Management]
+    CB[Customers & Bookings]
+    Acct[Accounting & Invoices]
+    Exp[Expenses & Budgets]
+    Perf[HR & Performance]
+    Rep[Reports]
+    Auto[Automation & Settings]
+    Branch[Multi-Branch Admin]
+  end
+
+  Admin --> UM & RP & Dash & Leads & CB & Acct & Exp & Perf & Rep & Auto & Branch
+  Mgr --> Dash & Leads & CB & Exp & Perf & Rep
+  Agent --> Dash & Leads & CB
+  Finance --> Dash & CB & Acct & Exp & Rep
+  HR --> Dash & Perf & Rep
+
+  style Admin fill:#17608c,color:#fff
+  style Mgr fill:#2a8fc7,color:#fff
+  style Agent fill:#4aad4a,color:#fff
+  style Finance fill:#d4a017,color:#fff
+  style HR fill:#8b5cf6,color:#fff
+
+  classDef full fill:#17608c22,stroke:#17608c
+  classDef read fill:#f0f0f0,stroke:#999
+  classDef none fill:#fff,stroke:#ddd,stroke-dasharray:5
+
+  note1["Legend: Full access = solid line\nRead-only = dashed (Finance on CB)\nNo access = not connected"]
+</pre>
+  </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    await mermaid.run({ nodes: document.querySelectorAll('pre.mermaid') });
+  </script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Client Reference Document Index — Alsultania Travel CRM & Management System</title>
+  <style>
+    @page { size: A4; margin: 22mm 18mm 24mm 18mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #1a1a2e;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cover {
+      page-break-after: always;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 40px;
+      background: linear-gradient(160deg, #0c2d48 0%, #145374 55%, #1a6b8a 100%);
+      color: #fff;
+    }
+    .cover-badge {
+      display: inline-block;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a8d4e8;
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      color: #fff;
+      border: none;
+      padding: 0;
+    }
+    .cover h2 {
+      font-size: 14pt;
+      font-weight: 400;
+      margin: 0 0 40px;
+      color: #d4eaf5;
+      border: none;
+      padding: 0;
+    }
+    .cover-meta {
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+      font-size: 10pt;
+    }
+    .cover-meta dt {
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8ec4dc;
+      margin-bottom: 4px;
+    }
+    .cover-meta dd { margin: 0; color: #fff; font-weight: 500; }
+    .cover-confidential {
+      margin-top: 32px;
+      font-size: 9pt;
+      color: #8ec4dc;
+      font-style: italic;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #0c2d48;
+      line-height: 1.3;
+      page-break-after: avoid;
+    }
+    h1 {
+      font-size: 20pt;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #145374;
+    }
+    h2 {
+      font-size: 14pt;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #c5dde8;
+      page-break-before: always;
+    }
+    .content > h2:first-child,
+    h2#table-of-contents { page-break-before: avoid; }
+    h3 { font-size: 12pt; margin: 20px 0 10px; }
+    h4 { font-size: 11pt; margin: 16px 0 8px; color: #145374; }
+    h5, h6 { font-size: 10.5pt; margin: 12px 0 6px; }
+    p { margin: 0 0 10px; }
+    a { color: #145374; text-decoration: none; }
+    strong { color: #0c2d48; }
+    hr { border: none; border-top: 1px solid #d0dde5; margin: 24px 0; }
+    ul, ol { margin: 0 0 12px; padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    thead { display: table-header-group; }
+    th {
+      background: #0c2d48;
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid #0c2d48;
+    }
+    td {
+      padding: 7px 10px;
+      border: 1px solid #c5dde8;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f4f8fb; }
+    blockquote {
+      margin: 12px 0;
+      padding: 10px 16px;
+      border-left: 4px solid #145374;
+      background: #f0f6fa;
+      color: #2a3f52;
+      font-size: 10pt;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 9pt;
+      background: #eef3f7;
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #0c2d48;
+    }
+    pre {
+      background: #f4f8fb;
+      border: 1px solid #c5dde8;
+      border-radius: 4px;
+      padding: 12px;
+      overflow-x: auto;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      page-break-inside: avoid;
+    }
+    pre code { background: none; padding: 0; }
+    .mermaid-wrap {
+      margin: 16px 0 20px;
+      padding: 12px;
+      background: #fafcfd;
+      border: 1px solid #d0dde5;
+      border-radius: 6px;
+      page-break-inside: avoid;
+      overflow: hidden;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  
+    .doc-link {
+      color: #145374;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .index-table { font-size: 9.5pt; }
+    .index-table .num { width: 28px; text-align: center; font-weight: 600; color: #145374; }
+    .index-table code.filename {
+      font-size: 8pt;
+      word-break: break-all;
+      white-space: normal;
+    }
+    .reading-order { margin-bottom: 16px; }
+    .reading-order li { margin-bottom: 8px; }
+    .muted { color: #4a6275; font-size: 9.5pt; }
+    .footer-note { font-size: 9pt; color: #4a6275; text-align: center; }
+    h2#how-to-use { page-break-before: avoid; }
+
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <div class="cover-badge">Confidential — Client Document</div>
+    <h1>Client Reference Document Index</h1>
+    <h2>Alsultania Travel CRM & Management System</h2>
+    <dl class="cover-meta">
+      
+      <div>
+        <dt>Version</dt>
+        <dd>1.0</dd>
+      </div>
+      <div>
+        <dt>Date</dt>
+        <dd>24 June 2026</dd>
+      </div>
+      <div>
+        <dt>Prepared For</dt>
+        <dd>Alsultania Travel and Tourism Co. L.L.C<br>Dubai, United Arab Emirates</dd>
+      </div>
+      <div>
+        <dt>Prepared By</dt>
+        <dd>AnyMatch Technologies Private Limited</dd>
+      </div>
+      <div>
+        <dt>Documents</dt>
+        <dd>6 core HTML pages + 8 diagrams</dd>
+      </div>
+      <div>
+        <dt>Status</dt>
+        <dd>Pending Client Approval — Phase 0</dd>
+      </div>
+    </dl>
+    <p class="cover-confidential">This document is confidential and prepared exclusively for Alsultania Travel and Tourism Co. L.L.C and AnyMatch Technologies Private Limited.</p>
+  </section>
+  <main class="content">
+    <h2 id="how-to-use">How to Use This Document Pack</h2>
+    <p>All reference HTML pages are stored in the <strong>same folder</strong> as this index file. Click any document title below to open the linked page in your browser.</p>
+    <p>Keep the full set together when sharing with stakeholders — links use relative filenames and will not resolve if files are moved apart.</p>
+
+    <h2 id="reading-order">Recommended Reading Order</h2>
+    <p>For first-time client review of the Phase 0 blueprint package:</p>
+    <ol class="reading-order">
+      <li><a href="Project_Master_Overview_v1.0.html" class="doc-link">Project Master Overview</a> — <span class="muted">Project hub — phases, screen inventory, prototype links, and client dependencies.</span></li>
+<li><a href="Phase0_Acceptance_Form_v1.0.html" class="doc-link">Phase 0 Blueprint Acceptance Form</a> — <span class="muted">Blueprint attestation, scope checklist, and Public Inquiry decision — for client signing.</span></li>
+<li><a href="Lead_Lifecycle_Summary_v1.0.html" class="doc-link">Lead Lifecycle Summary</a> — <span class="muted">Six-stage lead pipeline, allowed transitions, entry paths, and agent actions.</span></li>
+<li><a href="SRS_Alsultania_Travel_CRM_v1.0.html" class="doc-link">Software Requirements Specification</a> — <span class="muted">Authoritative requirements baseline for Phases 0–3 (functional, data, integrations, acceptance).</span></li>
+<li><a href="Blueprint_Deliverable_Summary_v1.0.html" class="doc-link">Phase 0 Blueprint Deliverable</a> — <span class="muted">Phase 0 deliverable status, Figma links, and full screen inventory.</span></li>
+<li><a href="Deployment_Checklist_GoLive.html" class="doc-link">Deployment Checklist</a> — <span class="muted">Pre-deployment checklist, go-live gates, security hardening, and handover items.</span></li>
+    </ol>
+
+    <h2 id="core-documents">Core Documents</h2>
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Document</th>
+          <th>File</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+      <td class="num">1</td>
+      <td><a href="Project_Master_Overview_v1.0.html" class="doc-link">Project Master Overview</a></td>
+      <td><code class="filename">Project_Master_Overview_v1.0.html</code></td>
+      <td>Project hub — phases, screen inventory, prototype links, and client dependencies.</td>
+    </tr>
+    <tr>
+      <td class="num">2</td>
+      <td><a href="Phase0_Acceptance_Form_v1.0.html" class="doc-link">Phase 0 Blueprint Acceptance Form</a></td>
+      <td><code class="filename">Phase0_Acceptance_Form_v1.0.html</code></td>
+      <td>Blueprint attestation, scope checklist, and Public Inquiry decision — for client signing.</td>
+    </tr>
+    <tr>
+      <td class="num">3</td>
+      <td><a href="Lead_Lifecycle_Summary_v1.0.html" class="doc-link">Lead Lifecycle Summary</a></td>
+      <td><code class="filename">Lead_Lifecycle_Summary_v1.0.html</code></td>
+      <td>Six-stage lead pipeline, allowed transitions, entry paths, and agent actions.</td>
+    </tr>
+    <tr>
+      <td class="num">4</td>
+      <td><a href="SRS_Alsultania_Travel_CRM_v1.0.html" class="doc-link">Software Requirements Specification</a></td>
+      <td><code class="filename">SRS_Alsultania_Travel_CRM_v1.0.html</code></td>
+      <td>Authoritative requirements baseline for Phases 0–3 (functional, data, integrations, acceptance).</td>
+    </tr>
+    <tr>
+      <td class="num">5</td>
+      <td><a href="Blueprint_Deliverable_Summary_v1.0.html" class="doc-link">Phase 0 Blueprint Deliverable</a></td>
+      <td><code class="filename">Blueprint_Deliverable_Summary_v1.0.html</code></td>
+      <td>Phase 0 deliverable status, Figma links, and full screen inventory.</td>
+    </tr>
+    <tr>
+      <td class="num">6</td>
+      <td><a href="Deployment_Checklist_GoLive.html" class="doc-link">Deployment Checklist</a></td>
+      <td><code class="filename">Deployment_Checklist_GoLive.html</code></td>
+      <td>Pre-deployment checklist, go-live gates, security hardening, and handover items.</td>
+    </tr>
+      </tbody>
+    </table>
+
+    <h2 id="diagrams">Architecture Diagrams</h2>
+    <p>Standalone visual references exported from the project blueprint. Cross-reference with the SRS and FigJam board for interactive versions.</p>
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Diagram</th>
+          <th>File</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+      <td class="num">1</td>
+      <td><a href="Diagram_Lead_Lifecycle.html" class="doc-link">Lead Lifecycle — Pipeline Stages & Transitions</a></td>
+      <td><code class="filename">Diagram_Lead_Lifecycle.html</code></td>
+      <td>Pipeline stages from New through Booked/Lost and allowed transitions.</td>
+    </tr>
+    <tr>
+      <td class="num">2</td>
+      <td><a href="Diagram_Public_Inquiry_Flow.html" class="doc-link">Public Website Inquiry Flow</a></td>
+      <td><code class="filename">Diagram_Public_Inquiry_Flow.html</code></td>
+      <td>Customer OTP verification, inquiry form, and round-robin agent assignment.</td>
+    </tr>
+    <tr>
+      <td class="num">3</td>
+      <td><a href="Diagram_Booking_Lifecycle.html" class="doc-link">Booking Lifecycle</a></td>
+      <td><code class="filename">Diagram_Booking_Lifecycle.html</code></td>
+      <td>Booking status flow from Draft through Completed or Cancelled.</td>
+    </tr>
+    <tr>
+      <td class="num">4</td>
+      <td><a href="Diagram_Phase_Delivery.html" class="doc-link">Phase 0–3 Delivery Timeline</a></td>
+      <td><code class="filename">Diagram_Phase_Delivery.html</code></td>
+      <td>Delivery phases, modules, and milestone timeline.</td>
+    </tr>
+    <tr>
+      <td class="num">5</td>
+      <td><a href="Diagram_System_Architecture.html" class="doc-link">System Architecture Overview</a></td>
+      <td><code class="filename">Diagram_System_Architecture.html</code></td>
+      <td>High-level system context, layers, and external integrations.</td>
+    </tr>
+    <tr>
+      <td class="num">6</td>
+      <td><a href="Diagram_RBAC_Access.html" class="doc-link">Role-Based Access Control Matrix</a></td>
+      <td><code class="filename">Diagram_RBAC_Access.html</code></td>
+      <td>Role × module access matrix for Administrator through HR.</td>
+    </tr>
+    <tr>
+      <td class="num">7</td>
+      <td><a href="Diagram_Automation_Workflows.html" class="doc-link">Automation & Workflow Rules</a></td>
+      <td><code class="filename">Diagram_Automation_Workflows.html</code></td>
+      <td>AUTO-01 through AUTO-07 automation and notification rules.</td>
+    </tr>
+    <tr>
+      <td class="num">8</td>
+      <td><a href="Diagram_Staff_Lead_Creation.html" class="doc-link">Staff Lead Creation Flow</a></td>
+      <td><code class="filename">Diagram_Staff_Lead_Creation.html</code></td>
+      <td>Agent create-lead flow with handling options and dynamic fields.</td>
+    </tr>
+      </tbody>
+    </table>
+
+    <h2 id="external-assets">External Assets (Not in This Folder)</h2>
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Access</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Figma design blueprint</td>
+          <td><a href="https://www.figma.com/design/mQTFdHu1KppUnKmFy12DLv/design-travel_crm">design-travel_crm</a> (online)</td>
+        </tr>
+        <tr>
+          <td>FigJam ERD &amp; screen flows</td>
+          <td><a href="https://www.figma.com/board/CCsaj1dafvaX3xYUJSXuJs">FigJam board</a> (online)</td>
+        </tr>
+        <tr>
+          <td>Interactive HTML prototype</td>
+          <td>Provided separately for live blueprint walkthrough</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+    <p class="footer-note"><em>Index version 1.0 · 6 core documents · 8 diagrams · Alsultania Travel CRM Phase 0 Blueprint</em></p>
+  </main>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true },
+    });
+    const nodes = document.querySelectorAll('pre.mermaid');
+    if (nodes.length) await mermaid.run({ nodes });
+  </script>
+</body>
+</html>

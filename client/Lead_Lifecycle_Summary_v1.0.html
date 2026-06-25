@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lead Lifecycle Summary — Alsultania Travel CRM & Management System</title>
+  <style>
+    @page { size: A4; margin: 22mm 18mm 24mm 18mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #1a1a2e;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cover {
+      page-break-after: always;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 40px;
+      background: linear-gradient(160deg, #0c2d48 0%, #145374 55%, #1a6b8a 100%);
+      color: #fff;
+    }
+    .cover-badge {
+      display: inline-block;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a8d4e8;
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      color: #fff;
+      border: none;
+      padding: 0;
+    }
+    .cover h2 {
+      font-size: 14pt;
+      font-weight: 400;
+      margin: 0 0 40px;
+      color: #d4eaf5;
+      border: none;
+      padding: 0;
+    }
+    .cover-meta {
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+      font-size: 10pt;
+    }
+    .cover-meta dt {
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8ec4dc;
+      margin-bottom: 4px;
+    }
+    .cover-meta dd { margin: 0; color: #fff; font-weight: 500; }
+    .cover-confidential {
+      margin-top: 32px;
+      font-size: 9pt;
+      color: #8ec4dc;
+      font-style: italic;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #0c2d48;
+      line-height: 1.3;
+      page-break-after: avoid;
+    }
+    h1 {
+      font-size: 20pt;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #145374;
+    }
+    h2 {
+      font-size: 14pt;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #c5dde8;
+      page-break-before: always;
+    }
+    .content > h2:first-child,
+    h2#table-of-contents { page-break-before: avoid; }
+    h3 { font-size: 12pt; margin: 20px 0 10px; }
+    h4 { font-size: 11pt; margin: 16px 0 8px; color: #145374; }
+    h5, h6 { font-size: 10.5pt; margin: 12px 0 6px; }
+    p { margin: 0 0 10px; }
+    a { color: #145374; text-decoration: none; }
+    strong { color: #0c2d48; }
+    hr { border: none; border-top: 1px solid #d0dde5; margin: 24px 0; }
+    ul, ol { margin: 0 0 12px; padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    thead { display: table-header-group; }
+    th {
+      background: #0c2d48;
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid #0c2d48;
+    }
+    td {
+      padding: 7px 10px;
+      border: 1px solid #c5dde8;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f4f8fb; }
+    blockquote {
+      margin: 12px 0;
+      padding: 10px 16px;
+      border-left: 4px solid #145374;
+      background: #f0f6fa;
+      color: #2a3f52;
+      font-size: 10pt;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 9pt;
+      background: #eef3f7;
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #0c2d48;
+    }
+    pre {
+      background: #f4f8fb;
+      border: 1px solid #c5dde8;
+      border-radius: 4px;
+      padding: 12px;
+      overflow-x: auto;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      page-break-inside: avoid;
+    }
+    pre code { background: none; padding: 0; }
+    .mermaid-wrap {
+      margin: 16px 0 20px;
+      padding: 12px;
+      background: #fafcfd;
+      border: 1px solid #d0dde5;
+      border-radius: 6px;
+      page-break-inside: avoid;
+      overflow: hidden;
+    }
+    .mermaid-wrap svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <div class="cover-badge">Confidential — Client Document</div>
+    <h1>Lead Lifecycle Summary</h1>
+    <h2>Alsultania Travel CRM & Management System</h2>
+    <dl class="cover-meta">
+      
+      <div>
+        <dt>Prepared For</dt>
+        <dd>Alsultania Travel and Tourism Co. L.L.C<br>Dubai, United Arab Emirates</dd>
+      </div>
+      <div>
+        <dt>Prepared By</dt>
+        <dd>AnyMatch Technologies Private Limited</dd>
+      </div>
+      <div>
+        <dt>Version</dt>
+        <dd>1.0</dd>
+      </div>
+      <div>
+        <dt>Date</dt>
+        <dd>24 June 2026</dd>
+      </div>
+      <div>
+        <dt>SRS Baseline</dt>
+        <dd>SRS v1.0 §4.1.3</dd>
+      </div>
+    </dl>
+    <p class="cover-confidential">This document is confidential and prepared exclusively for Alsultania Travel and Tourism Co. L.L.C and AnyMatch Technologies Private Limited.</p>
+  </section>
+  <main class="content"><hr>
+<h2 id="purpose">Purpose</h2>
+<p>This document explains how a travel inquiry moves through the CRM from first capture to a confirmed booking. It summarises the six pipeline stages, allowed status changes, entry points, and key agent actions defined in the Phase 0 blueprint.</p>
+<hr>
+<h2 id="overview">Overview</h2>
+<p>Every lead in the Alsultania CRM is tracked through a <strong>six-stage pipeline</strong>. Agents see this pipeline as a Kanban board on the <strong>Pipeline</strong> screen and as a status badge on each <strong>Lead Detail</strong> page.</p>
+<p>All new leads — whether created by staff, submitted on the public website, or captured from WhatsApp — start at <strong>New</strong>.</p>
+<hr>
+<h2 id="lifecycle-diagram">Lifecycle diagram</h2>
+<div class="mermaid-wrap"><pre class="mermaid">stateDiagram-v2
+  [*] --> New: Lead created\n(staff or public inquiry)
+
+  New --> Contacted: Agent first contact
+  New --> Lost: Mark lost
+
+  Contacted --> Quoted: Quotation sent
+  Contacted --> Lost: No response / declined
+
+  Quoted --> Negotiation: Customer negotiating\nor quote rejected — negotiate anyway
+  Quoted --> Booked: Customer accepts
+
+  Negotiation --> Quoted: Revised quotation sent
+  Negotiation --> Booked: Deal closed
+  Negotiation --> Lost: Deal lost
+
+  Booked --> [*]: Convert to customer/booking</pre></div>
+<p><strong>Key callouts</strong></p>
+<ul>
+<li><strong>New</strong> — Public website inquiries are automatically assigned to the next available active agent (round-robin).</li>
+<li><strong>Booked</strong> — The agent converts the lead to a customer and creates a Draft booking. The lead lifecycle ends here; the booking lifecycle continues separately.</li>
+</ul>
+<hr>
+<h2 id="pipeline-stages">Pipeline stages</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Meaning</th>
+<th>Typical agent action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>New</strong></td>
+<td>Lead just created; awaiting first contact</td>
+<td>Review assignment, open Lead Detail, make first outreach (call or WhatsApp)</td>
+</tr>
+<tr>
+<td><strong>Contacted</strong></td>
+<td>Agent has reached the customer</td>
+<td>Gather requirements, send follow-up, prepare quotation</td>
+</tr>
+<tr>
+<td><strong>Quoted</strong></td>
+<td>Quotation sent to the customer</td>
+<td>Follow up on the quote; if rejected, move to <strong>Negotiation</strong> to discuss revised terms rather than closing as Lost</td>
+</tr>
+<tr>
+<td><strong>Negotiation</strong></td>
+<td>Customer is discussing terms or price</td>
+<td>Negotiate package, dates, or pricing; send a revised quote (returns to <strong>Quoted</strong>), close as <strong>Booked</strong>, or mark <strong>Lost</strong></td>
+</tr>
+<tr>
+<td><strong>Booked</strong></td>
+<td>Deal won; ready for customer and booking setup</td>
+<td>Convert to customer, create linked Draft booking</td>
+</tr>
+<tr>
+<td><strong>Lost</strong></td>
+<td>Lead closed without conversion</td>
+<td>Record reason in notes; no further pipeline action</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="allowed-status-transitions">Allowed status transitions</h2>
+<p>Status is not a free-text field. The system only permits moves that follow the pipeline rules below.</p>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>Can move to</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>New</strong></td>
+<td>Contacted, Lost</td>
+</tr>
+<tr>
+<td><strong>Contacted</strong></td>
+<td>Quoted, Lost</td>
+</tr>
+<tr>
+<td><strong>Quoted</strong></td>
+<td>Negotiation, Booked</td>
+</tr>
+<tr>
+<td><strong>Negotiation</strong></td>
+<td>Quoted, Booked, Lost</td>
+</tr>
+<tr>
+<td><strong>Booked</strong></td>
+<td><em>(terminal — convert to customer/booking)</em></td>
+</tr>
+</tbody></table>
+<p>Invalid jumps (for example, moving directly from <strong>New</strong> to <strong>Quoted</strong>) are blocked so pipeline reporting stays accurate.</p>
+<hr>
+<h2 id="how-leads-enter-the-pipeline">How leads enter the pipeline</h2>
+<div class="mermaid-wrap"><pre class="mermaid">flowchart LR
+  StaffCreate[Staff Create Lead]
+  PublicWeb[Public Website Inquiry]
+  WhatsApp[WhatsApp Inbox]
+  StaffCreate --> NewStage["Status: New"]
+  PublicWeb --> NewStage
+  WhatsApp --> NewStage</pre></div>
+<table>
+<thead>
+<tr>
+<th>Entry path</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Staff</strong></td>
+<td>Agent creates a lead from the Dashboard, Leads List, Pipeline, or WhatsApp Inbox. Status defaults to <strong>New</strong>. Assignment follows the agent’s Lead Handling choice (handle myself, create for another agent, or transfer).</td>
+</tr>
+<tr>
+<td><strong>Public website</strong></td>
+<td>Customer verifies their phone with a one-time SMS code, completes the inquiry form, and submits. Status is set to <strong>New</strong>, <code>lead_via</code> is Website, and the lead is auto-assigned to the next available agent. The customer sees a confirmation reference only.</td>
+</tr>
+<tr>
+<td><strong>WhatsApp</strong></td>
+<td>An inbound WhatsApp message is captured in the inbox. The agent creates or links a lead from the conversation. Status starts at <strong>New</strong>.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="end-of-the-lead-lifecycle">End of the lead lifecycle</h2>
+<p>When a lead reaches <strong>Booked</strong>:</p>
+<ol>
+<li>The agent <strong>converts the lead to a Customer</strong> (if one does not already exist).</li>
+<li>The agent <strong>creates a linked Draft Booking</strong> — lead fields prefill the booking form.</li>
+<li>The lead lifecycle is complete. The booking then moves through its own status flow (Draft → Confirmed → In Progress → Completed, or Cancelled).</li>
+</ol>
+<p>The system prompts the agent to create a booking when saving <strong>Booked</strong> if no booking is linked yet.</p>
+<hr>
+<h2 id="where-agents-work">Where agents work</h2>
+<table>
+<thead>
+<tr>
+<th>Screen</th>
+<th>Role in the lifecycle</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Pipeline</strong></td>
+<td>Kanban view of all six stages; drag leads to update status</td>
+</tr>
+<tr>
+<td><strong>Lead Detail</strong></td>
+<td>View profile, change status, activity timeline, send WhatsApp, create quotation, convert to customer</td>
+</tr>
+<tr>
+<td><strong>Leads List</strong></td>
+<td>Search and filter leads by status; bulk assignment for managers</td>
+</tr>
+</tbody></table>
+<p>The interactive HTML prototype is available separately for blueprint review and sign-off.</p>
+<hr>
+<h2 id="related-automations">Related automations</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AUTO-02</strong></td>
+<td>Auto-assigns public website inquiries to the next available active agent on creation</td>
+</tr>
+<tr>
+<td><strong>AUTO-04</strong></td>
+<td>Sends WhatsApp notifications to the agent and customer when lead status changes <em>(Phase 3 — Automation module)</em></td>
+</tr>
+<tr>
+<td><strong>Activity timeline</strong></td>
+<td>Every status change is logged on Lead Detail alongside messages, assignments, and notes</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="delivery-scope">Delivery scope</h2>
+<p>Lead lifecycle management — capture, pipeline, status tracking, and WhatsApp-integrated follow-ups — is delivered in <strong>Phase 1: Core CRM</strong> (Screens 01–12).</p>
+<p>Full functional requirements: <strong>Software Requirements Specification (SRS)</strong> §4.1.3 Advanced Lead Management (companion PDF).</p>
+<hr>
+<p><em>Document version 1.0 · SRS v1.0 baseline · Alsultania Travel CRM Phase 0 Blueprint</em></p>
+</main>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true },
+    });
+    const nodes = document.querySelectorAll('pre.mermaid');
+    if (nodes.length) await mermaid.run({ nodes });
+  </script>
+</body>
+</html>
